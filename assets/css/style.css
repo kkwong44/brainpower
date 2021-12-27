@@ -1,0 +1,17 @@
+/* BrainPower - Stylesheet CSS */
+/* Import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+/* General - Set default values to none*/
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* General - Set font properties */
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    color: #3a3a3a;
+}
