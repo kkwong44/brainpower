@@ -65,3 +65,34 @@ body {
     background-color: #5a5a5a;
     color: #fff;
 }
+
+/* MEDIA QUERIES */
+
+/* Media Query 767 Start - Display width below 768px (iPad) */
+@media (max-width: 767px) {
+
+    /* Home Page - Change Container Size on Page Header Area */
+    /* and stack Company Logo on top of the Instruction Button */
+    #page-header {
+        height: 125px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Home Page - Change Container Size on Logo Area */
+    #logo{
+        height: 75px;
+        width: 100%;
+    }
+
+    /* Home Page - Move Instruction Button Below Company Logo */
+    #btn-instruction {
+        position: relative;
+        right: 0;
+        width: 100%;
+        line-height: 50px;
+    }
+
+}
+/* Media Query 767 End */
