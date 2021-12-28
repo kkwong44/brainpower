@@ -13,5 +13,49 @@
 body {
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
+    letter-spacing: 4px;
     color: #3a3a3a;
+}
+
+/* Page Header */
+#page-header {
+    height: 75px;
+    background-color: #2f2f2f;
+    width: 100%;
+}
+
+/* Page Header, Company Logo Container */
+#logo {
+    height: 75px;
+    width: 270px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Page Header, Company Name */
+#company {
+    color: #fff;
+    float: left;
+    font-size: x-large;
+    line-height: 75px;
+}
+
+/* Page Header, Logo Image */
+#logo-img {
+    width: 40px;
+    height: 40px;
+    margin-top: 12px;
+}
+
+/* Page Header, Instruction Button */
+#instruction {
+    position: absolute;
+    top: 0;
+    letter-spacing: 2px;
+    background-color: #b9b9b9;
+    float: right;
+    font-size: large;
+    line-height: 75px;
+    right: 30px;
+    padding: 0 5px 0 5px;
 }
