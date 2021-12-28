@@ -82,6 +82,37 @@ body {
     background-color: #b9b9b9;
 }
 
+/* Main Section - Buttons for New Game, Submit and Next */
+.btn {
+    width: 180px;
+    height: 60px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: white;
+    margin-top: 25px;
+    background-color: #2f2f2f;
+    border: 1px transparent;
+    border-radius: 20px;
+}
+
+/* Main Section - Buttons for New Game, Submit and Next */
+.btn:focus {
+    outline: none;
+}
+
+/* Main Section - Buttons for New Game, Submit and Next */
+.btn:active,
+.btn:hover {
+    background-color: black;
+    box-shadow: 2px 2px grey;
+}
+
+/* Main Section - Buttons for New Game, Submit and Next */
+.btn-small {
+    width: 120px;
+    margin: 25px 50px;
+}
+
 /* Footer, Initial Background Color - All Papges */
 #footer {
     background-color: #fff;
