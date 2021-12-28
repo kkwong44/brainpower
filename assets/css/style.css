@@ -1,6 +1,6 @@
 /* BrainPower - Stylesheet CSS */
 /* Import google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
 
 /* General - Set default values to none*/
 * {
@@ -12,7 +12,7 @@
 /* General - Set font properties */
 body {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: 4px;
     color: #3a3a3a;
 }
