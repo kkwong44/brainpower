@@ -35,25 +35,51 @@
         <h1 id="game-title">Numbers Memory Game</h1>
         <section id="game-area">
             
-            <div>Number Generator</div>
-            <div>Anwser</div>
-            <div>Result</div>
-            <div>
-                <button>Submit</button>
-                <button>Next</button>
+            <div id="memory-box">Number Generator</div>
+            <div id="answer-box">Anwser</div>
+            <div id="result">Result</div>
+            <div class="btn">
+                <button class="btn-submit">Submit</button>
+                <button class="btn-next">Next</button>
             </div>
-            <div>Level</div>
-            <div>Time</div>
-            <div>Score</div>
-            <div>Success Rate</div>
-            <div>Best Score</div>
-            <button>New Game</button>
+            <div id="levels">Level</div>
+            <div id="timer">Time</div>
+            <div id="score">Score</div>
+            <div id="sucess-rate">Success Rate</div>
+            <div id="best-score">Best Score</div>
+            <button class="btn-new-game">New Game</button>
 
         </section>
     </main>
     <!-- Main End -->
     <!-- Page Footer Start -->
-    <footer></footer>
+    <footer id="footer">
+        <!-- Contact details Start with email link -->
+        <div class="footer-contact">
+            <p><strong>Contact us:</strong></p>
+            <br>
+            <p>BrainPower, UK</p>
+            <a href="mailto:info@brainpower.co.uk"
+                aria-label="Open email client in a new window.">info@brainpower.co.uk</a>
+        </div>
+        <!-- Contact details End -->
+        <!-- Follow us Start on social networks in new window -->
+        <div class="social-networks">
+            <span><strong>Find us on:</strong></span>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank" rel="noopener"
+                        aria-label="Open Facebook page in a new window."><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li><a href="https://www.twitter.com" target="_blank" rel="noopener"
+                        aria-label="Open Twitter page in a new window."><i class="fab fa-twitter"></i></a>
+                </li>
+                <li><a href="https://www.youtube.com" target="_blank" rel="noopener"
+                        aria-label="Open Youtube page in a new window."><i class="fab fa-youtube-square"></i></a>
+                </li>
+            </ul>
+        </div>
+        <!-- Follow us End -->
+    </footer>
     <!-- Page Footer End -->
     <!-- Font awesome script -->
     <script src="https://kit.fontawesome.com/b83175b9a4.js" crossorigin="anonymous"></script>

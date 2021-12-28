@@ -66,6 +66,66 @@ body {
     color: #fff;
 }
 
+/* Footer, Initial Background Color - All Papges */
+#footer {
+    background-color: #fff;
+}
+
+/* Page Footer, Contact Section */
+.footer-contact {
+    padding: 10px;
+    height: 80px;
+    text-align: center;
+    flex: 1;
+    order: 1;
+    margin-top: 0;
+    color: #fff;
+    background-color: #2f2f2f;
+}
+
+/* Page Footer, Contact href */
+.footer-contact a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Page Footer, Contact Hover on href */
+.footer-contact a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+/* Page Footer, Social Network Section */
+.social-networks {
+    margin-top: 5px;
+    text-align: center;
+    padding: 10px;
+    height: 80px;
+    flex: 1;
+    order: 3;
+    color: #fff;
+    background-color: #2f2f2f;
+}
+
+/* Page Footer, Social Network Items */
+.social-networks li {
+    display: inline;
+}
+
+/* Page Footer, Social Network Icons */
+.social-networks i {
+    font-size: 160%;
+    text-align: center;
+    margin: 30px;
+    color: #fff;
+}
+
+/* Page Footer, Hover on Social Network Icons */
+.social-networks i:hover {
+    font-size: 160%;
+    color: black;
+}
+
 /* MEDIA QUERIES */
 
 /* Media Query 767 Start - Display width below 768px (iPad) */
