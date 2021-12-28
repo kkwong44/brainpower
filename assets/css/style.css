@@ -69,9 +69,6 @@ body {
 /* Footer, Initial Background Color - All Papges */
 #footer {
     background-color: #fff;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
 }
 
 /* Page Footer, Contact Section */
