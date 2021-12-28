@@ -128,7 +128,7 @@ body {
 
 /* MEDIA QUERIES */
 
-/* Media Query 767 Start - Display width below 768px (iPad) */
+/* Media Query Below 767 Start - Display width below 768px (iPad) */
 @media (max-width: 767px) {
 
     /* Home Page - Change Container Size on Page Header Area */
@@ -155,4 +155,35 @@ body {
     }
 
 }
-/* Media Query 767 End */
+/* Media Query Below 767 End */
+
+/* Media Query Above 767 Start - Display width above 767px (iPad) */
+@media (min-width: 768px) {
+
+    /* Page Footer, All Sections in a Row */
+    #footer {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    /* Page Footer, Contact Section to the Left */
+    .footer-contact {
+        text-align: left;
+        padding-left: 30px;
+    }
+    
+    /* Page Footer, Social Media Section to the Right */
+    .social-networks {
+        text-align: right;
+        margin-top: 0;
+        padding-right: 30px;
+    }
+    
+    /* Page Footer, Align Sicial Media Icons */
+    .social-networks i {
+        text-align: right;
+        margin: 30px 0 30px 30px;
+    }
+    
+}
+/* Media Query Above 767 End */
