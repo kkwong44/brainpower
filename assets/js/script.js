@@ -3,6 +3,10 @@
 document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
 
+    // Create boxes to hold numbers for computer generated and player's answer
+    createNumberSquares("memory-box");
+    createNumberSquares("answer-box");
+
     for (let button of buttons) {
         button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "new-game") {
@@ -52,10 +56,6 @@ function createNumberSquares(type) {
         alert(`Unable to Create Number Squares for Undefined ID "${type}"`);
     }
 }
-
-// Create boxes to hold numbers for computer generated and player's answer
-createNumberSquares("memory-box");
-createNumberSquares("answer-box");
 
 /**
  * When mouse moveover the button
