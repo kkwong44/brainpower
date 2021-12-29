@@ -78,7 +78,7 @@ body {
     width: 75%;
     margin: 10px auto 20px auto;
     text-align: center;
-    height: 74vh;
+    min-height: 74vh;
     background-color: #b9b9b9;
 }
 
@@ -89,7 +89,7 @@ body {
     text-transform: uppercase;
     letter-spacing: 4px;
     color: white;
-    margin-top: 25px;
+    margin: 25px 0;
     background-color: #2f2f2f;
     border: 1px transparent;
     border-radius: 20px;
