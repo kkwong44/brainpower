@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 /** 
  * Create squares to hold numbers
- * Use for random generated numbers and player's anwser
+ * Use for random generated numbers and player's answer
  */
 function createNumberSquares(type) {
     let squares = "";
@@ -25,23 +25,26 @@ function createNumberSquares(type) {
     // check ID
     if (type == "memory-box" || type == "answer-box") {
         for (let i = 1; i <= numberOfDigit; i++) {
-            // Use span for memory box
+            // Create html string for each memory square
             if (type == "memory-box") {
-                boxType = "<span>" + i + "</span>";
+                let square = `
+                    <div class="memory-square"}>
+                        <span>${i}</span>
+                    </div>
+                `;
+                // Update html string for additional square
+                squares += square;
             } else {
-                // Use input text for answer box
+                // Create html string for each answer square
                 if (type == "answer-box") {
-                    boxType = '<input type="text" class="answer-square">';
+                    let square = `
+                        <input type="text" class="answer-square">
+                    `;
+                    // Update html string for additional square
+                    squares += square;
                 }
             }
-            // Create html string for each square
-            let square = `
-                <div class=${type}>
-                    ${boxType}
-                </div>
-            `;
-            // Complete html string and add to the id section
-            squares += square;
+            // Add complete html string to ID section
             let memoryBox = document.getElementById(type);
             memoryBox.innerHTML = squares;
         }
@@ -50,6 +53,6 @@ function createNumberSquares(type) {
     }
 }
 
-// Create boxes to hold numbers for computer generated and player's anwser
+// Create boxes to hold numbers for computer generated and player's answer
 createNumberSquares("memory-box");
 createNumberSquares("answer-box");
