@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let button of buttons) {
         button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "new-game") {
-                alert("New Game");
+                runNewGame();
             } else {
                 let gameType = this.getAttribute("data-type");
                 alert(`Undefine - ${gameType}`);
@@ -66,20 +66,22 @@ function randomGenerator(digits) {
         let num1 = Math.floor(Math.random() * 10);
         num[i] = num1;
     }
-    return num;    
+    return num;
 }
 
 /**
  * Display random numbers in the memory box
  */
- function displayNumbers() {
-    let digits = 4;
-    let num = randomGenerator(digits);
+function displayNumbers(digits) {
+    randomGenerator(digits);
     for (let i = 0; i < 8; i++) {
         if (i < digits) {
-            // Display Numbers in Memory Squares
+            // Reset style and display Numbers in Memory Squares
             let num1 = Math.floor(Math.random() * 10);
             document.getElementsByClassName("memory-square")[i].children[0].innerHTML = num1;
+            document.getElementsByClassName("memory-square")[i].style.background = "white";
+            document.getElementsByClassName("answer-square")[i].style.background = "white";
+            document.getElementsByClassName("answer-square")[i].disabled = false;
         } else {
             // Blank and disable unused squares
             document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
