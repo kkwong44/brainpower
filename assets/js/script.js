@@ -1,18 +1,15 @@
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function () {
-    let buttons = document.getElementsByTagName("button");
-
     // Create boxes to hold numbers for computer generated and player's answer
     createNumberSquares("memory-box");
     createNumberSquares("answer-box");
 
-    // Initialise buttons status
-    btnDisabled("new-game", false);
-    btnDisabled("submit", true);
-    btnDisabled("next", true);
+    // Reset game to initial state
+    resetGame();
 
     // Button event
+    let buttons = document.getElementsByTagName("button");
     for (let button of buttons) {
         button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "new-game") {
@@ -128,4 +125,21 @@ function displayNumbers(digits) {
             document.getElementsByClassName("answer-square")[i].disabled = true;
         }
     }
+}
+
+/**
+ * Reset game to initial state
+ */
+function resetGame() {
+    // Empty and gray out all squares
+    for (let i = 0; i < 8; i++) {
+        document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
+        document.getElementsByClassName("answer-square")[i].value = "";
+        document.getElementsByClassName("memory-square")[i].style.background = "#b9b9b9";
+        document.getElementsByClassName("answer-square")[i].style.background = "#b9b9b9";
+    }
+    // Initialise buttons status
+    btnDisabled("new-game", false);
+    btnDisabled("submit", true);
+    btnDisabled("next", true);
 }
