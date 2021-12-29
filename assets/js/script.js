@@ -7,6 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
     createNumberSquares("memory-box");
     createNumberSquares("answer-box");
 
+    // Initialise buttons status
+    btnDisabled("new-game", false);
+    btnDisabled("submit", true);
+    btnDisabled("next", true);
+
+    // Button event
     for (let button of buttons) {
         button.addEventListener("click", function () {
             if (this.getAttribute("data-type") === "new-game") {
@@ -55,6 +61,20 @@ function createNumberSquares(type) {
     } else {
         alert(`Unable to Create Number Squares for Undefined ID "${type}"`);
     }
+}
+
+/**
+ * Enable and Disable button by ID name
+ */
+function btnDisabled(id,disabled) {
+    if (disabled == true) {
+        document.getElementById(id).style.background = "#b9b9b9";
+        document.getElementById(id).style.boxShadow = "none";
+    } else {
+        document.getElementById(id).style.background = "green";
+        document.getElementById(id).style.boxShadow = "";
+    }
+    document.getElementById(id).disabled = disabled;
 }
 
 /**
