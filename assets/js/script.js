@@ -143,3 +143,16 @@ function resetGame() {
     btnDisabled("submit", true);
     btnDisabled("next", true);
 }
+
+/**
+ * Start a new game with 4 digits
+ */
+ function runNewGame() {
+    displayNumbers(4);
+    document.getElementById("levels").innerHTML = "1 of 20";
+    btnDisabled("new-game", true);
+    btnDisabled("submit", false);
+    btnDisabled("next", true);
+    document.getElementsByClassName("answer-square")[0].focus(); 
+    // timer();
+}
