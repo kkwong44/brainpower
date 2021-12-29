@@ -113,6 +113,34 @@ body {
     margin: 25px 50px;
 }
 
+/* Main Section - Define squares for holding the numbers */
+.memory-square,
+.answer-square{
+    margin-top: 40px;
+    position: relative;
+    width: 2em;
+    height: 2em;
+    background-color: white;
+    border: solid 1px black;
+    font-size: x-large;
+    display: inline-block;
+    text-align: center;
+    padding: 2px;
+}
+
+/* Main Section - Reset top margin for answer squares */
+.answer-square{
+    margin-top: 0;
+}
+
+/* Main Section - Center number in the memory squares */
+.memory-square span{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   
+}
+
 /* Footer, Initial Background Color - All Papges */
 #footer {
     background-color: #fff;
