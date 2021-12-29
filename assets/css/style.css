@@ -90,8 +90,8 @@ body {
     letter-spacing: 4px;
     color: white;
     margin: 25px 0;
-    background-color: #2f2f2f;
-    border: 1px transparent;
+    background-color: #b9b9b9;
+    border: 1px solid #2f2f2f;
     border-radius: 20px;
 }
 
@@ -103,7 +103,6 @@ body {
 /* Main Section - Buttons for New Game, Submit and Next */
 .btn:active,
 .btn:hover {
-    background-color: black;
     box-shadow: 2px 2px grey;
 }
 

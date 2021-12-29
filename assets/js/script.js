@@ -58,6 +58,24 @@ createNumberSquares("memory-box");
 createNumberSquares("answer-box");
 
 /**
+ * When mouse moveover the button
+ * Set button color as background color
+ */
+function btnOverIn(id) {
+    btn = document.getElementById(id);
+    btn.style.background = "#b9b9b9";
+}
+
+/**
+ * When mouse moveout the button
+ * Set button color to green
+ */
+function btnOverOut(id) {
+    btn = document.getElementById(id);
+    btn.style.background = "green";
+}
+
+/**
  * Generate random numbers between 0 and 9
  */
 function randomGenerator(digits) {
