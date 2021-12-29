@@ -68,3 +68,24 @@ function randomGenerator(digits) {
     }
     return num;    
 }
+
+/**
+ * Display random numbers in the memory box
+ */
+ function displayNumbers() {
+    let digits = 4;
+    let num = randomGenerator(digits);
+    for (let i = 0; i < 8; i++) {
+        if (i < digits) {
+            // Display Numbers in Memory Squares
+            let num1 = Math.floor(Math.random() * 10);
+            document.getElementsByClassName("memory-square")[i].children[0].innerHTML = num1;
+        } else {
+            // Blank and disable unused squares
+            document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
+            document.getElementsByClassName("memory-square")[i].style.background = "#b9b9b9";
+            document.getElementsByClassName("answer-square")[i].style.background = "#b9b9b9";
+            document.getElementsByClassName("answer-square")[i].disabled = true;
+        }
+    }
+}
