@@ -56,3 +56,15 @@ function createNumberSquares(type) {
 // Create boxes to hold numbers for computer generated and player's answer
 createNumberSquares("memory-box");
 createNumberSquares("answer-box");
+
+/**
+ * Generate random numbers between 0 and 9
+ */
+function randomGenerator(digits) {
+    let num = [];
+    for (let i = 0; i < digits; i++) {
+        let num1 = Math.floor(Math.random() * 10);
+        num[i] = num1;
+    }
+    return num;    
+}
