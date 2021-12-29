@@ -141,6 +141,13 @@ body {
     transform: translate(-50%, -50%);   
 }
 
+/* Main Section - Base values for common div sections */
+.div {
+    line-height: 2em;
+    color: black;
+    font-size: xx-large;
+}
+
 /* Footer, Initial Background Color - All Papges */
 #footer {
     background-color: #fff;
