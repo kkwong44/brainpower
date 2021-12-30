@@ -24,8 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     runNewGame(minDigit);
                     break;
                 case "submit":
-                    checkAnswer(numDigits);
-                    // displayResult();
+                    displayResult(numDigits);
                     break;
                 case "next":
                     nextLevel(numDigits);
@@ -230,4 +229,17 @@ function checkAnswer(currentNumDigits) {
     } else {
         document.getElementById("result").innerHTML = "INCORRECT";
     }
+}
+
+/**
+ * Display results when player hit the submit button
+ */
+function displayResult(currentNumDigits) {
+    checkAnswer(currentNumDigits);
+    // Set buttons style and foucs on next button
+    btnDisabled("submit", true);
+    document.getElementById("submit").style.outline = "none";
+    btnDisabled("next", false);
+    document.getElementById("next").style.outline = "1px solid black";
+    document.getElementById("next").focus(); 
 }
