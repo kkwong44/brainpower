@@ -24,8 +24,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     runNewGame(minDigit);
                     break;
                 case "submit":
-                    checkAnswer();
-                    displayResult();
+                    checkAnswer(numDigits);
+                    // displayResult();
                     break;
                 case "next":
                     nextLevel(numDigits);
@@ -200,4 +200,28 @@ function hideNumbers(currentNumDigits) {
     }
     btnDisabled("submit", false);
     document.getElementsByClassName("answer-square")[0].focus(); 
+}
+
+/**
+ * Check player's answer against the random generated number
+ */
+function checkAnswer(currentNumDigits) {
+    let result = 0;
+    for (let i = 0; i < currentNumDigits; i++) {
+        // Read the numbers from the game area and check each digit
+        question = parseInt(document.getElementsByClassName("memory-square")[i].textContent);
+        answer = parseInt(document.getElementsByClassName("answer-square")[i].value);
+        // Add 1 to result counter if the digit is wrong
+        if (question == answer) {
+            result = result + 0;
+        } else {
+            result = result + 1;
+        }
+    }
+    // Display result on screen
+    if (result == 0) {
+        document.getElementById("result").innerHTML = "CORRECT";
+    } else {
+        document.getElementById("result").innerHTML = "INCORRECT";
+    }
 }
