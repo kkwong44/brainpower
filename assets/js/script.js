@@ -18,11 +18,20 @@ document.addEventListener("DOMContentLoaded", function () {
     let buttons = document.getElementsByTagName("button");
     for (let button of buttons) {
         button.addEventListener("click", function () {
-            if (this.getAttribute("data-type") === "new-game") {
-                runNewGame(minDigit);
-            } else {
-                let gameType = this.getAttribute("data-type");
-                alert(`Undefine - ${gameType}`);
+            let btnType = this.getAttribute("data-type");
+            switch(btnType) {
+                case "new-game":
+                    runNewGame(minDigit);
+                    break;
+                case "submit":
+                    checkAnswer();
+                    displayResult();
+                    break;
+                case "next":
+                    nextLevel(numDigits);
+                    break;
+                default:
+                    alert(`Undefine - ${btnType}`);
             }
         })
     }
