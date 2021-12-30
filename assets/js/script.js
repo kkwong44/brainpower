@@ -35,6 +35,21 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
     }
+
+    // Key event on answer squares - move to next input field then to submit button
+    document.getElementById("answer-box").addEventListener("keyup", function(event) {
+        for (let i = 0; i < numDigits - 1; i++) {
+            if (document.getElementsByClassName("answer-square")[i].value.length == 1) {
+                document.getElementsByClassName("answer-square")[i+1].focus();
+            }
+        }
+        // Last answer square nove to submit button
+        if (document.getElementsByClassName("answer-square")[numDigits-1].value.length == 1) {
+            document.getElementById("submit").focus();
+            document.getElementById("submit").style.outline = "1px solid black";
+        }
+    })
+
 })
 
 /** 
@@ -59,7 +74,7 @@ function createNumberSquares(type, maxDigit) {
                 // Create html string for each answer square
                 if (type == "answer-box") {
                     let square = `
-                        <input type="text" class="answer-square">
+                        <input type="text" class="answer-square" maxlength="1">
                     `;
                     // Update html string for additional square
                     squares += square;
@@ -104,6 +119,7 @@ function btnOverIn(id) {
 function btnOverOut(id) {
     btn = document.getElementById(id);
     btn.style.background = "green";
+    btn.style.outline = "none";
 }
 
 /**
