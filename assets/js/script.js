@@ -115,8 +115,8 @@ function displayNumbers(digits) {
             let num1 = Math.floor(Math.random() * 10);
             document.getElementsByClassName("memory-square")[i].children[0].innerHTML = num1;
             document.getElementsByClassName("memory-square")[i].style.background = "white";
-            document.getElementsByClassName("answer-square")[i].style.background = "white";
-            document.getElementsByClassName("answer-square")[i].disabled = false;
+            document.getElementsByClassName("answer-square")[i].style.background = "#b9b9b9";
+            document.getElementsByClassName("answer-square")[i].disabled = true;
         } else {
             // Blank and disable unused squares
             document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
@@ -151,9 +151,9 @@ function resetGame() {
     displayNumbers(4);
     document.getElementById("levels").innerHTML = "1 of 20";
     btnDisabled("new-game", true);
-    btnDisabled("submit", false);
+    btnDisabled("submit", true);
     btnDisabled("next", true);
-    document.getElementsByClassName("answer-square")[0].focus(); 
+    // Hide numbers after 3 seconds
     const  time = setTimeout(hideNumbers, 3000, 4);
     // timer();
 }
