@@ -154,5 +154,20 @@ function resetGame() {
     btnDisabled("submit", false);
     btnDisabled("next", true);
     document.getElementsByClassName("answer-square")[0].focus(); 
+    const  time = setTimeout(hideNumbers, 3000, 4);
     // timer();
+}
+
+/**
+ * Hide random generated numbers, enable answer squares and submit button
+ */
+function hideNumbers(digits) {
+    for (let i = 0; i < digits; i++) {
+        document.getElementsByClassName("memory-square")[i].children[0].style.color = "#b9b9b9";
+        document.getElementsByClassName("memory-square")[i].style.background = "#b9b9b9";
+        document.getElementsByClassName("answer-square")[i].style.background = "white";
+        document.getElementsByClassName("answer-square")[i].disabled = false;
+    }
+    btnDisabled("submit", false);
+    document.getElementsByClassName("answer-square")[0].focus(); 
 }
