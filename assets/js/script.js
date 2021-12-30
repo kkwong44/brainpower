@@ -1,8 +1,8 @@
 // Set maximum and minimum number of digits for the game
 const maxDigit = 8;
 const minDigit = 4;
+const maxLevel = 20;
 let numDigits = minDigit;
-let currentLevel = 1;
 
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
@@ -242,4 +242,14 @@ function displayResult(currentNumDigits) {
     btnDisabled("next", false);
     document.getElementById("next").style.outline = "1px solid black";
     document.getElementById("next").focus(); 
+}
+
+/** 
+ * Find current game level from game area
+ */
+function checkCurrentLevel() {
+    let levels = document.getElementById("levels").textContent;
+    let stringRight =  (maxLevel.toString).length + 4;
+    currentLevel = parseInt(levels.substring(0, stringRight)) + 1;
+    return currentLevel;
 }
