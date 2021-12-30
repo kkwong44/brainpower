@@ -208,14 +208,20 @@ function hideNumbers(currentNumDigits) {
 function checkAnswer(currentNumDigits) {
     let result = 0;
     for (let i = 0; i < currentNumDigits; i++) {
-        // Read the numbers from the game area and check each digit
+        // Read and display the hidden numbers from the game area and check each digit
         question = parseInt(document.getElementsByClassName("memory-square")[i].textContent);
         answer = parseInt(document.getElementsByClassName("answer-square")[i].value);
+        document.getElementsByClassName("memory-square")[i].children[0].style.color = "black";
         // Add 1 to result counter if the digit is wrong
         if (question == answer) {
             result = result + 0;
+            // Unhide square to default background color
+            document.getElementsByClassName("memory-square")[i].style.background = "white";
         } else {
             result = result + 1;
+            // Show the incorrect squares in red
+            document.getElementsByClassName("memory-square")[i].style.background = "red";
+            document.getElementsByClassName("answer-square")[i].style.background = "red";
         }
     }
     // Display result on screen
