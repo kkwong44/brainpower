@@ -253,3 +253,25 @@ function checkCurrentLevel() {
     currentLevel = parseInt(levels.substring(0, stringRight));
     return currentLevel;
 }
+
+/**
+ * Run next level
+ */
+ function nextLevel(currentNumDigits) {
+
+    let level = checkCurrentLevel() +1;
+    if (level <= maxLevel) {
+        document.getElementById("levels").innerHTML = level + " of " + maxLevel;
+        displayNumbers(currentNumDigits);
+        
+        document.getElementById("next").style.outline = "none";
+        btnDisabled("new-game", true);
+        btnDisabled("submit", true);
+        btnDisabled("next", true);
+        
+        // Hide numbers after 3 seconds
+        const  time = setTimeout(hideNumbers, 3000, currentNumDigits);
+    } else {
+        alert("Game Over");
+    }
+}
