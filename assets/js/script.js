@@ -3,6 +3,8 @@ const maxDigit = 8;
 const minDigit = 4;
 const maxLevel = 20;
 let numDigits = minDigit;
+let gameInterval = 4;
+let memoryTime = 2000;
 
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
@@ -184,7 +186,7 @@ function runNewGame(currentNumDigits) {
     btnDisabled("submit", true);
     btnDisabled("next", true);
     // Hide numbers after 3 seconds
-    const  time = setTimeout(hideNumbers, 3000, currentNumDigits);
+    const  time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     // timer();
 }
 
@@ -245,6 +247,12 @@ function displayResult(currentNumDigits) {
         btnDisabled("next", false);
         document.getElementById("next").style.outline = "1px solid black";
         document.getElementById("next").focus();
+        // Increase dificulty by an extra digit for every game interval and allow an extra half second to memorise
+        let difficulty = level % gameInterval;
+        if  (difficulty === 0) {
+            numDigits = numDigits + 1;
+            memoryTime = memoryTime + 500;
+        }
     } else {
         // Set buttons style and focus on new game button
         btnDisabled("submit", true);
@@ -282,7 +290,7 @@ function checkCurrentLevel() {
         btnDisabled("next", true);
         
         // Hide numbers after 3 seconds
-        const  time = setTimeout(hideNumbers, 3000, currentNumDigits);
+        const  time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     } else {
         alert("Game Over");
     }
