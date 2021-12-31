@@ -175,8 +175,8 @@ function resetGame(maxDigit) {
     btnDisabled("new-game", false);
     btnDisabled("submit", true);
     btnDisabled("next", true);
-
-    updateScore(0);
+    // Reset Results
+    updateScore(-1);
 }
 
 /**
@@ -304,6 +304,10 @@ function checkCurrentLevel() {
  * Update scores
  */
 function updateScore(result) {
-    score = score + result;
+    if (result == -1) {
+        score = 0;
+    } else {
+        score = score + result;
+    }
     document.getElementById("score").innerHTML = "Score: " + score;
 }
