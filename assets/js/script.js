@@ -183,6 +183,7 @@ function resetGame(maxDigit) {
  * Start a new game with minmum number of digits
  */
 function runNewGame(currentNumDigits) {
+    resetGame(maxDigit);
     displayNumbers(currentNumDigits);
     document.getElementById("levels").innerHTML = "1 of " + maxLevel;
     btnDisabled("new-game", true);
