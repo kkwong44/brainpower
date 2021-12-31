@@ -39,12 +39,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Key event on answer squares - move to next input field then to submit button
     document.getElementById("answer-box").addEventListener("keyup", function(event) {
-        for (let i = 0; i < numDigits - 1; i++) {
+        for (let i = 0; i < maxDigit - 1; i++) {
             if (document.getElementsByClassName("answer-square")[i].value.length == 1) {
                 document.getElementsByClassName("answer-square")[i+1].focus();
             }
         }
-        // Last answer square nove to submit button
+        // Last answer square move to submit button
         if (document.getElementsByClassName("answer-square")[numDigits-1].value.length == 1) {
             document.getElementById("submit").focus();
             document.getElementById("submit").style.outline = "1px solid black";
