@@ -1,6 +1,6 @@
 /* BrainPower - Stylesheet CSS */
 /* Import google fonts */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto+Mono&display=swap');
 
 /* General - Set default values to none*/
 * {
@@ -80,6 +80,12 @@ body {
     text-align: center;
     min-height: 74vh;
     background-color: #b9b9b9;
+}
+
+/* Main Section - Timer */
+#timer {
+    font-size: large;
+    font-family: 'Roboto Mono', monospace;
 }
 
 /* Main Section - Buttons for New Game, Submit and Next */

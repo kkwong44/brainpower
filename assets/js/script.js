@@ -1,12 +1,15 @@
 // Set maximum, minimum number of digits and default values for the game
 const maxDigit = 8;
 const minDigit = 4;
-const maxLevel = 20;
+const maxLevel = 2;
 const gameInterval = 4;
 const initialMemoryTime = 2000;
+const gameTimeInMinute = 10;
 let numDigits = minDigit;
 let memoryTime = initialMemoryTime;
 let score = 0;
+let minuteTimer = 0;
+let secondTimer = 0;
 
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
@@ -168,6 +171,7 @@ function resetGame(maxDigit) {
     // Reset to constant default vaules
     numDigits = minDigit;
     memoryTime = initialMemoryTime;
+    document.getElementById("timer").innerHTML = "Timer: 00:00s";
     // Empty and gray out all squares
     for (let i = 0; i < maxDigit; i++) {
         document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
@@ -196,7 +200,8 @@ function runNewGame(currentNumDigits) {
     btnDisabled("next", true);
     // Hide numbers after 3 seconds
     const  time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
-    // timer();
+    // Start timer
+    clock = displayTimer();
 }
 
 /**
@@ -271,6 +276,8 @@ function displayResult(currentNumDigits) {
         btnDisabled("new-game", false);
         document.getElementById("new-game").style.outline = "1px solid black";
         document.getElementById("new-game").focus();
+        // Stop timer
+        clearInterval(clock);
         alert("Game Over");
     }
 }
@@ -329,4 +336,33 @@ function updateScore(result) {
         let rate = (currentScore / parseInt(checkCurrentLevel()) * 100).toFixed(1);
         document.getElementById("success-rate").innerHTML = "Success Rate: " + rate + "%";
     }
+}
+
+/**
+ * Run timer for the game
+ */
+function displayTimer() {
+    let duration = 0;
+    let clock = setInterval(function(){
+        // Calculate minutes and seconds
+        duration++;
+        let min = Math.floor((duration / 60));
+        let sec = Math.floor((duration % 60));
+        // Convert time to string and to format 00:00s
+        miniuteTimer = min.toString();
+        secondTimer = sec.toString();
+        if (minuteTimer.toString().length == 1) {
+            minuteTimer = "0" + minuteTimer;
+        }
+        if (secondTimer.toString().length == 1) {
+            secondTimer = "0" + secondTimer;
+        }
+        document.getElementById("timer").innerHTML = "Timer: " + minuteTimer + ":" + secondTimer + "s";
+        // Game timeout set by global variable
+        if (minuteTimer  == gameTimeInMinute){
+            clearInterval(clock);
+            alert("Timeout - Game OVER");
+        }
+    }, 1000);
+    return clock;
 }
