@@ -5,6 +5,7 @@ const maxLevel = 20;
 let numDigits = minDigit;
 let gameInterval = 4;
 let memoryTime = 2000;
+let score = 0;
 
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
@@ -174,6 +175,8 @@ function resetGame(maxDigit) {
     btnDisabled("new-game", false);
     btnDisabled("submit", true);
     btnDisabled("next", true);
+
+    updateScore(0);
 }
 
 /**
@@ -229,6 +232,7 @@ function checkAnswer(currentNumDigits) {
     // Display result on screen
     if (result == 0) {
         document.getElementById("result").innerHTML = "CORRECT";
+        updateScore(1);
     } else {
         document.getElementById("result").innerHTML = "INCORRECT";
     }
@@ -294,4 +298,12 @@ function checkCurrentLevel() {
     } else {
         alert("Game Over");
     }
+}
+
+/** 
+ * Update scores
+ */
+function updateScore(result) {
+    score = score + result;
+    document.getElementById("score").innerHTML = "Score: " + score;
 }
