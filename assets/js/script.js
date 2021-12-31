@@ -237,12 +237,23 @@ function checkAnswer(currentNumDigits) {
  */
 function displayResult(currentNumDigits) {
     checkAnswer(currentNumDigits);
-    // Set buttons style and focus on next button
-    btnDisabled("submit", true);
-    document.getElementById("submit").style.outline = "none";
-    btnDisabled("next", false);
-    document.getElementById("next").style.outline = "1px solid black";
-    document.getElementById("next").focus();
+    let level = checkCurrentLevel();
+    if (level < maxLevel) {
+        // Set buttons style and focus on next button
+        btnDisabled("submit", true);
+        document.getElementById("submit").style.outline = "none";
+        btnDisabled("next", false);
+        document.getElementById("next").style.outline = "1px solid black";
+        document.getElementById("next").focus();
+    } else {
+        // Set buttons style and focus on new game button
+        btnDisabled("submit", true);
+        document.getElementById("submit").style.outline = "none";
+        btnDisabled("new-game", false);
+        document.getElementById("new-game").style.outline = "1px solid black";
+        document.getElementById("new-game").focus();
+        alert("Game Over");
+    }
 }
 
 /** 
