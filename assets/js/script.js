@@ -1,10 +1,11 @@
-// Set maximum and minimum number of digits for the game
+// Set maximum, minimum number of digits and default values for the game
 const maxDigit = 8;
 const minDigit = 4;
 const maxLevel = 20;
+const gameInterval = 4;
+const initialMemoryTime = 2000;
 let numDigits = minDigit;
-let gameInterval = 4;
-let memoryTime = 2000;
+let memoryTime = initialMemoryTime;
 let score = 0;
 
 // Wait for the DOM to finish loading before running the game
@@ -164,6 +165,9 @@ function displayNumbers(currentNumDigits) {
  * Reset game to initial state
  */
 function resetGame(maxDigit) {
+    // Reset to constant default vaules
+    numDigits = minDigit;
+    memoryTime = initialMemoryTime;
     // Empty and gray out all squares
     for (let i = 0; i < maxDigit; i++) {
         document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
@@ -177,6 +181,7 @@ function resetGame(maxDigit) {
     btnDisabled("next", true);
     // Reset Results
     updateScore(-1);
+    updateSuccessRate(-1);
 }
 
 /**
@@ -237,6 +242,7 @@ function checkAnswer(currentNumDigits) {
     } else {
         document.getElementById("result").innerHTML = "INCORRECT";
     }
+    updateSuccessRate(score);
 }
 
 /**
@@ -311,4 +317,16 @@ function updateScore(result) {
         score = score + result;
     }
     document.getElementById("score").innerHTML = "Score: " + score;
+}
+
+/** 
+ * Update success rate
+ */
+ function updateSuccessRate(currentScore) {
+    if (currentScore == -1) {
+        document.getElementById("success-rate").innerHTML = "Success Rate: 0.0%";
+    } else {
+        let rate = (currentScore / parseInt(checkCurrentLevel()) * 100).toFixed(1);
+        document.getElementById("success-rate").innerHTML = "Success Rate: " + rate + "%";
+    }
 }
