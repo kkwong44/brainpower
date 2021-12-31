@@ -145,6 +145,7 @@ function displayNumbers(currentNumDigits) {
             document.getElementsByClassName("memory-square")[i].children[0].innerHTML = num1;
             document.getElementsByClassName("memory-square")[i].style.background = "white";
             document.getElementsByClassName("answer-square")[i].style.background = "#b9b9b9";
+            document.getElementsByClassName("answer-square")[i].value = "";
             document.getElementsByClassName("answer-square")[i].disabled = true;
         } else {
             // Blank and disable unused squares
