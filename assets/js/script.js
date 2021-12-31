@@ -349,7 +349,7 @@ function displayTimer() {
         let min = Math.floor((duration / 60));
         let sec = Math.floor((duration % 60));
         // Convert time to string and to format 00:00s
-        miniuteTimer = min.toString();
+        minuteTimer = min.toString();
         secondTimer = sec.toString();
         if (minuteTimer.toString().length == 1) {
             minuteTimer = "0" + minuteTimer;
