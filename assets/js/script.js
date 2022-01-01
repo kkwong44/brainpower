@@ -10,6 +10,8 @@ let memoryTime = initialMemoryTime;
 let score = 0;
 let minuteTimer = 0;
 let secondTimer = 0;
+let bestScore = 0;
+let bestTime = "59:99";
 
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
@@ -20,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Reset game to initial state
     resetGame(maxDigit);
+    document.getElementById("best-score").innerHTML = "Best Score: --:--";
 
     // Button event
     let buttons = document.getElementsByTagName("button");
@@ -279,6 +282,7 @@ function displayResult(currentNumDigits) {
         // Stop timer
         clearInterval(clock);
         alert("Game Over");
+        updateBestScore();
     }
 }
 
@@ -365,4 +369,30 @@ function displayTimer() {
         }
     }, 1000);
     return clock;
+}
+
+/**
+ * Update best score by comparing the score and time
+ */
+ function updateBestScore() {
+    // Calculate the current best time in seconds
+    let bestMin = parseInt(bestTime.substring(0,2)) * 60;
+    let bestSec = parseInt(bestTime.substring(3));
+    let bestScoreTime = bestMin + bestSec;
+    // Calculate the game sacoe in seconds
+    let scoreMin = parseInt(minuteTimer) * 60;
+    let scoreSec = parseInt(secondTimer);
+    let scoreTime = scoreMin + scoreSec;
+    // Compare the game score with best score by number of of correct answers
+    // and the time to complete the game
+    switch (true) {
+        case (score > bestScore):
+            bestScore = score;
+            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + ":" + secondTimer +"s)";
+            break;
+        case (score = bestScore) && (scoreTime < bestScoreTime):
+            bestTime = minuteTimer + ":" + secondTimer;
+            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + ":" + secondTimer +"s)";
+            break;
+    }
 }
