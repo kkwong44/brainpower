@@ -154,14 +154,14 @@ function displayNumbers(currentNumDigits) {
             let num1 = Math.floor(Math.random() * 10);
             document.getElementsByClassName("memory-square")[i].children[0].innerHTML = num1;
             document.getElementsByClassName("memory-square")[i].style.background = "white";
-            document.getElementsByClassName("answer-square")[i].style.background = "#b9b9b9";
+            document.getElementsByClassName("answer-square")[i].style.background = "#6a6a6a";
             document.getElementsByClassName("answer-square")[i].value = "";
             document.getElementsByClassName("answer-square")[i].disabled = true;
         } else {
             // Blank and disable unused squares
             document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
             document.getElementsByClassName("memory-square")[i].style.background = "#b9b9b9";
-            document.getElementsByClassName("answer-square")[i].style.background = "#b9b9b9";
+            document.getElementsByClassName("answer-square")[i].style.background = "#6a6a6a";
             document.getElementsByClassName("answer-square")[i].disabled = true;
         }
     }
@@ -184,7 +184,7 @@ function resetGame(maxDigit) {
         document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
         document.getElementsByClassName("answer-square")[i].value = "";
         document.getElementsByClassName("memory-square")[i].style.background = "#b9b9b9";
-        document.getElementsByClassName("answer-square")[i].style.background = "#b9b9b9";
+        document.getElementsByClassName("answer-square")[i].style.background = "#6a6a6a";
     }
     // Initialise buttons status
     btnDisabled("new-game", false);
