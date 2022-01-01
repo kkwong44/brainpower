@@ -175,6 +175,10 @@ function resetGame(maxDigit) {
     numDigits = minDigit;
     memoryTime = initialMemoryTime;
     document.getElementById("timer").innerHTML = "Timer: 00:00s";
+    // Reduce the font size and hide result section
+    document.getElementById("result").style.fontSize = "75%";
+    document.getElementById("result").style.marginTop = "10px";
+    document.getElementById("result").style.color = "#b9b9b9";
     // Empty and gray out all squares
     for (let i = 0; i < maxDigit; i++) {
         document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
@@ -218,7 +222,8 @@ function hideNumbers(currentNumDigits) {
         document.getElementsByClassName("answer-square")[i].disabled = false;
     }
     btnDisabled("submit", false);
-    document.getElementsByClassName("answer-square")[0].focus(); 
+    document.getElementsByClassName("answer-square")[0].focus();
+    displayMsg("Answer");
 }
 
 /**
@@ -245,10 +250,10 @@ function checkAnswer(currentNumDigits) {
     }
     // Display result on screen
     if (result == 0) {
-        document.getElementById("result").innerHTML = "CORRECT";
+        displayMsg("Correct");
         updateScore(1);
     } else {
-        document.getElementById("result").innerHTML = "INCORRECT";
+        displayMsg("Incorrect");
     }
     updateSuccessRate(score);
 }
@@ -301,6 +306,7 @@ function checkCurrentLevel() {
  */
  function nextLevel(currentNumDigits) {
 
+    displayMsg("Next");
     let level = checkCurrentLevel() +1;
     if (level <= maxLevel) {
         document.getElementById("levels").innerHTML = level + " of " + maxLevel;
@@ -450,4 +456,43 @@ function displayTimer() {
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + ":" + secondTimer +"s)";
             break;
     }
+}
+
+/**
+ * Display message in the result section
+ */
+function displayMsg(message) {
+    let msg = "";
+    // Set default message color to black
+    document.getElementById("result").style.color = "black";
+    // Select message from the calling position of the game
+    switch (message) {
+        // Call from hideNumbers
+        case "Answer":
+            msg = "Enter your answer and hit the Submit button";
+            break;
+        // Call from checkAnswer
+        case "Correct":
+            if (checkCurrentLevel() != maxLevel) {
+                msg = "Correct Answer - Click Next to continue";
+            } else {
+                msg = "Correct Answer";
+            }
+            break;
+        // call from checkAnswer
+        case "Incorrect":
+            if (checkCurrentLevel() != maxLevel) {
+                msg = "Wrong Answer - Click Next to continue";
+            } else {
+                msg = "Wrong Answer";
+            }
+            break;
+        // Call from nextLevel
+        case "Next":
+            msg = "Hide this message by setting the color to background color";
+            document.getElementById("result").style.color = "#b9b9b9";
+            break;
+        }
+    // Update html on id result
+    document.getElementById("result").innerHTML = msg;
 }
