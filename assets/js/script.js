@@ -331,15 +331,70 @@ function updateScore(result) {
 }
 
 /** 
- * Update success rate
+ * Calculate, Update and Add Graphic to represent the success rate
  */
  function updateSuccessRate(currentScore) {
+    // Calculate the success rate
+    let rate = 0;
     if (currentScore == -1) {
         document.getElementById("success-rate").innerHTML = "Success Rate: 0.0%";
     } else {
-        let rate = (currentScore / parseInt(checkCurrentLevel()) * 100).toFixed(1);
+        rate = (currentScore / parseInt(checkCurrentLevel()) * 100).toFixed(1);
         document.getElementById("success-rate").innerHTML = "Success Rate: " + rate + "%";
     }
+    // Set image common attributes
+    let img = document.createElement("IMG");
+    img.setAttribute("width", "100");
+    img.setAttribute("height", "40");
+    img.style.verticalAlign ="text-bottom";
+    // Select the image to represent the success rate
+    switch (rate = Math.round(rate/10)) {
+         case 1:
+            img.setAttribute("src", "assets/images/success-rate01.png");
+            img.setAttribute("alt", "10% Success Rate");
+            break;
+        case 2:
+            img.setAttribute("src", "assets/images/success-rate02.png");
+            img.setAttribute("alt", "20% Success Rate");
+            break;
+        case 3:
+            img.setAttribute("src", "assets/images/success-rate03.png");
+            img.setAttribute("alt", "30% Success Rate");
+            break;
+        case 4:
+            img.setAttribute("src", "assets/images/success-rate04.png");
+            img.setAttribute("alt", "40% Success Rate");
+            break;
+        case 5:
+            img.setAttribute("src", "assets/images/success-rate05.png");
+            img.setAttribute("alt", "50% Success Rate");
+            break;
+        case 6:
+            img.setAttribute("src", "assets/images/success-rate06.png");
+            img.setAttribute("alt", "60% Success Rate");
+            break;
+        case 7:
+            img.setAttribute("src", "assets/images/success-rate07.png");
+            img.setAttribute("alt", "70% Success Rate");
+            break;
+        case 8:
+            img.setAttribute("src", "assets/images/success-rate08.png");
+            img.setAttribute("alt", "80% Success Rate");
+            break;
+        case 9:
+            img.setAttribute("src", "assets/images/success-rate09.png");
+            img.setAttribute("alt", "90% Success Rate");
+            break;
+        case 10:
+            img.setAttribute("src", "assets/images/success-rate10.png");
+            img.setAttribute("alt", "100% Success Rate");
+            break;
+        default:
+            img.setAttribute("src", "assets/images/success-rate00.png");
+            img.setAttribute("alt", "Zero Success Rate");
+    }
+    // Update image to the game area
+    document.getElementById("success-rate").appendChild(img);
 }
 
 /**
