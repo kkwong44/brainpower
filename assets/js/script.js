@@ -607,3 +607,14 @@ function displayInstruction() {
     `;
     return msg;
 }
+
+/**
+ * Check disabled status on all buttons
+ * @returns button (new game, next, submit)
+ */
+function checkBtnDisabled() {
+    let btnNewGame = document.getElementById("new-game").disabled;
+    let btnNext = document.getElementById("next").disabled;
+    let btnSubmit = document.getElementById("submit").disabled;
+    return {btnNewGame, btnNext, btnSubmit};
+}
