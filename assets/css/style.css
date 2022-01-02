@@ -10,7 +10,8 @@
 }
 
 /* General - Set font properties */
-body {
+body,
+input {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     letter-spacing: 4px;
