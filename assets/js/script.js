@@ -286,8 +286,8 @@ function displayResult(currentNumDigits) {
         document.getElementById("new-game").focus();
         // Stop timer
         clearInterval(clock);
-        alert("Game Over");
         let best = updateBestScore();
+        popupModal("GAME OVER", best);
     }
 }
 
@@ -529,7 +529,7 @@ function displayMsg(message) {
     let margin ="";
     switch (title) {
         case "GAME OVER":
-            msg = "Game Over"
+            msg = gameOver(opt1);
             fontSize = "200%";
             margin = "30px"
             break;
@@ -544,4 +544,34 @@ function displayMsg(message) {
     document.getElementsByClassName("msg-modal-body")[0].innerHTML = msg;
     document.getElementsByClassName("msg-modal-body")[0].style.fontSize = fontSize;
     document.getElementsByClassName("msg-modal-body")[0].style.margin = margin;
+}
+
+/**
+ * Select game over message and return string to display in modal box.
+ * @param {*} bestScore 
+ * @returns 
+ */
+function gameOver(bestScore) {
+    let msg = "";
+    switch (bestScore) {
+        case "Best Score":
+            msg = `
+                <p>Score: ${score} / ${maxLevel}</p>
+                <br>
+                <p>You Have The Best Score!</p>
+            `;
+            break;
+        case "Best Time":
+            msg = `
+                <p>Score: ${score} / ${maxLevel}</p>
+                <br>
+                <p>You Have The Best Time!</p>
+            `;
+            break;
+        default:
+            msg = `
+            <p>Score: ${score} / ${maxLevel}</p>
+        `;
+    }
+    return msg;
 }
