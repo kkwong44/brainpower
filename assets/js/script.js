@@ -429,7 +429,7 @@ function displayTimer() {
         // Game timeout set by global variable
         if (minuteTimer  == gameTimeInMinute){
             clearInterval(clock);
-            alert("Timeout - Game OVER");
+            popupModal("TIME OUT","timeout");
         }
     }, 1000);
     return clock;
@@ -515,6 +515,11 @@ function displayMsg(message) {
  function popupModal(title, opt1) {
     // Get current disabled status for all buttons
     let originalState = checkBtnDisabled();
+    if (opt1 == "timeout") {
+        originalState.btnNewGame = false;
+        originalState.btnNext = true;
+        originalState.btnSubmit = true;
+    }
     // Disable all buttons while modal box is display
     btnDisabled("new-game", true);
     btnDisabled("next", true);
@@ -550,14 +555,24 @@ function displayMsg(message) {
         case "GAME OVER":
             msg = gameOver(opt1);
             fontSize = "200%";
-            margin = "30px"
+            margin = "30px";
             textAlign = "center";
             break;
         case "INSTRUCTION":
             msg = displayInstruction();
             fontSize = "120%";
-            margin = "30px 10%"
+            margin = "30px 10%";
             textAlign = "left";
+            break;
+        case "TIME OUT":
+            msg = `
+                <p>Game Over!</p>
+                <br>
+                <p>Score: ${score} / ${maxLevel}</p>
+            `;
+            fontSize = "200%";
+            margin = "30px";
+            textAlign = "center";
             break;
     }
     
