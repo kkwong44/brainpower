@@ -11,7 +11,7 @@ let score = 0;
 let minuteTimer = 0;
 let secondTimer = 0;
 let bestScore = 0;
-let bestTime = "59:99";
+let bestScoreTime = "59:99";
 
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
@@ -437,9 +437,9 @@ function displayTimer() {
  */
  function updateBestScore() {
     // Calculate the current best time in seconds
-    let bestMin = parseInt(bestTime.substring(0,2)) * 60;
-    let bestSec = parseInt(bestTime.substring(3));
-    let bestScoreTime = bestMin + bestSec;
+    let bestMin = parseInt(bestScoreTime.substring(0,2)) * 60;
+    let bestSec = parseInt(bestScoreTime.substring(3));
+    let bestTime = bestMin + bestSec;
     // Calculate the game sacoe in seconds
     let scoreMin = parseInt(minuteTimer) * 60;
     let scoreSec = parseInt(secondTimer);
@@ -449,10 +449,13 @@ function displayTimer() {
     switch (true) {
         case (score > bestScore):
             bestScore = score;
+            bestScoreTime = minuteTimer + ":" + secondTimer;
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + ":" + secondTimer +"s)";
             break;
-        case (score = bestScore) && (scoreTime < bestScoreTime):
-            bestTime = minuteTimer + ":" + secondTimer;
+        case (score = bestScore) && (scoreTime < bestTime):
+            console.log("scoreTime ", scoreTime);
+            console.log("bestScoreTime ", bestScoreTime);
+            bestScoreTime = minuteTimer + ":" + secondTimer;
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + ":" + secondTimer +"s)";
             break;
     }
