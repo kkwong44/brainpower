@@ -177,11 +177,13 @@ function resetGame(maxDigit) {
     // Reset to constant default vaules
     numDigits = minDigit;
     memoryTime = initialMemoryTime;
-    document.getElementById("timer").innerHTML = "Timer: 00:00s";
+    document.getElementById("timer").innerHTML = "Timer: 00:00";
     // Reduce the font size and hide result section
     document.getElementById("result").style.fontSize = "75%";
     document.getElementById("result").style.marginTop = "10px";
     document.getElementById("result").style.color = "#b9b9b9";
+    // Change default fontsize for the level counter
+    document.getElementById("best-score").style.fontSize = "120%";
     // Empty and gray out all squares
     for (let i = 0; i < maxDigit; i++) {
         document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
@@ -426,7 +428,7 @@ function displayTimer() {
         if (secondTimer.toString().length == 1) {
             secondTimer = "0" + secondTimer;
         }
-        document.getElementById("timer").innerHTML = "Timer: " + minuteTimer + ":" + secondTimer + "s";
+        document.getElementById("timer").innerHTML = "Timer: " + minuteTimer + ":" + secondTimer;
         // Game timeout set by global variable
         if (minuteTimer  == gameTimeInMinute){
             clearInterval(clock);
@@ -454,14 +456,14 @@ function displayTimer() {
         case (score > bestScore):
             bestScore = score;
             bestScoreTime = minuteTimer + ":" + secondTimer;
-            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + ":" + secondTimer +"s)";
+            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + "m " + secondTimer + "s)";
             return "Best Score";
             break;
         case (score == bestScore) && (scoreTime < bestTime):
             console.log("scoreTime ", scoreTime);
             console.log("bestScoreTime ", bestScoreTime);
             bestScoreTime = minuteTimer + ":" + secondTimer;
-            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + ":" + secondTimer +"s)";
+            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + "m " + secondTimer + "s)";
             return "Best Time";
             break;
         default:
