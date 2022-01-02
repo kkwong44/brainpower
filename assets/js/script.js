@@ -499,3 +499,47 @@ function displayMsg(message) {
     // Update html on id result
     document.getElementById("result").innerHTML = msg;
 }
+
+/**
+ * Popup box for game over and instruction
+ * @param {*} title 
+ * @param {*} opt1 
+ */
+ function popupModal(title, opt1) {
+    // Get the modal
+    let modal = document.getElementById("msg-modal");
+    // Get the <span> element that closes the modal
+    let span = document.getElementsByClassName("msg-modal-close")[0];
+    modal.style.display = "block";
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    // Update modal title and contents
+    let msg ="";
+    let fontSize = "";
+    let margin ="";
+    switch (title) {
+        case "GAME OVER":
+            msg = "Game Over"
+            fontSize = "200%";
+            margin = "30px"
+            break;
+        case "INSTRUCTION":
+            msg = "Instruction";
+            fontsize = "100%";
+            margin = "30px"
+            break;
+    }
+    
+    document.getElementsByClassName("msg-modal-title")[0].innerHTML = title;
+    document.getElementsByClassName("msg-modal-body")[0].innerHTML = msg;
+    document.getElementsByClassName("msg-modal-body")[0].style.fontSize = fontSize;
+    document.getElementsByClassName("msg-modal-body")[0].style.margin = margin;
+}
