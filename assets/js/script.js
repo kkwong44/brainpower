@@ -453,13 +453,15 @@ function displayTimer() {
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + ":" + secondTimer +"s)";
             return "Best Score";
             break;
-        case (score = bestScore) && (scoreTime < bestTime):
+        case (score == bestScore) && (scoreTime < bestTime):
             console.log("scoreTime ", scoreTime);
             console.log("bestScoreTime ", bestScoreTime);
             bestScoreTime = minuteTimer + ":" + secondTimer;
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + ":" + secondTimer +"s)";
             return "Best Time";
             break;
+        default:
+            return "Failed";
     }
 }
 
