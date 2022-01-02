@@ -584,7 +584,10 @@ function displayMsg(message) {
     document.getElementsByClassName("msg-modal-body")[0].style.fontSize = fontSize;
     document.getElementsByClassName("msg-modal-body")[0].style.margin = margin;
     document.getElementsByClassName("msg-modal-body")[0].style.textAlign = textAlign;
-    document.getElementById("instruction-list").style.fontSize = fontSize;
+    // Id instruction-list only created when instruction buttion is clicked
+    if (opt1 == "INSTRUCTION") {
+        document.getElementById("instruction-list").style.fontSize = fontSize;
+    }
 }
 
 /**
