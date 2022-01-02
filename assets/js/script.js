@@ -556,6 +556,7 @@ function displayMsg(message) {
 function gameOver(bestScore) {
     let msg = "";
     switch (bestScore) {
+        // More correct answers
         case "Best Score":
             msg = `
                 <p>Score: ${score} / ${maxLevel}</p>
@@ -563,13 +564,15 @@ function gameOver(bestScore) {
                 <p>You Have The Best Score!</p>
             `;
             break;
+        // Same number of correct answers but in a quicker time
         case "Best Time":
             msg = `
                 <p>Score: ${score} / ${maxLevel}</p>
                 <br>
-                <p>You Have The Best Time!</p>
+                <p>Your Score Have The Quickest Time!</p>
             `;
             break;
+        // Default score
         default:
             msg = `
             <p>Score: ${score} / ${maxLevel}</p>
