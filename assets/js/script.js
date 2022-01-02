@@ -513,6 +513,12 @@ function displayMsg(message) {
  * @param {*} opt1 
  */
  function popupModal(title, opt1) {
+    // Get current disabled status for all buttons
+    let originalState = checkBtnDisabled();
+    // Disable all buttons while modal box is display
+    btnDisabled("new-game", true);
+    btnDisabled("next", true);
+    btnDisabled("submit", true);
     // Get the modal
     let modal = document.getElementById("msg-modal");
     // Get the <span> element that closes the modal
@@ -521,11 +527,19 @@ function displayMsg(message) {
     // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
+        // Reset previous disabled status to all buttons
+        btnDisabled("new-game", originalState.btnNewGame);
+        btnDisabled("next", originalState.btnNext);
+        btnDisabled("submit", originalState.btnSubmit);
     }
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+            // Reset previous disabled status to all buttons
+            btnDisabled("new-game", originalState.btnNewGame);
+            btnDisabled("next", originalState.btnNext);
+            btnDisabled("submit", originalState.btnSubmit);
         }
     }
     // Update modal title and contents
