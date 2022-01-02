@@ -204,7 +204,7 @@ function resetGame(maxDigit) {
 function runNewGame(currentNumDigits) {
     resetGame(maxDigit);
     displayNumbers(currentNumDigits);
-    document.getElementById("levels").innerHTML = "1 of " + maxLevel;
+    document.getElementById("levels").innerHTML = "Level: 1 of " + maxLevel;
     btnDisabled("new-game", true);
     btnDisabled("submit", true);
     btnDisabled("next", true);
@@ -299,8 +299,9 @@ function displayResult(currentNumDigits) {
  */
 function checkCurrentLevel() {
     let levels = document.getElementById("levels").textContent;
-    let stringRight =  (maxLevel.toString).length + 4;
-    currentLevel = parseInt(levels.substring(0, stringRight));
+    let unwantedChar =  (maxLevel.toString()).length + 11;
+    let length = levels.length - unwantedChar;
+    currentLevel = parseInt(levels.slice(6 , 7 + length));
     return currentLevel;
 }
 
@@ -312,7 +313,7 @@ function checkCurrentLevel() {
     displayMsg("Next");
     let level = checkCurrentLevel() +1;
     if (level <= maxLevel) {
-        document.getElementById("levels").innerHTML = level + " of " + maxLevel;
+        document.getElementById("levels").innerHTML = "Level: " + level + " of " + maxLevel;
         displayNumbers(currentNumDigits);
         
         document.getElementById("next").style.outline = "none";
