@@ -39,6 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 case "next":
                     nextLevel(numDigits);
                     break;
+                case "instruction":
+                    popupModal("INSTRUCTION");
+                    break;
                 default:
                     alert(`Undefine - ${btnType}`);
             }
@@ -534,11 +537,13 @@ function displayMsg(message) {
             msg = gameOver(opt1);
             fontSize = "200%";
             margin = "30px"
+            textAlign = "center";
             break;
         case "INSTRUCTION":
-            msg = "Instruction";
-            fontsize = "100%";
-            margin = "30px"
+            msg = displayInstruction();
+            fontSize = "120%";
+            margin = "30px 10%"
+            textAlign = "left";
             break;
     }
     
@@ -546,6 +551,8 @@ function displayMsg(message) {
     document.getElementsByClassName("msg-modal-body")[0].innerHTML = msg;
     document.getElementsByClassName("msg-modal-body")[0].style.fontSize = fontSize;
     document.getElementsByClassName("msg-modal-body")[0].style.margin = margin;
+    document.getElementsByClassName("msg-modal-body")[0].style.textAlign = textAlign;
+    document.getElementById("instruction-list").style.fontSize = fontSize;
 }
 
 /**
@@ -578,5 +585,25 @@ function gameOver(bestScore) {
             <p>Score: ${score} / ${maxLevel}</p>
         `;
     }
+    return msg;
+}
+
+/**
+ * Create html order list for the instruction
+ * @returns html string
+ */
+function displayInstruction() {
+    let msg = `
+        <ol id = "instruction-list">
+            <li>Total ${maxLevel} Levels in ${gameTimeInMinute} minutes</li>
+            <li>Click "New Game" to start</li>
+            <li>Memorise the numbers appear on screen</li>
+            <li>Enter the numbers that disappered on screen</li>
+            <li>Submit your answer</li>
+            <li>Result will returns as correct or wrong answer</li>
+            <li>Click button “Next” to continue to the next level</li>
+            <li>Game finish when you completed level ${maxLevel} or stop after ${gameTimeInMinute} minutes</li>                        
+        </ol>
+    `;
     return msg;
 }
