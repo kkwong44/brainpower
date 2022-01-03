@@ -503,7 +503,7 @@ function displayMsg(message) {
             break;
         // Call from nextLevel
         case "Next":
-            msg = "Hide this message by setting the color to background color";
+            msg = "Hide message";
             document.getElementById("result").style.color = "#b9b9b9";
             break;
         }
