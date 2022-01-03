@@ -182,8 +182,6 @@ function resetGame(maxDigit) {
     document.getElementById("result").style.fontSize = "75%";
     document.getElementById("result").style.marginTop = "10px";
     document.getElementById("result").style.color = "#b9b9b9";
-    // Change default fontsize for the level counter
-    document.getElementById("best-score").style.fontSize = "120%";
     // Empty and gray out all squares
     for (let i = 0; i < maxDigit; i++) {
         document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";

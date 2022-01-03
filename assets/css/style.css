@@ -151,7 +151,12 @@ input {
 .div {
     line-height: 2em;
     color: black;
-    font-size: xx-large;
+    font-size: 180%;
+}
+
+/* Main Section - Default font size for best score section */
+#best-score {
+    font-size: 120%;
 }
 
 /* Message Modal - background */
