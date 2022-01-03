@@ -395,3 +395,37 @@ input {
 
 }
 /* Media Query Below 600 End
+
+/* Media Query Below 550 Start - Display width below 550px */
+@media (max-width: 549px) {
+
+    /* Main Section - Game Title */
+    #game-title {
+        font-size: 150%;
+        margin: 20px 30px 0 30px;
+    }
+
+    /* Main Section - Result Section */
+    #result {
+        height: 4em;
+        margin: 0 30px;
+    }
+
+    /* Main Section - Timer Section */
+    #timer {
+        font-size: 100%;
+    }
+    
+    /* Main Section - Reduce font size in squares for holding the numbers */
+    .memory-square,
+    .answer-square{
+        font-size: 90%;
+    }
+
+    /* Main Section - Reduce font size for all div sections */
+    .div {
+        font-size: 120%;
+    }
+
+}
+/* Media Query Below 550 End
