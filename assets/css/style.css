@@ -440,3 +440,67 @@ input {
 
 }
 /* Media Query Below 550 End
+
+/* Media Query Below 400 Start - Display width below 400px */
+@media (max-width: 399px) {
+
+    /* Main Section - Game Area */
+    #game-area {
+        width: 95%;
+    }
+
+    /* Main Section - Game Title */
+    #game-title {
+        font-size: 150%;
+        margin: 10px 30px 0 30px;
+    }
+
+    /* Main Section - Result Section */
+    #result {
+        height: 3em;
+        margin: 0 30px;
+    }
+
+    /* Main Section - Timer Section */
+    #timer {
+        font-size: 80%;
+    }
+
+    /* Main Section - Success Rate Section */
+    #success-rate{
+        margin: 0 60px;
+    }
+
+    /* Main Section - Best Score Section */
+    #best-score {
+        font-size: 100%;
+    }
+
+    /* Main Section - Reduce font size in squares for holding the numbers */
+    .memory-square,
+    .answer-square{
+        font-size: x-small;
+    }
+
+    /* Main Section - Reduce all button size */
+    .btn {
+    font-size: 75%;
+    width: 120px;
+    height: 40px;
+    margin: 10px 0;
+    border-radius: 10px;
+    }
+
+    /* Main Section - Reduce buttons size for Submit and Next */
+    .btn-small {
+        width: 85px;
+        margin: 15px 10px;
+    }
+
+    /* Main Section - Reduce font size for all div sections */
+    .div {
+        font-size: 100%;
+    }
+
+}
+/* Media Query Below 400 End
