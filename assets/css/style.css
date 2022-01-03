@@ -422,6 +422,11 @@ input {
         font-size: 100%;
     }
     
+    /* Main Section - Success Rate Section */
+    #success-rate{
+        margin: 0 30px;
+    }
+
     /* Main Section - Reduce font size in squares for holding the numbers */
     .memory-square,
     .answer-square{
