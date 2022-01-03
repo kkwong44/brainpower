@@ -358,6 +358,7 @@ function updateScore(result) {
     let img = document.createElement("IMG");
     img.setAttribute("width", "100");
     img.setAttribute("height", "40");
+    img.setAttribute("class", "success-bar");
     img.style.verticalAlign ="text-bottom";
     // Select the image to represent the success rate
     switch (rate = Math.round(rate/10)) {

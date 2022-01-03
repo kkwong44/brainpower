@@ -359,3 +359,39 @@ input {
     
 }
 /* Media Query Above 767 End */
+
+/* Media Query Below 600 Start - Display width below 600px */
+@media (max-width: 599px) {
+
+    /* Main Section - Reduce font size in squares for holding the numbers */
+    .memory-square,
+    .answer-square{
+        font-size: large;
+    }
+
+    /* Main Section - Reduce all button size */
+    .btn {
+        width: 160px;
+        height: 50px;
+        margin: 10px 0;
+    }
+
+    /* Main Section - Reduce buttons size for Submit and Next */
+    .btn-small {
+        width: 100px;
+        margin: 10px 30px;
+    }
+
+    /* Main Section - Reduce font size for all div sections */
+    .div {
+        font-size: 140%;
+    }
+
+    /* Main Section - Reduce graphic size */
+    .success-bar {
+        width: 75px;
+        height: 30px;
+    }
+
+}
+/* Media Query Below 600 End
