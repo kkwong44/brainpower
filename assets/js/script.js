@@ -558,13 +558,24 @@ function displayMsg(message) {
     switch (title) {
         case "GAME OVER":
             msg = gameOver(opt1);
-            fontSize = "200%";
-            margin = "30px";
+            if (window.matchMedia('screen and (max-width: 599px)').matches) {
+                document.getElementsByClassName("msg-modal-content")[0].style.width = "80%";
+                fontSize = "140%";    
+                margin = "15px";
+            } else {
+                fontSize = "200%";
+                margin = "30px";
+            }
             textAlign = "center";
             break;
         case "INSTRUCTION":
             msg = displayInstruction();
-            fontSize = "120%";
+            if (window.matchMedia('screen and (max-width: 599px)').matches) {
+                document.getElementsByClassName("msg-modal-content")[0].style.width = "80%";
+                fontSize = "100%";    
+            } else {
+                fontSize = "120%";
+            }
             margin = "30px 10%";
             textAlign = "left";
             break;
@@ -574,8 +585,14 @@ function displayMsg(message) {
                 <br>
                 <p>Score: ${score} / ${maxLevel}</p>
             `;
-            fontSize = "200%";
-            margin = "30px";
+            if (window.matchMedia('screen and (max-width: 599px)').matches) {
+                document.getElementsByClassName("msg-modal-content")[0].style.width = "80%";
+                fontSize = "140%";    
+                margin = "15px";
+            } else {
+                fontSize = "200%";
+                margin = "30px";
+            }
             textAlign = "center";
             break;
     }
