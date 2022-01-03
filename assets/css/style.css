@@ -321,6 +321,11 @@ input {
         line-height: 50px;
     }
 
+    /* Main Section - Game Area */
+    #game-area {
+        width: 90%;
+    }
+    
 }
 /* Media Query Below 767 End */
 
