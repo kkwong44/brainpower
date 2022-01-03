@@ -86,7 +86,7 @@ function createNumberSquares(type, maxDigit) {
                 // Create html string for each answer square
                 if (type == "answer-box") {
                     let square = `
-                        <input type="text" class="answer-square" maxlength="1">
+                        <input type="text" class="answer-square" aria-label="Answer Square Digit ${i}"  maxlength="1">
                     `;
                     // Update html string for additional square
                     squares += square;
