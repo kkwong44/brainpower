@@ -553,28 +553,14 @@ function displayMsg(message) {
     let msg ="";
     let fontSize = "";
     let margin ="";
+    // Get contents for the modal box
     switch (title) {
         case "GAME OVER":
             msg = gameOver(opt1);
-            if (window.matchMedia('screen and (max-width: 599px)').matches) {
-                document.getElementsByClassName("msg-modal-content")[0].style.width = "80%";
-                fontSize = "140%";    
-                margin = "15px";
-            } else {
-                fontSize = "200%";
-                margin = "30px";
-            }
             textAlign = "center";
             break;
         case "INSTRUCTION":
             msg = displayInstruction();
-            if (window.matchMedia('screen and (max-width: 599px)').matches) {
-                document.getElementsByClassName("msg-modal-content")[0].style.width = "80%";
-                fontSize = "100%";    
-            } else {
-                fontSize = "120%";
-            }
-            margin = "30px 10%";
             textAlign = "left";
             break;
         case "TIME OUT":
@@ -583,18 +569,14 @@ function displayMsg(message) {
                 <br>
                 <p>Score: ${score} / ${maxLevel}</p>
             `;
-            if (window.matchMedia('screen and (max-width: 599px)').matches) {
-                document.getElementsByClassName("msg-modal-content")[0].style.width = "80%";
-                fontSize = "140%";    
-                margin = "15px";
-            } else {
-                fontSize = "200%";
-                margin = "30px";
-            }
             textAlign = "center";
             break;
     }
-    
+    // Media Query - reyurning font size and margin for modal box
+    mQuery = mediaQuery(title);
+    fontSize = mQuery.fontSize;
+    margin = mQuery.margin; 
+    // Update Modal Box
     document.getElementsByClassName("msg-modal-title")[0].innerHTML = title;
     document.getElementsByClassName("msg-modal-body")[0].innerHTML = msg;
     document.getElementsByClassName("msg-modal-body")[0].style.fontSize = fontSize;
@@ -604,6 +586,50 @@ function displayMsg(message) {
     if (opt1 == "INSTRUCTION") {
         document.getElementById("instruction-list").style.fontSize = fontSize;
     }
+}
+
+/**
+ * Media Query for Modal Box
+ * @param {*} boxTitle 
+ * @returns fontsize and margin
+ */
+function mediaQuery(boxTitle) {
+    let fontSize = "";
+    let margin = "";
+    // Screen width below 600px
+    if (window.matchMedia('screen and (max-width: 599px)').matches) {
+        document.getElementsByClassName("msg-modal-content")[0].style.width = "80%";
+        if (boxTitle == "INSTRUCTION") {
+            fontSize = "100%";
+            margin = "30px 10%";
+        } else {
+            fontSize = "160%";    
+            margin = "15px";
+        }
+    } else {
+        // Default values for screen width equal or above 600px
+        document.getElementsByClassName("msg-modal-content")[0].style.width = "50%";
+        if (boxTitle == "INSTRUCTION") {
+            fontSize = "120%";
+            margin = "30px 10%";
+        } else {
+            fontSize = "200%";    
+            margin = "30px";
+        }
+    }
+    // Screen width below 400px
+    if (window.matchMedia('screen and (max-width: 399px)').matches) {
+        document.getElementsByClassName("msg-modal-content")[0].style.width = "90%";
+        if (boxTitle == "INSTRUCTION") {
+            fontSize = "90%";
+            margin = "25px 5%";
+        } else {
+            fontSize = "140%";    
+            margin = "10px";
+        }
+    }
+    // Return values
+    return {fontSize, margin};
 }
 
 /**
