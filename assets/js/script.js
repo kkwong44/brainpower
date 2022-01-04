@@ -608,7 +608,7 @@ function mediaQuery(boxTitle) {
         }
     } else {
         // Default values for screen width equal or above 600px
-        document.getElementsByClassName("msg-modal-content")[0].style.width = "50%";
+        document.getElementsByClassName("msg-modal-content")[0].style.width = "60%";
         if (boxTitle == "INSTRUCTION") {
             fontSize = "120%";
             margin = "30px 10%";
