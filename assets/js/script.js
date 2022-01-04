@@ -1,7 +1,7 @@
 // Set maximum, minimum number of digits and default values for the game
 const maxDigit = 8;
 const minDigit = 4;
-const maxLevel = 2;
+const maxLevel = 20;
 const gameInterval = 4;
 const initialMemoryTime = 2000;
 const gameTimeInMinute = 10;
