@@ -49,18 +49,26 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Key event on answer squares - move to next input field then to submit button
-    document.getElementById("answer-box").addEventListener("keyup", function(event) {
-        for (let i = 0; i < maxDigit - 1; i++) {
-            if (document.getElementsByClassName("answer-square")[i].value.length == 1) {
-                document.getElementsByClassName("answer-square")[i+1].focus();
+    for (let i = 0; i < maxDigit; i++) {
+        document.getElementsByClassName("answer-square")[i].addEventListener("keyup", function(event) {
+            // Auto tab to next digit and submit button if user enter 0-9 in current digit
+            if (event.key >="0" && event.key <="9") {
+                if (i == numDigits - 1) {
+                    // Last answer square move to submit button
+                    document.getElementById("submit").focus();
+                    document.getElementById("submit").style.outline = "1px solid black";   
+                } else {
+                    document.getElementsByClassName("answer-square")[i+1].focus();
+                }
+                displayMsg("Answer");
+            } else {
+                // Check single character key and display hint when enter digit outside 0-9
+                if (event.key.length == 1) {
+                    displayMsg("0-9 ONLY");
+                }
             }
-        }
-        // Last answer square move to submit button
-        if (document.getElementsByClassName("answer-square")[numDigits-1].value.length == 1) {
-            document.getElementById("submit").focus();
-            document.getElementById("submit").style.outline = "1px solid black";
-        }
-    })
+        })
+    }
 
 })
 
@@ -479,7 +487,11 @@ function displayMsg(message) {
     document.getElementById("result").style.color = "black";
     // Select message from the calling position of the game
     switch (message) {
-        // Call from hideNumbers
+        // Call from key event listener
+        case "0-9 ONLY":
+            msg = "Hint: Number 0-9 only";
+            break;
+        // Call from hideNumbers key event listener
         case "Answer":
             msg = "Enter your answer and hit the Submit button";
             break;
