@@ -48,28 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     }
 
-    // Key event on answer squares - move to next input field then to submit button
-    for (let i = 0; i < maxDigit; i++) {
-        document.getElementsByClassName("answer-square")[i].addEventListener("keyup", function(event) {
-            // Auto tab to next digit and submit button if user enter 0-9 in current digit
-            if (event.key >="0" && event.key <="9") {
-                if (i == numDigits - 1) {
-                    // Last answer square move to submit button
-                    document.getElementById("submit").focus();
-                    document.getElementById("submit").style.outline = "1px solid black";   
-                } else {
-                    document.getElementsByClassName("answer-square")[i+1].focus();
-                }
-                displayMsg("Answer");
-            } else {
-                // Check single character key and display hint when enter digit outside 0-9
-                if (event.key.length == 1) {
-                    displayMsg("0-9 ONLY");
-                }
-            }
-        })
-    }
-
 })
 
 /** 
