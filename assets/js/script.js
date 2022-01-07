@@ -16,7 +16,7 @@ let bestScoreTime = "59:99";
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function () {
-    // Create boxes to hold numbers for computer generated and player's answer
+    // Create boxes to hold numbers from random number generator and input from player's answer
     createNumberSquares("memory-box", maxDigit);
     createNumberSquares("answer-box", maxDigit);
 
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     popupModal("INSTRUCTION");
                     break;
                 default:
-                    alert(`Undefine - ${btnType}`);
+                    alert(`Undefined - ${btnType}`);
             }
         })
     }
@@ -75,10 +75,12 @@ document.addEventListener("DOMContentLoaded", function () {
 /** 
  * Create squares to hold numbers
  * Use for random generated numbers and player's answer
+ * @param {*} type (memory-box or answer-box)
+ * @param {*} maxDigit (maximum number of squares)
  */
 function createNumberSquares(type, maxDigit) {
     let squares = "";
-    // check ID
+    // check type from ID
     if (type == "memory-box" || type == "answer-box") {
         for (let i = 1; i <= maxDigit; i++) {
             // Create html string for each memory square
@@ -111,6 +113,8 @@ function createNumberSquares(type, maxDigit) {
 
 /**
  * Enable and Disable button by ID name
+ * @param {*} id (Button Id)
+ * @param {*} disabled (True or False)
  */
 function btnDisabled(id,disabled) {
     if (disabled == true) {
@@ -126,6 +130,7 @@ function btnDisabled(id,disabled) {
 /**
  * When mouse moveover the button
  * Set button color as background color
+ * @param {*} id (Button Id)
  */
 function btnOverIn(id) {
     btn = document.getElementById(id);
@@ -135,6 +140,7 @@ function btnOverIn(id) {
 /**
  * When mouse moveout the button
  * Set button color to green
+ * @param {*} id (Button Id)
  */
 function btnOverOut(id) {
     btn = document.getElementById(id);
@@ -144,6 +150,8 @@ function btnOverOut(id) {
 
 /**
  * Generate random numbers between 0 and 9
+ * @param {*} currentNumDigits (Number of digits for current game level)
+ * @returns a random number between 0-9
  */
 function randomGenerator(currentNumDigits) {
     let num = [];
@@ -156,6 +164,7 @@ function randomGenerator(currentNumDigits) {
 
 /**
  * Display random numbers in the memory box
+ * @param {*} currentNumDigits (Number of digits for current game level)
  */
 function displayNumbers(currentNumDigits) {
     randomGenerator(currentNumDigits);
@@ -180,6 +189,7 @@ function displayNumbers(currentNumDigits) {
 
 /**
  * Reset game to initial state
+ * @param {*} maxDigit (Maximum nuber of squares)
  */
 function resetGame(maxDigit) {
     // Reset to constant default vaules
@@ -208,6 +218,7 @@ function resetGame(maxDigit) {
 
 /**
  * Start a new game with minmum number of digits
+ * @param {*} currentNumDigits (Number of digits for current game level)
  */
 function runNewGame(currentNumDigits) {
     resetGame(maxDigit);
@@ -216,7 +227,7 @@ function runNewGame(currentNumDigits) {
     btnDisabled("new-game", true);
     btnDisabled("submit", true);
     btnDisabled("next", true);
-    // Hide numbers after 3 seconds
+    // Hide numbers after memoryTime has elapsed
     const  time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     // Start timer
     clock = displayTimer();
@@ -224,6 +235,7 @@ function runNewGame(currentNumDigits) {
 
 /**
  * Hide random generated numbers, enable answer squares and submit button
+ * @param {*} currentNumDigits (Number of digits for current game level)
  */
 function hideNumbers(currentNumDigits) {
     for (let i = 0; i < currentNumDigits; i++) {
@@ -239,6 +251,7 @@ function hideNumbers(currentNumDigits) {
 
 /**
  * Check player's answer against the random generated number
+ * @param {*} currentNumDigits (Number of digits for current game level)
  */
 function checkAnswer(currentNumDigits) {
     let result = 0;
@@ -271,6 +284,7 @@ function checkAnswer(currentNumDigits) {
 
 /**
  * Display results when player hit the submit button
+ * @param {*} currentNumDigits (Number of digits for current game level)
  */
 function displayResult(currentNumDigits) {
     checkAnswer(currentNumDigits);
@@ -282,7 +296,7 @@ function displayResult(currentNumDigits) {
         btnDisabled("next", false);
         document.getElementById("next").style.outline = "1px solid black";
         document.getElementById("next").focus();
-        // Increase dificulty by an extra digit for every game interval and allow an extra half second to memorise
+        // Increase dificulty by an extra digit for every game interval and allow an extra half second to memorise the number
         let difficulty = level % gameInterval;
         if  (difficulty === 0) {
             numDigits = numDigits + 1;
@@ -304,6 +318,7 @@ function displayResult(currentNumDigits) {
 
 /** 
  * Find current game level from game area
+ * @returns Current Lever Number
  */
 function checkCurrentLevel() {
     let levels = document.getElementById("levels").textContent;
@@ -315,6 +330,7 @@ function checkCurrentLevel() {
 
 /**
  * Run next level
+ * @param {*} currentNumDigits (Number of digits for current game level)
  */
  function nextLevel(currentNumDigits) {
 
@@ -329,7 +345,7 @@ function checkCurrentLevel() {
         btnDisabled("submit", true);
         btnDisabled("next", true);
         
-        // Hide numbers after 3 seconds
+        // Hide numbers after memoryTime has elapsed
         const  time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     } else {
         alert("Game Over");
@@ -350,6 +366,7 @@ function updateScore(result) {
 
 /** 
  * Calculate, Update and Add Graphic to represent the success rate
+ * @param {*} currentScore (Currrent score from the game)
  */
  function updateSuccessRate(currentScore) {
     // Calculate the success rate
@@ -418,6 +435,7 @@ function updateScore(result) {
 
 /**
  * Run timer for the game
+ * @returns setInterval identifier
  */
 function displayTimer() {
     let duration = 0;
@@ -447,6 +465,7 @@ function displayTimer() {
 
 /**
  * Update best score by comparing the score and time
+ * @returns (Best Score, Best Time or Failed)
  */
  function updateBestScore() {
     // Calculate the current best time in seconds
@@ -480,6 +499,7 @@ function displayTimer() {
 
 /**
  * Display message in the result section
+ * @param {*} message (0-9 ONLY, Answer, Correct, Incorrect or Next)
  */
 function displayMsg(message) {
     let msg = "";
@@ -523,8 +543,8 @@ function displayMsg(message) {
 
 /**
  * Popup box for game over and instruction
- * @param {*} title 
- * @param {*} opt1 
+ * @param {*} title (INSTRUCTION, GAME OVER or TIME OUT)
+ * @param {*} opt1 (INSTRUCTION, timeout, best)
  */
  function popupModal(title, opt1) {
     // Get current disabled status for all buttons
@@ -602,7 +622,7 @@ function displayMsg(message) {
 
 /**
  * Media Query for Modal Box
- * @param {*} boxTitle 
+ * @param {*} boxTitle (INSTRUCTION, GAME OVER or TIME OUT)
  * @returns fontsize and margin
  */
 function mediaQuery(boxTitle) {
@@ -615,7 +635,7 @@ function mediaQuery(boxTitle) {
             fontSize = "100%";
             margin = "30px 10%";
         } else {
-            fontSize = "160%";    
+            fontSize = "160%";
             margin = "15px";
         }
     } else {
@@ -625,7 +645,7 @@ function mediaQuery(boxTitle) {
             fontSize = "120%";
             margin = "30px 10%";
         } else {
-            fontSize = "200%";    
+            fontSize = "200%";
             margin = "30px";
         }
     }
@@ -636,7 +656,7 @@ function mediaQuery(boxTitle) {
             fontSize = "90%";
             margin = "25px 5%";
         } else {
-            fontSize = "140%";    
+            fontSize = "140%";
             margin = "10px";
         }
     }
@@ -646,8 +666,8 @@ function mediaQuery(boxTitle) {
 
 /**
  * Select game over message and return string to display in modal box.
- * @param {*} bestScore 
- * @returns 
+ * @param {*} bestScore
+ * @returns message (Best score, Best Time or Score)
  */
 function gameOver(bestScore) {
     let msg = "";
@@ -665,7 +685,7 @@ function gameOver(bestScore) {
             msg = `
                 <p>Score: ${score} / ${maxLevel}</p>
                 <br>
-                <p>Your Score Have The Quickest Time!</p>
+                <p>You Score The Same Number Of Correct Answers As The Best Score But Finished In A Quicker Time!</p>
             `;
             break;
         // Default score
@@ -691,7 +711,7 @@ function displayInstruction() {
             <li>Submit your answer</li>
             <li>Result will returns as correct or wrong answer</li>
             <li>Click button “Next” to continue to the next level</li>
-            <li>Game finish when you completed level ${maxLevel} or stop after ${gameTimeInMinute} minutes</li>                        
+            <li>Game finish when you completed level ${maxLevel} or stop after ${gameTimeInMinute} minutes</li>
         </ol>
     `;
     return msg;
