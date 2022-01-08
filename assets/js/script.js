@@ -139,10 +139,12 @@ function autoTab() {
  */
 function btnDisabled(id,disabled) {
     if (disabled == true) {
-        document.getElementById(id).style.background = "#b9b9b9";
+        document.getElementById(id).style.background = "#a9a9a9";
+        document.getElementById(id).style.color = "#d9d9d9";
         document.getElementById(id).style.boxShadow = "none";
     } else {
         document.getElementById(id).style.background = "green";
+        document.getElementById(id).style.color = "#fff";
         document.getElementById(id).style.boxShadow = "";
     }
     document.getElementById(id).disabled = disabled;
