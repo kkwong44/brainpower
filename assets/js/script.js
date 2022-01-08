@@ -151,20 +151,20 @@ function btnDisabled(id,disabled) {
 /**
  * When mouse moveover the button
  * Set button color as background color
- * @param {*} id (Button Id)
  */
-function btnOverIn(id) {
-    btn = document.getElementById(id);
+ function btnOverIn() {
+    btn = this.id;
+    btn = document.getElementById(btn);
     btn.style.background = "#b9b9b9";
 }
 
 /**
  * When mouse moveout the button
  * Set button color to green
- * @param {*} id (Button Id)
  */
-function btnOverOut(id) {
-    btn = document.getElementById(id);
+ function btnOverOut() {
+    btn = this.id;
+    btn = document.getElementById(btn);
     btn.style.background = "green";
     btn.style.outline = "none";
 }
