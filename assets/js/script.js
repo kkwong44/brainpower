@@ -217,10 +217,10 @@ function resetGame(maxDigit) {
     numDigits = minDigit;
     memoryTime = initialMemoryTime;
     document.getElementById("timer").innerHTML = "Timer: 00:00";
-    // Reduce the font size and hide result section
+    // Reduce the font size and display fefault message
     document.getElementById("result").style.fontSize = "75%";
     document.getElementById("result").style.marginTop = "10px";
-    document.getElementById("result").style.color = "#b9b9b9";
+    displayMsg("default");
     // Empty and gray out all squares
     for (let i = 0; i < maxDigit; i++) {
         document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
@@ -243,6 +243,7 @@ function resetGame(maxDigit) {
  */
 function runNewGame(currentNumDigits) {
     resetGame(maxDigit);
+    displayMsg("Hide");
     displayNumbers(currentNumDigits);
     document.getElementById("levels").innerHTML = "Level: 1 of " + maxLevel;
     btnDisabled("new-game", true);
@@ -520,10 +521,10 @@ function displayTimer() {
 
 /**
  * Display message in the result section
- * @param {*} message (0-9 ONLY, Answer, Correct, Incorrect or Next)
+ * @param {*} message (0-9 ONLY, Answer, Correct, Incorrect, Next or Hide)
  */
 function displayMsg(message) {
-    let msg = "";
+    let msg = document.getElementById("result").textContent;
     // Set default message color to black
     document.getElementById("result").style.color = "black";
     // Select message from the calling position of the game
@@ -557,6 +558,12 @@ function displayMsg(message) {
             msg = "Hide message";
             document.getElementById("result").style.color = "#b9b9b9";
             break;
+        // Hide current message on screen
+        case "Hide":
+            document.getElementById("result").style.color = "#b9b9b9";
+            break;
+        default:
+            msg = "Click (NEW GAME) to Start"
         }
     // Update html on id result
     document.getElementById("result").innerHTML = msg;
