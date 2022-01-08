@@ -20,6 +20,14 @@ document.addEventListener("DOMContentLoaded", function () {
     createNumberSquares("memory-box", maxDigit);
     createNumberSquares("answer-box", maxDigit);
 
+    // Button event listener for on mouse over and mouse out
+    document.getElementById("submit").addEventListener("mouseover", btnOverIn);
+    document.getElementById("submit").addEventListener("mouseout", btnOverOut);
+    document.getElementById("next").addEventListener("mouseover", btnOverIn);
+    document.getElementById("next").addEventListener("mouseout", btnOverOut);
+    document.getElementById("new-game").addEventListener("mouseover", btnOverIn);
+    document.getElementById("new-game").addEventListener("mouseout", btnOverOut);
+
     // Reset game to initial state
     resetGame(maxDigit);
     document.getElementById("best-score").innerHTML = "Best Score: --:--";
