@@ -713,7 +713,7 @@ function gameOver(bestScore) {
             msg = `
                 <p>Score: ${score} / ${maxLevel}</p>
                 <br>
-                <p>You Score The Same Number Of Correct Answers As The Best Score But Finished In A Quicker Time!</p>
+                <p>You have the fastest time for ${score} correct answers!</p>
             `;
             break;
         // Default score
