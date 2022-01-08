@@ -1,5 +1,4 @@
 // Set maximum, minimum number of digits and default values for the game
-const maxDigit = 8;
 const minDigit = 4;
 const maxLevel = 20;
 const gameInterval = 4;
@@ -16,6 +15,8 @@ let bestScoreTime = "59:99";
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function () {
+    // Constants for the entire game
+    const maxDigit = 8; // Maximum number of digits to remember
     // Create boxes to hold numbers from random number generator and input from player's answer
     createNumberSquares("memory-box", maxDigit);
     createNumberSquares("answer-box", maxDigit);
@@ -39,13 +40,13 @@ document.addEventListener("DOMContentLoaded", function () {
             let btnType = this.getAttribute("data-type");
             switch(btnType) {
                 case "new-game":
-                    runNewGame(minDigit);
+                    runNewGame(minDigit, maxDigit);
                     break;
                 case "submit":
                     displayResult(numDigits);
                     break;
                 case "next":
-                    nextLevel(numDigits);
+                    nextLevel(numDigits, maxDigit);
                     break;
                 case "instruction":
                     popupModal("INSTRUCTION");
@@ -189,7 +190,7 @@ function randomGenerator(currentNumDigits) {
  * Display random numbers in the memory box
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
-function displayNumbers(currentNumDigits) {
+function displayNumbers(currentNumDigits, maxDigit) {
     randomGenerator(currentNumDigits);
     for (let i = 0; i < maxDigit; i++) {
         if (i < currentNumDigits) {
@@ -243,10 +244,10 @@ function resetGame(maxDigit) {
  * Start a new game with minmum number of digits
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
-function runNewGame(currentNumDigits) {
+function runNewGame(currentNumDigits, maxDigit) {
     resetGame(maxDigit);
     displayMsg("Hide");
-    displayNumbers(currentNumDigits);
+    displayNumbers(currentNumDigits, maxDigit);
     document.getElementById("levels").innerHTML = "Level: 1 of " + maxLevel;
     btnDisabled("new-game", true);
     btnDisabled("submit", true);
@@ -356,13 +357,13 @@ function checkCurrentLevel() {
  * Run next level
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
- function nextLevel(currentNumDigits) {
+ function nextLevel(currentNumDigits, maxDigit) {
 
     displayMsg("Next");
     let level = checkCurrentLevel() +1;
     if (level <= maxLevel) {
         document.getElementById("levels").innerHTML = "Level: " + level + " of " + maxLevel;
-        displayNumbers(currentNumDigits);
+        displayNumbers(currentNumDigits, maxDigit);
         
         document.getElementById("next").style.outline = "none";
         btnDisabled("new-game", true);
