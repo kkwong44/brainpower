@@ -74,7 +74,7 @@ function createNumberSquares(type, maxDigit) {
                 // Create html string for each answer square
                 if (type == "answer-box") {
                     let square = `
-                        <input type="text" class="answer-square" aria-label="Answer Square Digit ${i}"  maxlength="1">
+                        <input type="text" class="answer-square" aria-label="Answer Square Digit ${i}" id="inputAutoTab${i}" oninput="autoTab()" maxlength="1">
                     `;
                     // Update html string for additional square
                     squares += square;
@@ -86,6 +86,41 @@ function createNumberSquares(type, maxDigit) {
         }
     } else {
         alert(`Unable to Create Number Squares for Undefined ID "${type}"`);
+    }
+}
+
+/**
+ * After a value is entered, autoTab to the next answer squares except the last square.
+ * Submit button will autofocus when a valid value entered into the last square.
+ * It will validate the input value and only accept 0-9 before autotab to the next field.
+ */
+function autoTab() {
+    // Set input value as non-numeric
+    let numeric = false;
+    // Extract the id number from the current square id name
+    let idNumber = document.activeElement.id.substring(12);
+    // Read input value from the current square
+    let inputValue = document.getElementById("inputAutoTab" + idNumber).value;
+    // Validate the input value
+    if (inputValue.length == 1) {
+        // Check value only has 1 character and between 0-9
+        if (inputValue >= 0 && inputValue <=9 && inputValue != " ") {
+            displayMsg("Answer");
+            numeric = true;
+        } else {
+            displayMsg("0-9 ONLY");
+            document.getElementById("inputAutoTab" + idNumber).value = "";
+            numeric = false;
+        }
+    }
+    // Autotab to the next square if the value only between 0-9 and the current square is not the last one
+    if (idNumber < numDigits && numeric == true) {
+         document.getElementsByClassName("answer-square")[idNumber].focus();
+    }
+    // Auto focus on the submit button when the last square value is between 0-9
+    if (idNumber == numDigits && numeric == true) {
+        document.getElementById("submit").focus();
+        document.getElementById("submit").style.outline = "1px solid black";
     }
 }
 
