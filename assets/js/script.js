@@ -1,5 +1,4 @@
 // Set maximum, minimum number of digits and default values for the game
-const maxLevel = 20;
 const gameInterval = 4;
 const initialMemoryTime = 2000;
 const gameTimeInMinute = 10;
@@ -16,7 +15,8 @@ let bestScoreTime = "59:99";
 document.addEventListener("DOMContentLoaded", function () {
     // Constants for the entire game
     const maxDigit = 8; // Maximum number of digits to remember
-    const minDigit = 4;
+    const minDigit = 4; // Minumum number of digits to remember
+    const maxLevel = 20; // Maximum number of levels
     numDigits = minDigit;
     // Create boxes to hold numbers from random number generator and input from player's answer
     createNumberSquares("memory-box", maxDigit);
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("new-game").addEventListener("mouseout", btnOverOut);
 
     // Reset game to initial state
-    resetGame(maxDigit, minDigit);
+    resetGame(maxDigit, minDigit, maxLevel);
     document.getElementById("best-score").innerHTML = "Best Score: --:--";
 
     // Button event
@@ -41,16 +41,16 @@ document.addEventListener("DOMContentLoaded", function () {
             let btnType = this.getAttribute("data-type");
             switch(btnType) {
                 case "new-game":
-                    runNewGame(minDigit, maxDigit);
+                    runNewGame(minDigit, maxDigit, maxLevel);
                     break;
                 case "submit":
-                    displayResult(numDigits);
+                    displayResult(numDigits, maxLevel);
                     break;
                 case "next":
-                    nextLevel(numDigits, maxDigit);
+                    nextLevel(numDigits, maxDigit, maxLevel);
                     break;
                 case "instruction":
-                    popupModal("INSTRUCTION");
+                    popupModal("INSTRUCTION", "", maxLevel);
                     break;
                 default:
                     alert(`Undefined - ${btnType}`);
@@ -115,10 +115,10 @@ function autoTab() {
     if (inputValue.length == 1) {
         // Check value only has 1 character and between 0-9
         if (inputValue >= 0 && inputValue <=9 && inputValue != " ") {
-            displayMsg("Answer");
+            displayMsg("Answer", "");
             numeric = true;
         } else {
-            displayMsg("0-9 ONLY");
+            displayMsg("0-9 ONLY", "");
             document.getElementById("inputAutoTab" + idNumber).value = "";
             numeric = false;
         }
@@ -216,7 +216,7 @@ function displayNumbers(currentNumDigits, maxDigit) {
  * Reset game to initial state
  * @param {*} maxDigit (Maximum nuber of squares)
  */
-function resetGame(maxDigit, minDigit) {
+function resetGame(maxDigit, minDigit, maxLevel) {
     // Reset to constant default vaules
     numDigits = minDigit;
     memoryTime = initialMemoryTime;
@@ -224,7 +224,7 @@ function resetGame(maxDigit, minDigit) {
     // Reduce the font size and display fefault message
     document.getElementById("result").style.fontSize = "75%";
     document.getElementById("result").style.marginTop = "10px";
-    displayMsg("default");
+    displayMsg("default", "");
     // Empty and gray out all squares
     for (let i = 0; i < maxDigit; i++) {
         document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
@@ -238,16 +238,16 @@ function resetGame(maxDigit, minDigit) {
     btnDisabled("next", true);
     // Reset Results
     updateScore(-1);
-    updateSuccessRate(-1);
+    updateSuccessRate(-1, maxLevel);
 }
 
 /**
  * Start a new game with minmum number of digits
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
-function runNewGame(currentNumDigits, maxDigit) {
-    resetGame(maxDigit, currentNumDigits);
-    displayMsg("Hide");
+function runNewGame(currentNumDigits, maxDigit, maxLevel) {
+    resetGame(maxDigit, currentNumDigits, maxLevel);
+    displayMsg("Hide", "");
     displayNumbers(currentNumDigits, maxDigit);
     document.getElementById("levels").innerHTML = "Level: 1 of " + maxLevel;
     btnDisabled("new-game", true);
@@ -256,7 +256,7 @@ function runNewGame(currentNumDigits, maxDigit) {
     // Hide numbers after memoryTime has elapsed
     const  time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     // Start timer
-    clock = displayTimer();
+    clock = displayTimer(maxLevel);
 }
 
 /**
@@ -272,14 +272,14 @@ function hideNumbers(currentNumDigits) {
     }
     btnDisabled("submit", false);
     document.getElementsByClassName("answer-square")[0].focus();
-    displayMsg("Answer");
+    displayMsg("Answer", "");
 }
 
 /**
  * Check player's answer against the random generated number
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
-function checkAnswer(currentNumDigits) {
+function checkAnswer(currentNumDigits, maxLevel) {
     let result = 0;
     for (let i = 0; i < currentNumDigits; i++) {
         // Read and display the hidden numbers from the game area and check each digit
@@ -300,21 +300,21 @@ function checkAnswer(currentNumDigits) {
     }
     // Display result on screen
     if (result == 0) {
-        displayMsg("Correct");
+        displayMsg("Correct", maxLevel);
         updateScore(1);
     } else {
-        displayMsg("Incorrect");
+        displayMsg("Incorrect", maxLevel);
     }
-    updateSuccessRate(score);
+    updateSuccessRate(score, maxLevel);
 }
 
 /**
  * Display results when player hit the submit button
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
-function displayResult(currentNumDigits) {
-    checkAnswer(currentNumDigits);
-    let level = checkCurrentLevel();
+function displayResult(currentNumDigits, maxLevel) {
+    checkAnswer(currentNumDigits, maxLevel);
+    let level = checkCurrentLevel(maxLevel);
     if (level < maxLevel) {
         // Set buttons style and focus on next button
         btnDisabled("submit", true);
@@ -338,7 +338,7 @@ function displayResult(currentNumDigits) {
         // Stop timer
         clearInterval(clock);
         let best = updateBestScore();
-        popupModal("GAME OVER", best);
+        popupModal("GAME OVER", best, maxLevel);
     }
 }
 
@@ -346,7 +346,7 @@ function displayResult(currentNumDigits) {
  * Find current game level from game area
  * @returns Current Lever Number
  */
-function checkCurrentLevel() {
+function checkCurrentLevel(maxLevel) {
     let levels = document.getElementById("levels").textContent;
     let unwantedChar =  (maxLevel.toString()).length + 11;
     let length = levels.length - unwantedChar;
@@ -358,10 +358,10 @@ function checkCurrentLevel() {
  * Run next level
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
- function nextLevel(currentNumDigits, maxDigit) {
+ function nextLevel(currentNumDigits, maxDigit, maxLevel) {
 
-    displayMsg("Next");
-    let level = checkCurrentLevel() +1;
+    displayMsg("Next", "");
+    let level = checkCurrentLevel(maxLevel) +1;
     if (level <= maxLevel) {
         document.getElementById("levels").innerHTML = "Level: " + level + " of " + maxLevel;
         displayNumbers(currentNumDigits, maxDigit);
@@ -394,13 +394,13 @@ function updateScore(result) {
  * Calculate, Update and Add Graphic to represent the success rate
  * @param {*} currentScore (Currrent score from the game)
  */
- function updateSuccessRate(currentScore) {
+ function updateSuccessRate(currentScore, maxLevel) {
     // Calculate the success rate
     let rate = 0;
     if (currentScore == -1) {
         document.getElementById("success-rate").innerHTML = "Success Rate: 0.0%";
     } else {
-        rate = (currentScore / parseInt(checkCurrentLevel()) * 100).toFixed(1);
+        rate = (currentScore / parseInt(checkCurrentLevel(maxLevel)) * 100).toFixed(1);
         document.getElementById("success-rate").innerHTML = "Success Rate: " + rate + "%";
     }
     // Set image common attributes
@@ -463,7 +463,7 @@ function updateScore(result) {
  * Run timer for the game
  * @returns setInterval identifier
  */
-function displayTimer() {
+function displayTimer(maxLevel) {
     let duration = 0;
     let clock = setInterval(function(){
         // Calculate minutes and seconds
@@ -483,7 +483,7 @@ function displayTimer() {
         // Game timeout set by global variable
         if (minuteTimer  == gameTimeInMinute){
             clearInterval(clock);
-            popupModal("TIME OUT","timeout");
+            popupModal("TIME OUT", "timeout", maxLevel);
         }
     }, 1000);
     return clock;
@@ -527,7 +527,7 @@ function displayTimer() {
  * Display message in the result section
  * @param {*} message (0-9 ONLY, Answer, Correct, Incorrect, Next or Hide)
  */
-function displayMsg(message) {
+function displayMsg(message, maxLevel) {
     let msg = document.getElementById("result").textContent;
     // Set default message color to black
     document.getElementById("result").style.color = "black";
@@ -543,7 +543,7 @@ function displayMsg(message) {
             break;
         // Call from checkAnswer
         case "Correct":
-            if (checkCurrentLevel() != maxLevel) {
+            if (checkCurrentLevel(maxLevel) != maxLevel) {
                 msg = "Correct Answer - Click Next to continue";
             } else {
                 msg = "Correct Answer";
@@ -551,7 +551,7 @@ function displayMsg(message) {
             break;
         // call from checkAnswer
         case "Incorrect":
-            if (checkCurrentLevel() != maxLevel) {
+            if (checkCurrentLevel(maxLevel) != maxLevel) {
                 msg = "Wrong Answer - Click Next to continue";
             } else {
                 msg = "Wrong Answer";
@@ -578,7 +578,7 @@ function displayMsg(message) {
  * @param {*} title (INSTRUCTION, GAME OVER or TIME OUT)
  * @param {*} opt1 (INSTRUCTION, timeout, best)
  */
- function popupModal(title, opt1) {
+ function popupModal(title, opt1, maxLevel) {
     // Get current disabled status for all buttons
     let originalState = checkBtnDisabled();
     if (opt1 == "timeout") {
@@ -620,11 +620,11 @@ function displayMsg(message) {
     // Get contents for the modal box
     switch (title) {
         case "GAME OVER":
-            msg = gameOver(opt1);
+            msg = gameOver(opt1, maxLevel);
             textAlign = "center";
             break;
         case "INSTRUCTION":
-            msg = displayInstruction();
+            msg = displayInstruction(maxLevel);
             textAlign = "left";
             break;
         case "TIME OUT":
@@ -701,7 +701,7 @@ function mediaQuery(boxTitle) {
  * @param {*} bestScore
  * @returns message (Best score, Best Time or Score)
  */
-function gameOver(bestScore) {
+function gameOver(bestScore, maxLevel) {
     let msg = "";
     switch (bestScore) {
         // More correct answers
@@ -733,7 +733,7 @@ function gameOver(bestScore) {
  * Create html order list for the instruction
  * @returns html string
  */
-function displayInstruction() {
+function displayInstruction(maxLevel) {
     let msg = `
         <ol id = "instruction-list">
             <li>Total ${maxLevel} Levels in ${gameTimeInMinute} minutes</li>
