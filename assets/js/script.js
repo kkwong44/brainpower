@@ -1,5 +1,4 @@
 // Set maximum, minimum number of digits and default values for the game
-let score = 0;
 let minuteTimer = 0;
 let secondTimer = 0;
 let bestScore = 0;
@@ -22,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Storing values from the game to the session storage
     sessionStorage.setItem("numDigits",numDigits); // Number of digits
     sessionStorage.setItem("memoryTime",memoryTime); // Memory time for current level
+    sessionStorage.setItem("score", 0); // Reset game score to zero
 
     // Create boxes to hold numbers from random number generator and input from player's answer
     createNumberSquares("memory-box", maxDigit);
@@ -314,6 +314,7 @@ function checkAnswer(currentNumDigits, maxLevel) {
     } else {
         displayMsg("Incorrect", maxLevel);
     }
+    let score = sessionStorage.getItem("score");
     updateSuccessRate(score, maxLevel);
 }
 
@@ -397,11 +398,14 @@ function checkCurrentLevel(maxLevel) {
  * Update scores
  */
 function updateScore(result) {
+    // Get and update current score from session storage
+    let score = parseInt(sessionStorage.getItem("score"));
     if (result == -1) {
         score = 0;
     } else {
         score = score + result;
     }
+    sessionStorage.setItem("score",score);
     document.getElementById("score").innerHTML = "Score: " + score;
 }
 
@@ -513,12 +517,13 @@ function displayTimer(maxLevel, gameTimeInMinute) {
     let bestMin = parseInt(bestScoreTime.substring(0,2)) * 60;
     let bestSec = parseInt(bestScoreTime.substring(3));
     let bestTime = bestMin + bestSec;
-    // Calculate the game sacoe in seconds
+    // Calculate the game score in seconds
     let scoreMin = parseInt(minuteTimer) * 60;
     let scoreSec = parseInt(secondTimer);
     let scoreTime = scoreMin + scoreSec;
     // Compare the game score with best score by number of of correct answers
     // and the time to complete the game
+    let score = sessionStorage.getItem("score");
     switch (true) {
         case (score > bestScore):
             bestScore = score;
@@ -643,6 +648,7 @@ function displayMsg(message, maxLevel) {
             textAlign = "left";
             break;
         case "TIME OUT":
+            let score = sessionStorage.getItem("score");
             msg = `
                 <p>Game Over!</p>
                 <br>
@@ -718,6 +724,7 @@ function mediaQuery(boxTitle) {
  */
 function gameOver(bestScore, maxLevel) {
     let msg = "";
+    let score = sessionStorage.getItem("score");
     switch (bestScore) {
         // More correct answers
         case "Best Score":
