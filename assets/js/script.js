@@ -1,5 +1,4 @@
 // Set maximum, minimum number of digits and default values for the game
-const gameTimeInMinute = 10;
 let numDigits = 0;
 let memoryTime = 0;
 let score = 0;
@@ -17,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const maxLevel = 20; // Maximum number of levels
     const gameInterval = 4; // Increase difficulties for every intererval on levels
     const initialMemoryTime = 2000; // Initial memory time in milliseconds
+    const gameTimeInMinute = 10; // Maximum game time in minutes
     numDigits = minDigit;
     memoryTime = initialMemoryTime
     // Create boxes to hold numbers from random number generator and input from player's answer
@@ -42,16 +42,16 @@ document.addEventListener("DOMContentLoaded", function () {
             let btnType = this.getAttribute("data-type");
             switch(btnType) {
                 case "new-game":
-                    runNewGame(minDigit, maxDigit, maxLevel, initialMemoryTime);
+                    runNewGame(minDigit, maxDigit, maxLevel, initialMemoryTime, gameTimeInMinute);
                     break;
                 case "submit":
-                    displayResult(numDigits, maxLevel, gameInterval);
+                    displayResult(numDigits, maxLevel, gameInterval, gameTimeInMinute);
                     break;
                 case "next":
                     nextLevel(numDigits, maxDigit, maxLevel);
                     break;
                 case "instruction":
-                    popupModal("INSTRUCTION", "", maxLevel);
+                    popupModal("INSTRUCTION", "", maxLevel, gameTimeInMinute);
                     break;
                 default:
                     alert(`Undefined - ${btnType}`);
@@ -246,7 +246,7 @@ function resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime) {
  * Start a new game with minmum number of digits
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
-function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime) {
+function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime, gameTimeInMinute) {
     resetGame(maxDigit, currentNumDigits, maxLevel, initialMemoryTime);
     displayMsg("Hide", "");
     displayNumbers(currentNumDigits, maxDigit);
@@ -257,7 +257,7 @@ function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime) {
     // Hide numbers after memoryTime has elapsed
     const  time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     // Start timer
-    clock = displayTimer(maxLevel);
+    clock = displayTimer(maxLevel, gameTimeInMinute);
 }
 
 /**
@@ -313,7 +313,7 @@ function checkAnswer(currentNumDigits, maxLevel) {
  * Display results when player hit the submit button
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
-function displayResult(currentNumDigits, maxLevel, gameInterval) {
+function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinute) {
     checkAnswer(currentNumDigits, maxLevel);
     let level = checkCurrentLevel(maxLevel);
     if (level < maxLevel) {
@@ -339,7 +339,7 @@ function displayResult(currentNumDigits, maxLevel, gameInterval) {
         // Stop timer
         clearInterval(clock);
         let best = updateBestScore();
-        popupModal("GAME OVER", best, maxLevel);
+        popupModal("GAME OVER", best, maxLevel, gameTimeInMinute);
     }
 }
 
@@ -464,7 +464,7 @@ function updateScore(result) {
  * Run timer for the game
  * @returns setInterval identifier
  */
-function displayTimer(maxLevel) {
+function displayTimer(maxLevel, gameTimeInMinute) {
     let duration = 0;
     let clock = setInterval(function(){
         // Calculate minutes and seconds
@@ -484,7 +484,7 @@ function displayTimer(maxLevel) {
         // Game timeout set by global variable
         if (minuteTimer  == gameTimeInMinute){
             clearInterval(clock);
-            popupModal("TIME OUT", "timeout", maxLevel);
+            popupModal("TIME OUT", "timeout", maxLevel, gameTimeInMinute);
         }
     }, 1000);
     return clock;
@@ -579,7 +579,7 @@ function displayMsg(message, maxLevel) {
  * @param {*} title (INSTRUCTION, GAME OVER or TIME OUT)
  * @param {*} opt1 (INSTRUCTION, timeout, best)
  */
- function popupModal(title, opt1, maxLevel) {
+ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
     // Get current disabled status for all buttons
     let originalState = checkBtnDisabled();
     if (opt1 == "timeout") {
@@ -625,7 +625,7 @@ function displayMsg(message, maxLevel) {
             textAlign = "center";
             break;
         case "INSTRUCTION":
-            msg = displayInstruction(maxLevel);
+            msg = displayInstruction(maxLevel, gameTimeInMinute);
             textAlign = "left";
             break;
         case "TIME OUT":
@@ -734,7 +734,7 @@ function gameOver(bestScore, maxLevel) {
  * Create html order list for the instruction
  * @returns html string
  */
-function displayInstruction(maxLevel) {
+function displayInstruction(maxLevel, gameTimeInMinute) {
     let msg = `
         <ol id = "instruction-list">
             <li>Total ${maxLevel} Levels in ${gameTimeInMinute} minutes</li>
