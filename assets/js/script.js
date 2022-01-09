@@ -1,5 +1,4 @@
 // Set maximum, minimum number of digits and default values for the game
-let bestScore = 0;
 let bestScoreTime = "59:99";
 
 // Wait for the DOM to finish loading before running the game
@@ -23,6 +22,16 @@ document.addEventListener("DOMContentLoaded", function () {
     sessionStorage.setItem("minuteTimer", 0); // Reset timer minute to zero
     sessionStorage.setItem("secondTimer", 0); // Reset timer second to zero
 
+    // Storing best score locally
+    const bestScore = localStorage.getItem('bestScore');
+    //localStorage.removeItem("bestScore");
+    if(bestScore){
+        document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + " --:--";
+    }else{
+        localStorage.setItem("bestScore",0);
+        document.getElementById("best-score").innerHTML = "Best Score: --:--";
+    }
+
     // Create boxes to hold numbers from random number generator and input from player's answer
     createNumberSquares("memory-box", maxDigit);
     createNumberSquares("answer-box", maxDigit);
@@ -37,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Reset game to initial state
     resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime);
-    document.getElementById("best-score").innerHTML = "Best Score: --:--";
 
     // Button event
     let buttons = document.getElementsByTagName("button");
@@ -530,11 +538,13 @@ function displayTimer(maxLevel, gameTimeInMinute) {
     // Compare the game score with best score by number of of correct answers
     // and the time to complete the game
     let score = sessionStorage.getItem("score");
+    let bestScore = localStorage.getItem("bestScore");
     switch (true) {
         case (score > bestScore):
             bestScore = score;
             bestScoreTime = minuteTimer + ":" + secondTimer;
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + "m " + secondTimer + "s)";
+            localStorage.setItem('bestScore',bestScore);
             return "Best Score";
             break;
         case (score == bestScore) && (scoreTime < bestTime):
