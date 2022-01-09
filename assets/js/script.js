@@ -1,6 +1,3 @@
-// Set maximum, minimum number of digits and default values for the game
-let bestScoreTime = "59:99";
-
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function () {
@@ -24,11 +21,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Storing best score locally
     const bestScore = localStorage.getItem('bestScore');
-    //localStorage.removeItem("bestScore");
-    if(bestScore){
+    const bestScoreTime = localStorage.getItem('bestScoreTime');
+    if (bestScore) {
         document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + " --:--";
-    }else{
+    } else {
         localStorage.setItem("bestScore",0);
+        document.getElementById("best-score").innerHTML = "Best Score: --:--";
+    }
+    if (bestScoreTime) {
+        const bestMin = bestScoreTime.substring(0,2);
+        const bestSec = bestScoreTime.substring(3);
+        document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + bestMin + "m " + bestSec + "s)";
+    } else {
+        localStorage.setItem("bestScoreTime","59:59");
         document.getElementById("best-score").innerHTML = "Best Score: --:--";
     }
 
@@ -526,6 +531,7 @@ function displayTimer(maxLevel, gameTimeInMinute) {
  */
  function updateBestScore() {
     // Calculate the current best time in seconds
+    let bestScoreTime = localStorage.getItem("bestScoreTime");
     let bestMin = parseInt(bestScoreTime.substring(0,2)) * 60;
     let bestSec = parseInt(bestScoreTime.substring(3));
     let bestTime = bestMin + bestSec;
@@ -545,13 +551,13 @@ function displayTimer(maxLevel, gameTimeInMinute) {
             bestScoreTime = minuteTimer + ":" + secondTimer;
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + "m " + secondTimer + "s)";
             localStorage.setItem('bestScore',bestScore);
+            localStorage.setItem("bestScoreTime",bestScoreTime);
             return "Best Score";
             break;
         case (score == bestScore) && (scoreTime < bestTime):
-            console.log("scoreTime ", scoreTime);
-            console.log("bestScoreTime ", bestScoreTime);
             bestScoreTime = minuteTimer + ":" + secondTimer;
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + "m " + secondTimer + "s)";
+            localStorage.setItem("bestScoreTime",bestScoreTime);
             return "Best Time";
             break;
         default:
