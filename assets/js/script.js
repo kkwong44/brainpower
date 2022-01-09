@@ -1,5 +1,4 @@
 // Set maximum, minimum number of digits and default values for the game
-let numDigits = 0;
 let memoryTime = 0;
 let score = 0;
 let minuteTimer = 0;
@@ -17,8 +16,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const gameInterval = 4; // Increase difficulties for every intererval on levels
     const initialMemoryTime = 2000; // Initial memory time in milliseconds
     const gameTimeInMinute = 10; // Maximum game time in minutes
-    numDigits = minDigit;
+    // Variables for the entire game
+    let numDigits = minDigit; // Initially start number of digits as minimum of digits
     memoryTime = initialMemoryTime
+
+    // Storing values from the game to the session storage
+    sessionStorage.setItem("numDigits",numDigits); // Number of digits
+
     // Create boxes to hold numbers from random number generator and input from player's answer
     createNumberSquares("memory-box", maxDigit);
     createNumberSquares("answer-box", maxDigit);
@@ -45,9 +49,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     runNewGame(minDigit, maxDigit, maxLevel, initialMemoryTime, gameTimeInMinute);
                     break;
                 case "submit":
+                    numDigits = sessionStorage.getItem("numDigits");
                     displayResult(numDigits, maxLevel, gameInterval, gameTimeInMinute);
                     break;
                 case "next":
+                    numDigits = sessionStorage.getItem("numDigits");
                     nextLevel(numDigits, maxDigit, maxLevel);
                     break;
                 case "instruction":
@@ -124,6 +130,7 @@ function autoTab() {
             numeric = false;
         }
     }
+    let numDigits = sessionStorage.getItem("numDigits");
     // Autotab to the next square if the value only between 0-9 and the current square is not the last one
     if (idNumber < numDigits && numeric == true) {
          document.getElementsByClassName("answer-square")[idNumber].focus();
@@ -219,7 +226,7 @@ function displayNumbers(currentNumDigits, maxDigit) {
  */
 function resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime) {
     // Reset to constant default vaules
-    numDigits = minDigit;
+    sessionStorage.setItem("numDigits",minDigit);
     memoryTime = initialMemoryTime;
     document.getElementById("timer").innerHTML = "Timer: 00:00";
     // Reduce the font size and display fefault message
@@ -326,8 +333,11 @@ function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinut
         // Increase dificulty by an extra digit for every game interval and allow an extra half second to memorise the number
         let difficulty = level % gameInterval;
         if  (difficulty === 0) {
+            // Get current values from session storage and update with new values
+            numDigits = parseInt(sessionStorage.getItem("numDigits"));
             numDigits = numDigits + 1;
             memoryTime = memoryTime + 500;
+            sessionStorage.setItem("numDigits",numDigits);
         }
     } else {
         // Set buttons style and focus on new game button
