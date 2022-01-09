@@ -187,7 +187,7 @@ function btnDisabled(id, disabled) {
 function btnOverIn() {
     btn = this.id;
     btn = document.getElementById(btn);
-    btn.style.background = "#b9b9b9";
+    btn.style.background = "#4a4a4a";
 }
 
 /**
