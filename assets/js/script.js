@@ -1,5 +1,4 @@
 // Set maximum, minimum number of digits and default values for the game
-const gameInterval = 4;
 const initialMemoryTime = 2000;
 const gameTimeInMinute = 10;
 let numDigits = 0;
@@ -17,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const maxDigit = 8; // Maximum number of digits to remember
     const minDigit = 4; // Minumum number of digits to remember
     const maxLevel = 20; // Maximum number of levels
+    const gameInterval = 4; // Increase difficulties for every intererval on levels
     numDigits = minDigit;
     // Create boxes to hold numbers from random number generator and input from player's answer
     createNumberSquares("memory-box", maxDigit);
@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     runNewGame(minDigit, maxDigit, maxLevel);
                     break;
                 case "submit":
-                    displayResult(numDigits, maxLevel);
+                    displayResult(numDigits, maxLevel, gameInterval);
                     break;
                 case "next":
                     nextLevel(numDigits, maxDigit, maxLevel);
@@ -312,7 +312,7 @@ function checkAnswer(currentNumDigits, maxLevel) {
  * Display results when player hit the submit button
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
-function displayResult(currentNumDigits, maxLevel) {
+function displayResult(currentNumDigits, maxLevel, gameInterval) {
     checkAnswer(currentNumDigits, maxLevel);
     let level = checkCurrentLevel(maxLevel);
     if (level < maxLevel) {
