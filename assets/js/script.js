@@ -1,5 +1,4 @@
 // Set maximum, minimum number of digits and default values for the game
-let minuteTimer = 0;
 let secondTimer = 0;
 let bestScore = 0;
 let bestScoreTime = "59:99";
@@ -22,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sessionStorage.setItem("numDigits",numDigits); // Number of digits
     sessionStorage.setItem("memoryTime",memoryTime); // Memory time for current level
     sessionStorage.setItem("score", 0); // Reset game score to zero
+    sessionStorage.setItem("minuteTimer", 0); // Reset timer minute to zero
 
     // Create boxes to hold numbers from random number generator and input from player's answer
     createNumberSquares("memory-box", maxDigit);
@@ -490,6 +490,7 @@ function displayTimer(maxLevel, gameTimeInMinute) {
         let min = Math.floor((duration / 60));
         let sec = Math.floor((duration % 60));
         // Convert time to string and to format 00:00s
+        let minuteTimer = sessionStorage.getItem("minuteTimer");
         minuteTimer = min.toString();
         secondTimer = sec.toString();
         if (minuteTimer.toString().length == 1) {
@@ -499,6 +500,7 @@ function displayTimer(maxLevel, gameTimeInMinute) {
             secondTimer = "0" + secondTimer;
         }
         document.getElementById("timer").innerHTML = "Timer: " + minuteTimer + ":" + secondTimer;
+        sessionStorage.setItem("minuteTimer", minuteTimer);
         // Game timeout set by global variable
         if (minuteTimer  == gameTimeInMinute){
             clearInterval(clock);
@@ -518,6 +520,7 @@ function displayTimer(maxLevel, gameTimeInMinute) {
     let bestSec = parseInt(bestScoreTime.substring(3));
     let bestTime = bestMin + bestSec;
     // Calculate the game score in seconds
+    let minuteTimer = sessionStorage.getItem("minuteTimer");
     let scoreMin = parseInt(minuteTimer) * 60;
     let scoreSec = parseInt(secondTimer);
     let scoreTime = scoreMin + scoreSec;
