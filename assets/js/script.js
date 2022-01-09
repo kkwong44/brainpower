@@ -1,10 +1,9 @@
 // Set maximum, minimum number of digits and default values for the game
-const minDigit = 4;
 const maxLevel = 20;
 const gameInterval = 4;
 const initialMemoryTime = 2000;
 const gameTimeInMinute = 10;
-let numDigits = minDigit;
+let numDigits = 0;
 let memoryTime = initialMemoryTime;
 let score = 0;
 let minuteTimer = 0;
@@ -17,6 +16,8 @@ let bestScoreTime = "59:99";
 document.addEventListener("DOMContentLoaded", function () {
     // Constants for the entire game
     const maxDigit = 8; // Maximum number of digits to remember
+    const minDigit = 4;
+    numDigits = minDigit;
     // Create boxes to hold numbers from random number generator and input from player's answer
     createNumberSquares("memory-box", maxDigit);
     createNumberSquares("answer-box", maxDigit);
@@ -30,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("new-game").addEventListener("mouseout", btnOverOut);
 
     // Reset game to initial state
-    resetGame(maxDigit);
+    resetGame(maxDigit, minDigit);
     document.getElementById("best-score").innerHTML = "Best Score: --:--";
 
     // Button event
@@ -215,7 +216,7 @@ function displayNumbers(currentNumDigits, maxDigit) {
  * Reset game to initial state
  * @param {*} maxDigit (Maximum nuber of squares)
  */
-function resetGame(maxDigit) {
+function resetGame(maxDigit, minDigit) {
     // Reset to constant default vaules
     numDigits = minDigit;
     memoryTime = initialMemoryTime;
@@ -245,7 +246,7 @@ function resetGame(maxDigit) {
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
 function runNewGame(currentNumDigits, maxDigit) {
-    resetGame(maxDigit);
+    resetGame(maxDigit, currentNumDigits);
     displayMsg("Hide");
     displayNumbers(currentNumDigits, maxDigit);
     document.getElementById("levels").innerHTML = "Level: 1 of " + maxLevel;
