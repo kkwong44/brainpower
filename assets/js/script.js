@@ -8,13 +8,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const gameInterval = 4; // Increase difficulties for every intererval on levels
     const initialMemoryTime = 2000; // Initial memory time in milliseconds
     const gameTimeInMinute = 10; // Maximum game time in minutes
+
     // Variables for the entire game
     let numDigits = minDigit; // Initially start number of digits as minimum of digits
     let memoryTime = initialMemoryTime // Start memory time from initial value
 
     // Storing values from the game to the session storage
-    sessionStorage.setItem("numDigits",numDigits); // Number of digits
-    sessionStorage.setItem("memoryTime",memoryTime); // Memory time for current level
+    sessionStorage.setItem("numDigits", numDigits); // Number of digits
+    sessionStorage.setItem("memoryTime", memoryTime); // Memory time for current level
     sessionStorage.setItem("score", 0); // Reset game score to zero
     sessionStorage.setItem("minuteTimer", 0); // Reset timer minute to zero
     sessionStorage.setItem("secondTimer", 0); // Reset timer second to zero
@@ -24,21 +25,21 @@ document.addEventListener("DOMContentLoaded", function () {
     const bestScoreTime = localStorage.getItem('bestScoreTime');
     if (bestScore) {
         if (bestScoreTime) {
-            const bestMin = bestScoreTime.substring(0,2);
+            const bestMin = bestScoreTime.substring(0, 2);
             const bestSec = bestScoreTime.substring(3);
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + bestMin + "m " + bestSec + "s)";
         } else {
-            localStorage.setItem("bestScoreTime","59:59");
+            localStorage.setItem("bestScoreTime", "59:59");
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + " --:--";
         }
     } else {
-        localStorage.setItem("bestScore",0);
+        localStorage.setItem("bestScore", 0);
         if (bestScoreTime) {
-            const bestMin = bestScoreTime.substring(0,2);
+            const bestMin = bestScoreTime.substring(0, 2);
             const bestSec = bestScoreTime.substring(3);
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + bestMin + "m " + bestSec + "s)";
         } else {
-            localStorage.setItem("bestScoreTime","59:59");
+            localStorage.setItem("bestScoreTime", "59:59");
             document.getElementById("best-score").innerHTML = "Best Score: --:--";
         }
     }
@@ -63,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     for (let button of buttons) {
         button.addEventListener("click", function () {
             let btnType = this.getAttribute("data-type");
-            switch(btnType) {
+            switch (btnType) {
                 case "new-game":
                     runNewGame(minDigit, maxDigit, maxLevel, initialMemoryTime, gameTimeInMinute);
                     break;
@@ -140,7 +141,7 @@ function autoTab() {
     // Validate the input value
     if (inputValue.length == 1) {
         // Check value only has 1 character and between 0-9
-        if (inputValue >= 0 && inputValue <=9 && inputValue != " ") {
+        if (inputValue >= 0 && inputValue <= 9 && inputValue != " ") {
             displayMsg("Answer", "");
             numeric = true;
         } else {
@@ -152,7 +153,7 @@ function autoTab() {
     let numDigits = sessionStorage.getItem("numDigits");
     // Autotab to the next square if the value only between 0-9 and the current square is not the last one
     if (idNumber < numDigits && numeric == true) {
-         document.getElementsByClassName("answer-square")[idNumber].focus();
+        document.getElementsByClassName("answer-square")[idNumber].focus();
     }
     // Auto focus on the submit button when the last square value is between 0-9
     if (idNumber == numDigits && numeric == true) {
@@ -166,7 +167,7 @@ function autoTab() {
  * @param {*} id (Button Id)
  * @param {*} disabled (True or False)
  */
-function btnDisabled(id,disabled) {
+function btnDisabled(id, disabled) {
     if (disabled == true) {
         document.getElementById(id).style.background = "#a9a9a9";
         document.getElementById(id).style.color = "#d9d9d9";
@@ -183,7 +184,7 @@ function btnDisabled(id,disabled) {
  * When mouse moveover the button
  * Set button color as background color
  */
- function btnOverIn() {
+function btnOverIn() {
     btn = this.id;
     btn = document.getElementById(btn);
     btn.style.background = "#b9b9b9";
@@ -193,7 +194,7 @@ function btnDisabled(id,disabled) {
  * When mouse moveout the button
  * Set button color to green
  */
- function btnOverOut() {
+function btnOverOut() {
     btn = this.id;
     btn = document.getElementById(btn);
     btn.style.background = "green";
@@ -245,8 +246,8 @@ function displayNumbers(currentNumDigits, maxDigit) {
  */
 function resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime) {
     // Reset to constant default vaules
-    sessionStorage.setItem("numDigits",minDigit);
-    sessionStorage.setItem("memoryTime",initialMemoryTime);
+    sessionStorage.setItem("numDigits", minDigit);
+    sessionStorage.setItem("memoryTime", initialMemoryTime);
     document.getElementById("timer").innerHTML = "Timer: 00:00";
     // Reduce the font size and display fefault message
     document.getElementById("result").style.fontSize = "75%";
@@ -282,7 +283,7 @@ function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime, gam
     btnDisabled("next", true);
     // Hide numbers after memoryTime has elapsed
     let memoryTime = sessionStorage.getItem("memoryTime");
-    const  time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
+    const time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     // Start timer
     clock = displayTimer(maxLevel, gameTimeInMinute);
 }
@@ -353,14 +354,14 @@ function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinut
         document.getElementById("next").focus();
         // Increase dificulty by an extra digit for every game interval and allow an extra half second to memorise the number
         let difficulty = level % gameInterval;
-        if  (difficulty === 0) {
+        if (difficulty === 0) {
             // Get current values from session storage and update with new values
             numDigits = parseInt(sessionStorage.getItem("numDigits"));
             let memoryTime = parseInt(sessionStorage.getItem("memoryTime"));
             numDigits = numDigits + 1;
             memoryTime = memoryTime + 500;
-            sessionStorage.setItem("numDigits",numDigits);
-            sessionStorage.setItem("memoryTime",memoryTime);
+            sessionStorage.setItem("numDigits", numDigits);
+            sessionStorage.setItem("memoryTime", memoryTime);
         }
     } else {
         // Set buttons style and focus on new game button
@@ -382,9 +383,9 @@ function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinut
  */
 function checkCurrentLevel(maxLevel) {
     let levels = document.getElementById("levels").textContent;
-    let unwantedChar =  (maxLevel.toString()).length + 11;
+    let unwantedChar = (maxLevel.toString()).length + 11;
     let length = levels.length - unwantedChar;
-    currentLevel = parseInt(levels.slice(6 , 7 + length));
+    currentLevel = parseInt(levels.slice(6, 7 + length));
     return currentLevel;
 }
 
@@ -392,22 +393,22 @@ function checkCurrentLevel(maxLevel) {
  * Run next level
  * @param {*} currentNumDigits (Number of digits for current game level)
  */
- function nextLevel(currentNumDigits, maxDigit, maxLevel) {
+function nextLevel(currentNumDigits, maxDigit, maxLevel) {
 
     displayMsg("Next", "");
-    let level = checkCurrentLevel(maxLevel) +1;
+    let level = checkCurrentLevel(maxLevel) + 1;
     if (level <= maxLevel) {
         document.getElementById("levels").innerHTML = "Level: " + level + " of " + maxLevel;
         displayNumbers(currentNumDigits, maxDigit);
-        
+
         document.getElementById("next").style.outline = "none";
         btnDisabled("new-game", true);
         btnDisabled("submit", true);
         btnDisabled("next", true);
-        
+
         // Hide numbers after memoryTime has elapsed
         let memoryTime = sessionStorage.getItem("memoryTime");
-        const  time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
+        const time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     } else {
         alert("Game Over");
     }
@@ -424,7 +425,7 @@ function updateScore(result) {
     } else {
         score = score + result;
     }
-    sessionStorage.setItem("score",score);
+    sessionStorage.setItem("score", score);
     document.getElementById("score").innerHTML = "Score: " + score;
 }
 
@@ -432,7 +433,7 @@ function updateScore(result) {
  * Calculate, Update and Add Graphic to represent the success rate
  * @param {*} currentScore (Currrent score from the game)
  */
- function updateSuccessRate(currentScore, maxLevel) {
+function updateSuccessRate(currentScore, maxLevel) {
     // Calculate the success rate
     let rate = 0;
     if (currentScore == -1) {
@@ -446,10 +447,10 @@ function updateScore(result) {
     img.setAttribute("width", "100");
     img.setAttribute("height", "40");
     img.setAttribute("class", "success-bar");
-    img.style.verticalAlign ="text-bottom";
+    img.style.verticalAlign = "text-bottom";
     // Select the image to represent the success rate
-    switch (rate = Math.round(rate/10)) {
-         case 1:
+    switch (rate = Math.round(rate / 10)) {
+        case 1:
             img.setAttribute("src", "assets/images/success-rate01.png");
             img.setAttribute("alt", "10% Success Rate");
             break;
@@ -503,7 +504,7 @@ function updateScore(result) {
  */
 function displayTimer(maxLevel, gameTimeInMinute) {
     let duration = 0;
-    let clock = setInterval(function(){
+    let clock = setInterval(function () {
         // Calculate minutes and seconds
         duration++;
         let min = Math.floor((duration / 60));
@@ -523,7 +524,7 @@ function displayTimer(maxLevel, gameTimeInMinute) {
         sessionStorage.setItem("minuteTimer", minuteTimer);
         sessionStorage.setItem("secondTimer", secondTimer);
         // Game timeout set by global variable
-        if (minuteTimer  == gameTimeInMinute){
+        if (minuteTimer == gameTimeInMinute) {
             clearInterval(clock);
             popupModal("TIME OUT", "timeout", maxLevel, gameTimeInMinute);
         }
@@ -535,10 +536,10 @@ function displayTimer(maxLevel, gameTimeInMinute) {
  * Update best score by comparing the score and time
  * @returns (Best Score, Best Time or Failed)
  */
- function updateBestScore() {
+function updateBestScore() {
     // Calculate the current best time in seconds
     let bestScoreTime = localStorage.getItem("bestScoreTime");
-    let bestMin = parseInt(bestScoreTime.substring(0,2)) * 60;
+    let bestMin = parseInt(bestScoreTime.substring(0, 2)) * 60;
     let bestSec = parseInt(bestScoreTime.substring(3));
     let bestTime = bestMin + bestSec;
     // Calculate the game score in seconds
@@ -556,14 +557,14 @@ function displayTimer(maxLevel, gameTimeInMinute) {
             bestScore = score;
             bestScoreTime = minuteTimer + ":" + secondTimer;
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + "m " + secondTimer + "s)";
-            localStorage.setItem('bestScore',bestScore);
-            localStorage.setItem("bestScoreTime",bestScoreTime);
+            localStorage.setItem('bestScore', bestScore);
+            localStorage.setItem("bestScoreTime", bestScoreTime);
             return "Best Score";
             break;
         case (score == bestScore) && (scoreTime < bestTime):
             bestScoreTime = minuteTimer + ":" + secondTimer;
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + "m " + secondTimer + "s)";
-            localStorage.setItem("bestScoreTime",bestScoreTime);
+            localStorage.setItem("bestScoreTime", bestScoreTime);
             return "Best Time";
             break;
         default:
@@ -585,11 +586,11 @@ function displayMsg(message, maxLevel) {
         case "0-9 ONLY":
             msg = "Hint: Number 0-9 only";
             break;
-        // Call from hideNumbers key event listener
+            // Call from hideNumbers key event listener
         case "Answer":
             msg = "Enter your answer and hit the Submit button";
             break;
-        // Call from checkAnswer
+            // Call from checkAnswer
         case "Correct":
             if (checkCurrentLevel(maxLevel) != maxLevel) {
                 msg = "Correct Answer - Click Next to continue";
@@ -597,7 +598,7 @@ function displayMsg(message, maxLevel) {
                 msg = "Correct Answer";
             }
             break;
-        // call from checkAnswer
+            // call from checkAnswer
         case "Incorrect":
             if (checkCurrentLevel(maxLevel) != maxLevel) {
                 msg = "Wrong Answer - Click Next to continue";
@@ -605,18 +606,18 @@ function displayMsg(message, maxLevel) {
                 msg = "Wrong Answer";
             }
             break;
-        // Call from nextLevel
+            // Call from nextLevel
         case "Next":
             msg = "Hide message";
             document.getElementById("result").style.color = "#b9b9b9";
             break;
-        // Hide current message on screen
+            // Hide current message on screen
         case "Hide":
             document.getElementById("result").style.color = "#b9b9b9";
             break;
         default:
             msg = "Click (NEW GAME) to Start"
-        }
+    }
     // Update html on id result
     document.getElementById("result").innerHTML = msg;
 }
@@ -626,7 +627,7 @@ function displayMsg(message, maxLevel) {
  * @param {*} title (INSTRUCTION, GAME OVER or TIME OUT)
  * @param {*} opt1 (INSTRUCTION, timeout, best)
  */
- function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
+function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
     // Get current disabled status for all buttons
     let originalState = checkBtnDisabled();
     if (opt1 == "timeout") {
@@ -644,7 +645,7 @@ function displayMsg(message, maxLevel) {
     let span = document.getElementsByClassName("msg-modal-close")[0];
     modal.style.display = "block";
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
         // Reset previous disabled status to all buttons
         btnDisabled("new-game", originalState.btnNewGame);
@@ -652,7 +653,7 @@ function displayMsg(message, maxLevel) {
         btnDisabled("submit", originalState.btnSubmit);
     }
     // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
             // Reset previous disabled status to all buttons
@@ -662,9 +663,9 @@ function displayMsg(message, maxLevel) {
         }
     }
     // Update modal title and contents
-    let msg ="";
+    let msg = "";
     let fontSize = "";
-    let margin ="";
+    let margin = "";
     // Get contents for the modal box
     switch (title) {
         case "GAME OVER":
@@ -680,7 +681,7 @@ function displayMsg(message, maxLevel) {
             msg = `
                 <p>Game Over!</p>
                 <br>
-                <p>Score: ${score} / ${maxLevel}</p>
+                <p>This score has not been recorded: ${score} / ${maxLevel}</p>
             `;
             textAlign = "center";
             break;
@@ -688,7 +689,7 @@ function displayMsg(message, maxLevel) {
     // Media Query - reyurning font size and margin for modal box
     mQuery = mediaQuery(title);
     fontSize = mQuery.fontSize;
-    margin = mQuery.margin; 
+    margin = mQuery.margin;
     // Update Modal Box
     document.getElementsByClassName("msg-modal-title")[0].innerHTML = title;
     document.getElementsByClassName("msg-modal-body")[0].innerHTML = msg;
@@ -742,7 +743,10 @@ function mediaQuery(boxTitle) {
         }
     }
     // Return values
-    return {fontSize, margin};
+    return {
+        fontSize,
+        margin
+    };
 }
 
 /**
@@ -762,7 +766,7 @@ function gameOver(bestScore, maxLevel) {
                 <p>You Have The Best Score!</p>
             `;
             break;
-        // Same number of correct answers but in a quicker time
+            // Same number of correct answers but in a quicker time
         case "Best Time":
             msg = `
                 <p>Score: ${score} / ${maxLevel}</p>
@@ -770,7 +774,7 @@ function gameOver(bestScore, maxLevel) {
                 <p>You have the fastest time for ${score} correct answers!</p>
             `;
             break;
-        // Default score
+            // Default score
         default:
             msg = `
             <p>Score: ${score} / ${maxLevel}</p>
@@ -807,5 +811,9 @@ function checkBtnDisabled() {
     let btnNewGame = document.getElementById("new-game").disabled;
     let btnNext = document.getElementById("next").disabled;
     let btnSubmit = document.getElementById("submit").disabled;
-    return {btnNewGame, btnNext, btnSubmit};
+    return {
+        btnNewGame,
+        btnNext,
+        btnSubmit
+    };
 }
