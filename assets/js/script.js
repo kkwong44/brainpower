@@ -1,5 +1,4 @@
 // Set maximum, minimum number of digits and default values for the game
-let memoryTime = 0;
 let score = 0;
 let minuteTimer = 0;
 let secondTimer = 0;
@@ -18,10 +17,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const gameTimeInMinute = 10; // Maximum game time in minutes
     // Variables for the entire game
     let numDigits = minDigit; // Initially start number of digits as minimum of digits
-    memoryTime = initialMemoryTime
+    let memoryTime = initialMemoryTime // Start memory time from initial value
 
     // Storing values from the game to the session storage
     sessionStorage.setItem("numDigits",numDigits); // Number of digits
+    sessionStorage.setItem("memoryTime",memoryTime); // Memory time for current level
 
     // Create boxes to hold numbers from random number generator and input from player's answer
     createNumberSquares("memory-box", maxDigit);
@@ -227,7 +227,7 @@ function displayNumbers(currentNumDigits, maxDigit) {
 function resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime) {
     // Reset to constant default vaules
     sessionStorage.setItem("numDigits",minDigit);
-    memoryTime = initialMemoryTime;
+    sessionStorage.setItem("memoryTime",initialMemoryTime);
     document.getElementById("timer").innerHTML = "Timer: 00:00";
     // Reduce the font size and display fefault message
     document.getElementById("result").style.fontSize = "75%";
@@ -262,6 +262,7 @@ function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime, gam
     btnDisabled("submit", true);
     btnDisabled("next", true);
     // Hide numbers after memoryTime has elapsed
+    let memoryTime = sessionStorage.getItem("memoryTime");
     const  time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     // Start timer
     clock = displayTimer(maxLevel, gameTimeInMinute);
@@ -335,9 +336,11 @@ function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinut
         if  (difficulty === 0) {
             // Get current values from session storage and update with new values
             numDigits = parseInt(sessionStorage.getItem("numDigits"));
+            let memoryTime = parseInt(sessionStorage.getItem("memoryTime"));
             numDigits = numDigits + 1;
             memoryTime = memoryTime + 500;
             sessionStorage.setItem("numDigits",numDigits);
+            sessionStorage.setItem("memoryTime",memoryTime);
         }
     } else {
         // Set buttons style and focus on new game button
@@ -383,6 +386,7 @@ function checkCurrentLevel(maxLevel) {
         btnDisabled("next", true);
         
         // Hide numbers after memoryTime has elapsed
+        let memoryTime = sessionStorage.getItem("memoryTime");
         const  time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     } else {
         alert("Game Over");
