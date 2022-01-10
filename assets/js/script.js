@@ -20,29 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
     sessionStorage.setItem("minuteTimer", 0); // Reset timer minute to zero
     sessionStorage.setItem("secondTimer", 0); // Reset timer second to zero
 
-    // Check and update intital best values storing locally
-    const bestScore = localStorage.getItem('bestScore');
-    const bestScoreTime = localStorage.getItem('bestScoreTime');
-    if (bestScore) {
-        if (bestScoreTime) {
-            const bestMin = bestScoreTime.substring(0, 2);
-            const bestSec = bestScoreTime.substring(3);
-            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + bestMin + "m " + bestSec + "s)";
-        } else {
-            localStorage.setItem("bestScoreTime", "59:59");
-            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + " --:--";
-        }
-    } else {
-        localStorage.setItem("bestScore", 0);
-        if (bestScoreTime) {
-            const bestMin = bestScoreTime.substring(0, 2);
-            const bestSec = bestScoreTime.substring(3);
-            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + bestMin + "m " + bestSec + "s)";
-        } else {
-            localStorage.setItem("bestScoreTime", "59:59");
-            document.getElementById("best-score").innerHTML = "Best Score: --:--";
-        }
-    }
+    // Check and update intital best values stored locally
+    checkBestValues();
 
     // Create boxes to hold numbers from random number generator and input from player's answer
     createNumberSquares("memory-box", maxDigit);
@@ -86,6 +65,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 })
+
+/**
+ * Check best values from local storage and use to display on the screen
+ */
+function checkBestValues() {
+    const bestScore = localStorage.getItem('bestScore');
+    const bestScoreTime = localStorage.getItem('bestScoreTime');
+    if (bestScore) {
+        if (bestScoreTime) {
+            const bestMin = bestScoreTime.substring(0, 2);
+            const bestSec = bestScoreTime.substring(3);
+            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + bestMin + "m " + bestSec + "s)";
+        } else {
+            localStorage.setItem("bestScoreTime", "59:59");
+            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + " --:--";
+        }
+    } else {
+        localStorage.setItem("bestScore", 0);
+        if (bestScoreTime) {
+            const bestMin = bestScoreTime.substring(0, 2);
+            const bestSec = bestScoreTime.substring(3);
+            document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + bestMin + "m " + bestSec + "s)";
+        } else {
+            localStorage.setItem("bestScoreTime", "59:59");
+            document.getElementById("best-score").innerHTML = "Best Score: --:--";
+        }
+    }
+}
 
 /** 
  * Create squares to hold numbers
