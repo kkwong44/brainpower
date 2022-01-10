@@ -302,7 +302,7 @@ input {
 /* Index Page - Section Titles */
 .manual-title {
     width: 85%;
-    padding: 30px;
+    padding: 20px;
     margin: 0 auto;
     text-align: center;
 }
@@ -316,6 +316,11 @@ input {
     line-height: 1.5em;
 }
 
+/* Index Page - Section List items */
+.manual-list > li {
+    padding-bottom: 0.75em;
+}
+  
 /* Index Page - Navigation bar to play game*/
 #btn-game {
     font-family: 'Montserrat', sans-serif;
