@@ -299,6 +299,62 @@ input {
     color: black;
 }
 
+/* Index Page - Section Titles */
+.manual-title {
+    width: 85%;
+    padding: 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Index Page - Section Lists */
+.manual-list {
+    list-style-type: none;
+    width: 85%;
+    margin:auto;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+/* Index Page - Navigation bar to play game*/
+#btn-game {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+    position: absolute;
+    top: 0;
+    letter-spacing: 2px;
+    color: black;
+    background-color: #b9b9b9;
+    float: right;
+    font-size: large;
+    line-height: 75px;
+    right: 30px;
+    padding: 0 5px 0 5px;
+}
+
+#btn-game:hover {
+    background-color: #5a5a5a;
+    color: #fff;
+}
+
+/* Index Page - Button to play game */
+#btn-play-game {
+    padding: 10px;
+    text-decoration: none;
+    background-color: green;
+    color:#fff;
+    line-height: 75px;
+    font-size: large;
+    border: 1px solid #2f2f2f;
+    border-radius: 10px;
+}
+
+#btn-play-game:hover {
+    background-color: #4a4a4a;
+    box-shadow: 2px 2px grey;
+}
+
 /* MEDIA QUERIES */
 
 /* Media Query Below 767 Start - Display width below 768px (iPad) */
