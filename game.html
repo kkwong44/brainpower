@@ -1,0 +1,107 @@
+<!-- BrainPower - Home Page -->
+<!-- Document Type: HTML -->
+<!DOCTYPE html>
+<!-- HTML Start with Language set to english -->
+<html lang="en">
+<!-- Head Start with meta data -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to stylesheet and page title -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>BrainPower</title>
+    <!-- Links to favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+</head>
+<!-- Head End -->
+<!-- Body Start -->
+<body>
+    <!-- Page Header Start -->
+    <header>
+        <!-- Link company name and logo image to home page -->
+        <div id="page-header">
+            <div id="logo">
+                <a href="index.html">
+                    <span id="company"><b>BrainPower</b></span>
+                    <img id="logo-img" src="assets/images/home-logo.png" alt="company logo">
+                </a>
+            </div>
+            <!-- Instruction Button -->
+            <button data-type="instruction" id="btn-instruction"><b>Instruction</b></button>
+        </div>
+    </header>
+    <!-- Page Header End -->
+    <!-- Main Start -->
+    <main>
+        <h1 id="game-title">Numbers Memory Game</h1>
+        <section id="game-area">
+            
+            <div id="memory-box">Number Generator</div>
+            <div id="answer-box">Anwser</div>
+            <div id="result" class="div">Result</div>
+            <div>
+                <button id="submit" data-type="submit" class="btn btn-small">Submit</button>
+                <button id="next" data-type="next" class="btn btn-small">Next</button>   
+            </div>
+            <div id="levels" class="div">Level</div>
+            <div id="timer" class="div">Time</div>
+            <div id="score" class="div">Score</div>
+            <div id="success-rate" class="div">Success Rate</div>
+            <div id="best-score" class="div">Best Score</div>
+            <button id="new-game" data-type="new-game" class="btn">New Game</button>
+
+            <!-- Message Modal -->
+            <div id="msg-modal" class="msg-modal">
+                <!-- Modal content -->
+                <div class="msg-modal-content">
+                    <div class="msg-modal-header">
+                        <span class="msg-modal-close">&times;</span>
+                        <h2 class="msg-modal-title">Title</h2>
+                    </div>
+                    <div class="msg-modal-body">Body</div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+    <!-- Main End -->
+    <!-- Page Footer Start -->
+    <footer id="footer">
+        <!-- Contact details Start with email link -->
+        <div class="footer-contact">
+            <p><strong>Contact us:</strong></p>
+            <br>
+            <p>BrainPower, UK</p>
+            <a href="mailto:info@brainpower.co.uk"
+                aria-label="Open email client in a new window.">info@brainpower.co.uk</a>
+        </div>
+        <!-- Contact details End -->
+        <!-- Follow us Start on social networks in new window -->
+        <div class="social-networks">
+            <span><strong>Find us on:</strong></span>
+            <ul>
+                <li><a href="https://www.facebook.com" target="_blank" rel="noopener"
+                        aria-label="Open Facebook page in a new window."><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li><a href="https://www.twitter.com" target="_blank" rel="noopener"
+                        aria-label="Open Twitter page in a new window."><i class="fab fa-twitter"></i></a>
+                </li>
+                <li><a href="https://www.youtube.com" target="_blank" rel="noopener"
+                        aria-label="Open Youtube page in a new window."><i class="fab fa-youtube-square"></i></a>
+                </li>
+            </ul>
+        </div>
+        <!-- Follow us End -->
+    </footer>
+    <!-- Page Footer End -->
+    <!-- Font awesome script -->
+    <script src="https://kit.fontawesome.com/b83175b9a4.js" crossorigin="anonymous"></script>
+    <!-- Link to Javascript -->
+    <script src="assets/js/script.js"></script>
+</body>
+<!-- Body End -->
+</html>
+<!-- HTML End -->
