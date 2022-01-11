@@ -512,6 +512,11 @@ input {
         font-size: 120%;
     }
 
+    /* Home Page - Reduce title font size */
+    .manual-title {
+        font-size: 120%;
+    }
+
 }
 /* Media Query Below 550 End
 
