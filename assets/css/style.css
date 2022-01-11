@@ -50,6 +50,8 @@ input {
 
 /* Page Header, Instruction Button */
 #btn-instruction {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
     position: absolute;
     top: 0;
     letter-spacing: 2px;
@@ -336,6 +338,7 @@ input {
     line-height: 75px;
     right: 30px;
     padding: 0 5px 0 5px;
+    text-align: center;
 }
 
 #btn-game:hover {
@@ -372,6 +375,15 @@ input {
         display: flex;
         flex-direction: column;
         justify-content: center;
+    }
+
+    /* Home Page - Move Play Game Button Below Company Logo */
+    #btn-game {
+        padding: 0;
+        position: relative;
+        right: 0;
+        width: 100%;
+        line-height: 50px;
     }
 
     /* Home Page - Change Container Size on Logo Area */
