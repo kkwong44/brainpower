@@ -28,18 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
     createNumberSquares("memory-box", maxDigit);
     createNumberSquares("answer-box", maxDigit);
 
-    // Button event listener for on mouse over and mouse out
-    document.getElementById("submit").addEventListener("mouseover", btnOverIn);
-    document.getElementById("submit").addEventListener("mouseout", btnOverOut);
-    document.getElementById("next").addEventListener("mouseover", btnOverIn);
-    document.getElementById("next").addEventListener("mouseout", btnOverOut);
-    document.getElementById("new-game").addEventListener("mouseover", btnOverIn);
-    document.getElementById("new-game").addEventListener("mouseout", btnOverOut);
+    // // Button event listener for on mouse over and mouse out
+    btnMouseStyle();
 
     // Reset game to initial state
     resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime);
 
-    // Button event
+    // Button click event
     let buttons = document.getElementsByTagName("button");
     for (let button of buttons) {
         button.addEventListener("click", function () {
@@ -93,6 +88,20 @@ function checkBestValues() {
             document.getElementById("best-score").innerHTML = "Best Score: --:--";
         }
     }
+}
+
+/**
+ * Button event listener for on mouse over and mouse out.
+ * Buttons NEW GAME, SUBMIT and NEXT
+ */
+function btnMouseStyle() {
+        // Button event listener for on mouse over and mouse out
+        document.getElementById("submit").addEventListener("mouseover", btnOverIn);
+        document.getElementById("submit").addEventListener("mouseout", btnOverOut);
+        document.getElementById("next").addEventListener("mouseover", btnOverIn);
+        document.getElementById("next").addEventListener("mouseout", btnOverOut);
+        document.getElementById("new-game").addEventListener("mouseover", btnOverIn);
+        document.getElementById("new-game").addEventListener("mouseout", btnOverOut);    
 }
 
 /** 
