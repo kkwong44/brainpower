@@ -1,13 +1,14 @@
 // Wait for the DOM to finish loading before running the game
 // Get the button elements and add event listeners to them
 document.addEventListener("DOMContentLoaded", function () {
-    // Retrieve constant vaules which declared from the index script for the game
-    const maxDigit = sessionStorage.getItem("maxDigit"); // Maximum number of digits to remember
-    const minDigit = sessionStorage.getItem("minDigit"); // Minumum number of digits to remember
-    const maxLevel = sessionStorage.getItem("maxLevel"); // Maximum number of levels
-    const gameInterval = sessionStorage.getItem("gameInterval"); // Increase difficulties for every intererval on levels
-    const initialMemoryTime = sessionStorage.getItem("initialMemoryTime"); // Initial memory time in milliseconds
-    const gameTimeInMinute = sessionStorage.getItem("gameTimeInMinute"); // Maximum game time in minutes
+    // Retrieve constant values which declared from the index script for the game
+    // Set default values if session storage constants do not exist
+    const maxDigit = sessionStorage.getItem("maxDigit")? sessionStorage.getItem("maxDigit") : 8;  // Maximum number of digits to remember
+    const minDigit = sessionStorage.getItem("minDigit")? sessionStorage.getItem("minDigit") : 4; // Minumum number of digits to remember
+    const maxLevel = sessionStorage.getItem("maxLevel")? sessionStorage.getItem("maxLevel") : 20; // Maximum number of levels
+    const gameInterval = sessionStorage.getItem("gameInterval")? sessionStorage.getItem("gameInterval") : 4; // Increase difficulties for every intererval on levels
+    const initialMemoryTime = sessionStorage.getItem("initialMemoryTime")? sessionStorage.getItem("initialMemoryTime"): 1500; // Initial memory time in milliseconds
+    const gameTimeInMinute = sessionStorage.getItem("gameTimeInMinute")? sessionStorage.getItem("gameTimeInMinute"): 10; // Maximum game time in minutes
 
     // Variables for the entire game
     let numDigits = minDigit; // Initially start number of digits as minimum of digits
