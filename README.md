@@ -26,3 +26,40 @@ The initial project of this site is to create a game to test the player's memory
 * Challenge themself to improve their performace
 
 ___
+
+## User Experience Design
+
+### Initial Design
+Based on the objectives, a game is to be developed to test the player's memory by asking the player to memorise and submit a random number that was shown on the screen. Wireframe was used to create the initial design of the game. The following are the basic structure and functions that will be used to run the game.
+
+*Wireframe - Game Page*
+
+![Wireframe on Game Page](readme/images/wireframe-game.jpg)
+
+*Basic Structure and Functions For The Memory Game*
+
+![Basic Structure and Functions](readme/images/site-structure-and-functions.jpg)
+
+From the initial design it shows that the site can be broken down to the following areas.
+
+1. Common Components section (Header and Footer)
+2. Access to Instruction
+3. Game Title
+4. Game Area
+
+### Common Components
+The following list is the common components that can be used across the website:
+* All pages contain a logo "BrainPower" and an image logo on the left of the header
+* A button to access to the game's instruction is loacted on the right of the header
+* All Pages contain a footer. It has 2 sections, Contact us with an email link and links to Find us on Social Media
+* When the email link is clicked. Local email client will be opened with an address to BrainPower, UK
+* Each social media link will be opened in a new window when its clicked
+
+### Access to Instruction
+Each game can have it's own instruction and can be accessed by clicking on the instruction button. A message box with instruction will display and sit on top of the page.
+
+### Game Title
+For this project there is only one game and the title for this game is "Numbers Memory Game".
+
+### Game Area
+For this project there is only one game and the layout in the game area is for the "Numbers Memory Game".
