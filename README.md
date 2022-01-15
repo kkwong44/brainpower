@@ -70,3 +70,9 @@ During the development it was decided that a home page should be added for the "
 *Screenshot - Homepage*
 
 ![Homepage](readme/screenshots/homepage.png)
+
+### Responsive and Accessibility
+The website has been developed to be used by as many users as possible and as many devices as possible.
+
+* The site is aim to run on all devices
+* Accessibility has been incorporated into the design
