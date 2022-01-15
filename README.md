@@ -47,7 +47,7 @@ From the initial design it shows that the site can be broken down to the followi
 3. Game Title
 4. Game Area
 
-### Common Components
+### *Common Components*
 The following list is the common components that can be used across the website:
 * All pages contain a logo "BrainPower" and an image logo on the left of the header
 * A button to access to the game's instruction is loacted on the right of the header
@@ -55,11 +55,18 @@ The following list is the common components that can be used across the website:
 * When the email link is clicked. Local email client will be opened with an address to BrainPower, UK
 * Each social media link will be opened in a new window when its clicked
 
-### Access to Instruction
+### *Access to Instruction*
 Each game can have it's own instruction and can be accessed by clicking on the instruction button. A message box with instruction will display and sit on top of the page.
 
-### Game Title
+### *Game Title*
 For this project there is only one game and the title for this game is "Numbers Memory Game".
 
-### Game Area
+### *Game Area*
 For this project there is only one game and the layout in the game area is for the "Numbers Memory Game".
+
+### Additional Design
+During the development it was decided that a home page should be added for the "Numbers Memory Game". This page provides information and instruction to the game. A link from the header and a button at the bottom of the game area allow the player to access the game page.
+
+*Screenshot - Homepage*
+
+![Homepage](readme/screenshots/homepage.png)
