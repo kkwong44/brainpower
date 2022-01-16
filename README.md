@@ -334,3 +334,11 @@ A message box will appear on top of the game when the game is finished. There ar
 ___
 
 ## Future Features
+This site can evolve and more games can be added to the site.
+
+The "Numbers Memory Game" can be extened to test more than 8 digits but the size and layout of the squares need to adjust to cater for the change.
+
+New feature to allow player to select difficulties of the game.
+
+Create player account to store game history.
+___
