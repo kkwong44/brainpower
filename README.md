@@ -117,7 +117,34 @@ The site is designed to response and give the best display on different screen w
 
 ![Screenshot on Home Page Header](readme/screenshots/header-gamepage-small.png)
 
+### Footer
+All Pages have the same footer.
 
+The footer section allows the user find out more information about the company.
+
+The layout is separated in 2 sections, company contact details and follows the company in social media.
+
+    Features on this section:
+    * Contact details are on the left with an email link
+    * Find us on social media on the right
+    * The email link and the social media icons will be darkened when hover
+    * Email client will be opened when clicked
+    * A new window will be opened for each social media when clicked
+
+*Screenshot - Footer for all pages*
+
+![Screenshot on Page Footer](readme/screenshots/footer.png)
+
+#### Responsive
+User can access to site via different devices.
+
+The site is designed to response and give the best display on different screen width.
+
+    * When the screen width is below 768px, the 2 sections will stack into a column
+
+*Screenshot - Footer contact us section stack on top of find us on section*
+
+![Screenshot on Page Footer](readme/screenshots/footer-small.png)
 ___
 
 ## Future Features
