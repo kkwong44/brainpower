@@ -81,7 +81,7 @@ ___
 ## Features
 
 ### Header
-All pages have the same header format.
+All pages have the same header format. This section allow user to navigate the site.
 
 On the left it shows the company name and its image logo. On the right there is a button like feature to navigate to different part of the site.
 
