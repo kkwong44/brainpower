@@ -145,6 +145,21 @@ The site is designed to response and give the best display on different screen w
 *Screenshot - Footer contact us section stack on top of find us on section*
 
 ![Screenshot on Page Footer](readme/screenshots/footer-small.png)
+
+### Home Page
+The description and instruction are listed on this page. Links are provide to access to the game area.
+
+Player can read the decription of the game and instruction on how to play the game. System for calculating the score also provided. Player can access to the game are by clicking the "Play Game" button on the header or the button on the bottom of the page.
+
+Features on this page
+    * Description, Instruction and Scoring System
+    * The numbers in description are dynamic and they are from session storage
+    * Anchor link to the game area from the header
+    * Button Link to the game area via (Play Game) button
+
+*Screenshot - Homepage Features*
+
+![Homepage](readme/screenshots/homepage-features.png)
 ___
 
 ## Future Features
