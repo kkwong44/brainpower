@@ -160,6 +160,75 @@ Features on this page
 *Screenshot - Homepage Features*
 
 ![Homepage](readme/screenshots/homepage-features.png)
+
+### Game Page
+The layout on this page is for the "Numbers Memory Game". It is designed to test the player's memory by asking the player to submit the random number that was briefly shown on the screen. There are 20 levels and the game starts with 4 digits number. Difficulties will increase for every 4 levels completed by an extra digit and the game finishes with 8 digits number. Time to memorise the number also increase by 0.5 seconds for every 4 levels completed. The maximum time to complete the game is set to 10 minutes.
+
+Player is expected to complete 20 levels within 10 minutes. For each level a random number will briefly display on the screen then ask the player to submit the same number. Each answer submitted will be checked and varified. The answer either correct and incorrect. Score will be updated accordingly and the player then can proceed to the next level till the end of the game. The final score and time used will be display on the screen. The player can now play a new game to improve their scores.
+
+Features on this page
+* Player can access to the game's instruction by clicking the Instruction button located on the header.
+* Game's Title
+* Game's Area
+* Square containers to display the random number
+* Square containers to accept player's answer
+* A message area
+* Level Counter
+* Timer
+* Score Counter
+* Success Rate in percentage and in graphic representation
+* Best Score
+* Buttons to start a new game, submit the answer and proceed to the next level.
+
+### *Game's Instruction*
+*Screenshot - Game's Instruction Feature*
+
+![Homepage](readme/screenshots/game-instruction.png)
+
+Player clicked on the Instruction and it display on top of the game. Player can close the message box by cliking on the X or anywhere in the shaded area.
+
+### *Game's Title and Area*
+*Screenshot - Game's Title and Area*
+
+![Homepage](readme/screenshots/game-play-area.png)
+
+Game's title is on the top and the game's area is in the gray area.
+
+### *Square Containers for the numbers*
+*Screenshot - Square Containers To Display Number and Accept Player's Answer*
+
+![Homepage](readme/screenshots/game-number-and-answer.png)
+
+Top row is for the random computer generated number. Bottom row is for player to submit the answer.
+
+### *Message Area*
+*Screenshot - Message Area*
+
+![Homepage](readme/screenshots/game-message-area.png)
+
+Messages can be anyone of the following:
+* Click (NEW GAME) to start
+* Enter your answer and hit the Submit button
+* Hint: Number 0-9 only
+* Correct Answer - Click Next to continue
+* Wrong Answer - Click Next to continue
+
+### *Game's Status and Buttons*
+*Screenshot - Game's Status Area and Buttons*
+
+![Homepage](readme/screenshots/game-action-status-area.png)
+
+The game's status area holds the information about the game and it contains the following:
+* Level Counter - Increment by 1 for each completed level.
+* Timer - Start as soon as the game start and the game run for maximun 10 minutes.
+* Score - Increment by 1 for each correct answer.
+* Success Rate - Represent by percenatge and bar chart.
+* Best Score - This score is store locally and updated when the score has been beaten.
+* Button for (NEW GAME) - To start a new game.
+* Button for (SUBMIT) - To submit player's answer.
+* Button for (NEXT) - To continue to the next level.
+
+During the game only one button will be enabled at a time.
 ___
 
 ## Future Features
