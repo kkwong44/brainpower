@@ -281,6 +281,33 @@ The game's status area holds the information about the game and it contains the 
 
 During the game only one button will be enabled at a time.
 
+### *Level Counter and Success Rate*
+Success Rate is calculated by number of correct answers against the levels completed. The bar chart has 10 bars and each bar is represent as follow:
+* 0 - 4% (no bar)
+* 5% - 14% (1 bar)
+* 15% - 24% (2 bars)
+* 25% - 34% (3 bars)
+* 35% - 44% (4 bars)
+* 45% - 54% (5 bars)
+* 55% - 64% (6 bars)
+* 65% - 74% (7 bars)
+* 75% - 84% (8 bars)
+* 85% - 94% (9 bars)
+* 95% - 100% (10 bars)
+
+*Screenshots - Samples of Level Counter and Success Rates*
+
+![Homepage](readme/screenshots/game-res-05-14.png)
+![Homepage](readme/screenshots/game-res-15-24.png)
+![Homepage](readme/screenshots/game-res-25-34.png)
+![Homepage](readme/screenshots/game-res-35-44.png)
+![Homepage](readme/screenshots/game-res-45-54.png)
+![Homepage](readme/screenshots/game-res-55-64.png)
+![Homepage](readme/screenshots/game-res-65-74.png)
+![Homepage](readme/screenshots/game-res-75-84.png)
+![Homepage](readme/screenshots/game-res-85-94.png)
+![Homepage](readme/screenshots/game-res-95-100.png)
+
 ### *Game Over Message Box*
 A message box will appear on top of the game when the game is finished. There are 4 possible messages.
 * Game Over with Best Score
