@@ -167,6 +167,7 @@ The layout on this page is for the "Numbers Memory Game". It is designed to test
 Player is expected to complete 20 levels within 10 minutes. For each level a random number will briefly display on the screen then ask the player to submit the same number. Each answer submitted will be checked and varified. The answer either correct and incorrect. Score will be updated accordingly and the player then can proceed to the next level till the end of the game. The final score and time used will be display on the screen. The player can now play a new game to improve their scores.
 
 Features on this page
+* The game use Local and Sesseion storages to hold constants and variables.
 * Player can access to the game's instruction by clicking the Instruction button located on the header.
 * Game's Title
 * Game's Area
@@ -180,6 +181,35 @@ Features on this page
 * Best Score
 * Buttons to start a new game, submit the answer and proceed to the next level.
 * Game Over Message Box
+
+### *Local and Session storage values*
+Both local and sesseion storage are used to run the game. The constants and variables are declared in the script-index.js and can be changed.
+
+**Local Storage**
+
+This game use local storage to store the best score on device. There are 2 variables and default values are set as below. These values will be updated when the score has been beaten. The default values can be reset when local storage has been cleared.
+
+* bestScoreTime = 59:59
+* bestScore = 0
+
+**Session Storage**
+
+The session storage is used to store constants and variables for the game. These default values always reset to it's original values when the game start. 
+
+Constants
+* maxDigit = 8 (maximum number of digits)
+* minDigit = 4 (Start the game with minimum number of digits)
+* maxLevel= 20 (maximum number of levels)
+* gameTimeInMinute = 10 (maximum time game in minutes)
+* gameInterval = 4 (Number of levels to change difficulties)
+* initialMemoryTime = 1500 (Start the game with 1.5s to memorise the number)
+
+Variables
+* numDigits = 4 (number of digit changes according to the difficulties)
+* memoryTime = 1500 (time to memorise the number changes according to the difficulties)
+* score = 0 (score for the game)
+* miniuteTimer = 0 (time in minutes used in the game)
+* secondTimer = 0 (time in seconds used in the game)
 
 ### *Game's Instruction*
 *Screenshot - Game's Instruction Feature*
