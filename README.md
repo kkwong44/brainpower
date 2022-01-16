@@ -85,13 +85,13 @@ All pages have the same header format. This section allow user to navigate the s
 
 On the left it shows the company name and its image logo. On the right there is a button like feature to navigate to different part of the site.
 
-    Features on this section:
-    * Company Name on the left as part of the logo
-    * An image of the logo next to the company name
-    * Both company name and logo will redirect to the home page when these are clicked by the user
-    * A button like element on the right will change its background color when hover over this element and restore it's original color when hover is removed
-    * For home page, the link is to direct to the Game Page
-    * For game page, the link is to access the instruction modal box
+Features on this section:
+* Company Name on the left as part of the logo
+* An image of the logo next to the company name
+* Both company name and logo will redirect to the home page when these are clicked by the user
+* A button like element on the right will change its background color when hover over this element and restore it's original color when hover is removed
+* For home page, the link is to direct to the Game Page
+* For game page, the link is to access the instruction modal box
 
 *Screenshot - Header on Home Page*
 
@@ -106,8 +106,8 @@ User can access to site via different devices.
 
 The site is designed to response and give the best display on different screen width.
 
-    * When the screen width is below 768px, Play Game button on home page move below company name
-    * When the screen width is below 768px, Instruction button on game page move below company name
+* When the screen width is below 768px, Play Game button on home page move below company name
+* When the screen width is below 768px, Instruction button on game page move below company name
 
 *Screenshot - Header on home page for small width devices*
 
@@ -124,12 +124,12 @@ The footer section allows the user find out more information about the company.
 
 The layout is separated in 2 sections, company contact details and follows the company in social media.
 
-    Features on this section:
-    * Contact details are on the left with an email link
-    * Find us on social media on the right
-    * The email link and the social media icons will be darkened when hover
-    * Email client will be opened when clicked
-    * A new window will be opened for each social media when clicked
+Features on this section:
+* Contact details are on the left with an email link
+* Find us on social media on the right
+* The email link and the social media icons will be darkened when hover
+* Email client will be opened when clicked
+* A new window will be opened for each social media when clicked
 
 *Screenshot - Footer for all pages*
 
@@ -140,7 +140,7 @@ User can access to site via different devices.
 
 The site is designed to response and give the best display on different screen width.
 
-    * When the screen width is below 768px, the 2 sections will stack into a column
+* When the screen width is below 768px, the 2 sections will stack into a column
 
 *Screenshot - Footer contact us section stack on top of find us on section*
 
@@ -152,10 +152,10 @@ The description and instruction are listed on this page. Links are provide to ac
 Player can read the decription of the game and instruction on how to play the game. System for calculating the score also provided. Player can access to the game are by clicking the "Play Game" button on the header or the button on the bottom of the page.
 
 Features on this page
-    * Description, Instruction and Scoring System
-    * The numbers in description are dynamic and they are from session storage
-    * Anchor link to the game area from the header
-    * Button Link to the game area via (Play Game) button
+* Description, Instruction and Scoring System
+* The numbers in description are dynamic and they are from session storage
+* Anchor link to the game area from the header
+* Button Link to the game area via (Play Game) button
 
 *Screenshot - Homepage Features*
 
