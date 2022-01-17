@@ -342,3 +342,13 @@ New feature to allow player to select difficulties of the game.
 
 Create player account to store game history.
 ___
+
+## Testing
+
+**Unit Tesing**
+
+Click [here](readme/testing/report-unit-testing.md) for the unit testing report.
+
+**Funtional Testing**
+
+Click [here](readme/testing/report-functional-testing.md) for the functional testing report.
