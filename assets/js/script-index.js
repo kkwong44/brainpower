@@ -18,11 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
     sessionStorage.setItem("initialMemoryTime", initialMemoryTime);
     sessionStorage.setItem("gameTimeInMinute", gameTimeInMinute);
     // Load lists to page
-    manualLists()
-})
+    manualLists();
+});
 
 /**
- * Create manual lists for the home page 
+ * Create manual contents for the home page 
  */
 function manualLists() {
     // Get constant values from session storage
