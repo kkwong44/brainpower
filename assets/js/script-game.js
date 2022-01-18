@@ -178,7 +178,7 @@ function createNumberSquares(type, maxDigit) {
             memoryBox.innerHTML = squares;
         }
     } else {
-        alert(`Unable to Create Number Squares for Undefined ID "${type}"`);
+        console.log(`Unable to Create Number Squares for Undefined ID "${type}"`);
     }
 }
 
