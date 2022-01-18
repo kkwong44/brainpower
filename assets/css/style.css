@@ -18,14 +18,15 @@ input {
     color: #3a3a3a;
 }
 
-/* Page Header */
+/** Styles for All Pages - START **/
+/* All Page Header */
 #page-header {
     height: 75px;
     background-color: #2f2f2f;
     width: 100%;
 }
 
-/* Page Header, Company Logo Container */
+/* All Page Header, Company Logo Container */
 #logo {
     height: 75px;
     width: 270px;
@@ -33,7 +34,7 @@ input {
     justify-content: center;
 }
 
-/* Page Header, Company Name */
+/* All Page Header, Company Name */
 #company {
     color: #fff;
     float: left;
@@ -41,207 +42,19 @@ input {
     line-height: 75px;
 }
 
-/* Page Header, Logo Image */
+/* All Page Header, Logo Image */
 #logo-img {
     width: 40px;
     height: 40px;
     margin-top: 12px;
 }
 
-/* Page Header, Instruction Button */
-#btn-instruction {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
-    position: absolute;
-    top: 0;
-    letter-spacing: 2px;
-    background-color: #b9b9b9;
-    float: right;
-    font-size: large;
-    line-height: 75px;
-    right: 30px;
-    padding: 0 5px 0 5px;
-}
-
-/* Page Header, Action on Instruction Button when Hover */
-#btn-instruction:hover {
-    background-color: #5a5a5a;
-    color: #fff;
-}
-
-/* Main Section - Game Title */
-#game-title {
-    margin-top: 20px;
-    height: 50px;
-    text-align: center;
-}
-
-/* Main Section - Game Area */
-#game-area {
-    width: 75%;
-    margin: 10px auto 20px auto;
-    text-align: center;
-    min-height: 74vh;
-    background-color: #b9b9b9;
-}
-
-/* Main Section - Timer */
-#timer {
-    font-size: large;
-    font-family: 'Roboto Mono', monospace;
-}
-
-/* Main Section - Buttons for New Game, Submit and Next */
-.btn {
-    width: 180px;
-    height: 60px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    color: white;
-    margin: 25px 0;
-    background-color: #b9b9b9;
-    border: 1px solid #2f2f2f;
-    border-radius: 20px;
-}
-
-/* Main Section - Buttons for New Game, Submit and Next */
-.btn:focus {
-    outline: none;
-}
-
-/* Main Section - Buttons for New Game, Submit and Next */
-.btn:active,
-.btn:hover {
-    box-shadow: 2px 2px grey;
-}
-
-/* Main Section - Buttons for New Game, Submit and Next */
-.btn-small {
-    width: 120px;
-    margin: 25px 50px;
-}
-
-/* Main Section - Define squares for holding the numbers */
-.memory-square,
-.answer-square{
-    margin-top: 40px;
-    position: relative;
-    width: 2em;
-    height: 2em;
-    background-color: white;
-    border: solid 1px black;
-    font-size: x-large;
-    display: inline-block;
-    text-align: center;
-    padding: 2px;
-}
-
-/* Main Section - Reset top margin for answer squares */
-.answer-square{
-    margin-top: 0;
-}
-
-/* Main Section - Center number in the memory squares */
-.memory-square span{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);   
-}
-
-/* Main Section - Base values for common div sections */
-.div {
-    line-height: 2em;
-    color: black;
-    font-size: 180%;
-}
-
-/* Main Section - Default font size for best score section */
-#best-score {
-    font-size: 120%;
-}
-
-/* Message Modal - background */
-/* Hidden by default and place on top */
-.msg-modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 40%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-    text-align: left;
-  }
-  
-  /* Message Modal - Content */
-  .msg-modal-content {
-    font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 1px;
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-  }
-  
-  /* Message Modal - Add Animation */
-  @-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0} 
-    to {top:0; opacity:1}
-  }
-  
-  /* Message Modal - Animation */
-  @keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-  }
-  
-  /* Message Modal - The Close Button */
-  .msg-modal-close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  /* Message Modal - The Close Button */
-  .msg-modal-close:hover,
-  .msg-modal-close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  /* Message Modal - Header */
-  .msg-modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-  }
-  
-  /* Message Modal - Body */
-  .msg-modal-body {
-    padding: 2px 16px;
-    margin-left: 10%;
-    text-align: center;  
-  }
-
-/* Footer, Initial Background Color - All Papges */
+/* All Page Footer, Initial Background Color */
 #footer {
     background-color: #fff;
 }
 
-/* Page Footer, Contact Section */
+/* All Page Footer, Contact Section */
 .footer-contact {
     padding: 10px;
     height: 80px;
@@ -253,19 +66,19 @@ input {
     background-color: #2f2f2f;
 }
 
-/* Page Footer, Contact href */
+/* All Page Footer, Contact href */
 .footer-contact a {
     text-decoration: none;
     color: #fff;
 }
 
-/* Page Footer, Contact Hover on href */
+/* All Page Footer, Contact Hover on href */
 .footer-contact a:hover {
     text-decoration: none;
     color: black;
 }
 
-/* Page Footer, Social Network Section */
+/* All Page Footer, Social Network Section */
 .social-networks {
     margin-top: 5px;
     text-align: center;
@@ -277,17 +90,17 @@ input {
     background-color: #2f2f2f;
 }
 
-/* Page Footer, Social Network List */
+/* All Page Footer, Social Network List */
 .social-networks ul {
     height: 60px;
 }
 
-/* Page Footer, Social Network Items */
+/* All Page Footer, Social Network Items */
 .social-networks li {
     display: inline;
 }
 
-/* Page Footer, Social Network Icons */
+/* All Page Footer, Social Network Icons */
 .social-networks i {
     font-size: 160%;
     text-align: center;
@@ -295,35 +108,15 @@ input {
     color: #fff;
 }
 
-/* Page Footer, Hover on Social Network Icons */
+/* All Page Footer, Hover on Social Network Icons */
 .social-networks i:hover {
     font-size: 160%;
     color: black;
 }
+/** Styles for All Pages - END **/
 
-/* Index Page - Section Titles */
-.manual-title {
-    width: 85%;
-    padding: 20px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-/* Index Page - Section Lists */
-.manual-list {
-    list-style-type: none;
-    width: 85%;
-    margin:auto;
-    text-align: center;
-    line-height: 1.5em;
-}
-
-/* Index Page - Section List items */
-.manual-list > li {
-    padding-bottom: 0.75em;
-}
-  
-/* Index Page - Navigation bar to play game*/
+/** Styles for Index Page - START **/
+/* Index Page Header - Navigation link to play game */
 #btn-game {
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
@@ -341,9 +134,32 @@ input {
     text-align: center;
 }
 
+/* Index Page Header - Navigation link to play game hover */
 #btn-game:hover {
     background-color: #5a5a5a;
     color: #fff;
+}
+
+/* Index Page - Section Titles */
+.manual-title {
+    width: 85%;
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Index Page - Section Lists */
+.manual-list {
+    list-style-type: none;
+    width: 85%;
+    margin: auto;
+    text-align: center;
+    line-height: 1.5em;
+}
+
+/* Index Page - Section List items */
+.manual-list>li {
+    padding-bottom: 0.75em;
 }
 
 /* Index Page - Button to play game */
@@ -351,25 +167,230 @@ input {
     padding: 10px;
     text-decoration: none;
     background-color: green;
-    color:#fff;
+    color: #fff;
     line-height: 75px;
     font-size: large;
     border: 1px solid #2f2f2f;
     border-radius: 10px;
 }
 
+/* Index Page - Button to play game hover */
 #btn-play-game:hover {
     background-color: #4a4a4a;
     box-shadow: 2px 2px grey;
 }
+/** Styles for Index Page - END **/
 
-/* MEDIA QUERIES */
+/** Styles for Game Page - START **/
+/* Game Page Header, Instruction Button */
+#btn-instruction {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    position: absolute;
+    top: 0;
+    letter-spacing: 2px;
+    background-color: #b9b9b9;
+    float: right;
+    font-size: large;
+    line-height: 75px;
+    right: 30px;
+    padding: 0 5px 0 5px;
+}
 
+/* Game Page Header, Action on Instruction Button when Hover */
+#btn-instruction:hover {
+    background-color: #5a5a5a;
+    color: #fff;
+}
+
+/* Game Page Main Section - Game Title */
+#game-title {
+    margin-top: 20px;
+    height: 50px;
+    text-align: center;
+}
+
+/* Game Page Main Section - Game Area */
+#game-area {
+    width: 75%;
+    margin: 10px auto 20px auto;
+    text-align: center;
+    min-height: 74vh;
+    background-color: #b9b9b9;
+}
+
+/* Game Page Main Section - Timer */
+#timer {
+    font-size: large;
+    font-family: 'Roboto Mono', monospace;
+}
+
+/* Game Page Main Section - Buttons for New Game, Submit and Next */
+.btn {
+    width: 180px;
+    height: 60px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: white;
+    margin: 25px 0;
+    background-color: #b9b9b9;
+    border: 1px solid #2f2f2f;
+    border-radius: 20px;
+}
+
+/* Game Page Main Section - Buttons for New Game, Submit and Next */
+.btn:focus {
+    outline: none;
+}
+
+/* Game Page Main Section - Buttons for New Game, Submit and Next */
+.btn:active,
+.btn:hover {
+    box-shadow: 2px 2px grey;
+}
+
+/* Game Page Main Section - Buttons for New Game, Submit and Next */
+.btn-small {
+    width: 120px;
+    margin: 25px 50px;
+}
+
+/* Game Page Main Section - Define squares for holding the numbers */
+.memory-square,
+.answer-square {
+    margin-top: 40px;
+    position: relative;
+    width: 2em;
+    height: 2em;
+    background-color: white;
+    border: solid 1px black;
+    font-size: x-large;
+    display: inline-block;
+    text-align: center;
+    padding: 2px;
+}
+
+/* Game Page Main Section - Reset top margin for answer squares */
+.answer-square {
+    margin-top: 0;
+}
+
+/* Game Page Game Page Main Section - Center number in the memory squares */
+.memory-square span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Game Page Main Section - Base values for common div sections */
+.div {
+    line-height: 2em;
+    color: black;
+    font-size: 180%;
+}
+
+/* Game Page Main Section - Default font size for best score section */
+#best-score {
+    font-size: 120%;
+}
+
+/* Game Page Message Modal - background */
+/* Hidden by default and place on top */
+.msg-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    text-align: left;
+}
+
+/* Game Page Message Modal - Content */
+.msg-modal-content {
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* Game Page Message Modal - Add Animation */
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* Game Page Message Modal - Animation */
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* Game Page Message Modal - The Close Button */
+.msg-modal-close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Game Page Message Modal - The Close Button */
+.msg-modal-close:hover,
+.msg-modal-close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Game Page Message Modal - Header */
+.msg-modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+/* Game Page Message Modal - Body */
+.msg-modal-body {
+    padding: 2px 16px;
+    margin-left: 10%;
+    text-align: center;
+}
+/** Styles for Game Page - END **/
+
+/** MEDIA QUERIES - START **/
 /* Media Query Below 767 Start - Display width below 768px (iPad) */
 @media (max-width: 767px) {
 
-    /* Home Page - Change Container Size on Page Header Area */
-    /* and stack Company Logo on top of the Instruction Button */
+    /* All Pages Header - Change Container Size on Page Header Area */
+    /* and stack Company Logo on top of the Instruction or Play Game Button */
     #page-header {
         height: 125px;
         display: flex;
@@ -377,7 +398,21 @@ input {
         justify-content: center;
     }
 
-    /* Home Page - Move Play Game Button Below Company Logo */
+    /* All Pages Header - Change Container Size on Logo Area */
+    #logo {
+        height: 75px;
+        width: 100%;
+    }
+
+    /* Index Page - Move Instruction Button Below Company Logo */
+    #btn-instruction {
+        position: relative;
+        right: 0;
+        width: 100%;
+        line-height: 50px;
+    }
+
+    /* Game Page Header - Move Play Game Button Below Company Logo */
     #btn-game {
         padding: 0;
         position: relative;
@@ -386,69 +421,55 @@ input {
         line-height: 50px;
     }
 
-    /* Home Page - Change Container Size on Logo Area */
-    #logo{
-        height: 75px;
-        width: 100%;
-    }
-
-    /* Home Page - Move Instruction Button Below Company Logo */
-    #btn-instruction {
-        position: relative;
-        right: 0;
-        width: 100%;
-        line-height: 50px;
-    }
-
-    /* Main Section - Game Area */
+    /* Game Page Main Section - Game Area */
     #game-area {
         width: 90%;
     }
-    
+
 }
 /* Media Query Below 767 End */
 
 /* Media Query Above 767 Start - Display width above 767px (iPad) */
 @media (min-width: 768px) {
 
-    /* Page Footer, All Sections in a Row */
+    /* All Pages Footer, All Sections in a Row */
     #footer {
         display: flex;
         justify-content: space-between;
     }
-    
-    /* Page Footer, Contact Section to the Left */
+
+    /* All Pages Footer, Contact Section to the Left */
     .footer-contact {
         text-align: left;
         padding-left: 30px;
     }
-    
-    /* Page Footer, Social Media Section to the Right */
+
+    /* All Pages Footer, Social Media Section to the Right */
     .social-networks {
         text-align: right;
         margin-top: 0;
         padding-right: 30px;
     }
-    
-    /* Page Footer, Align Sicial Media Icons */
+
+    /* All Page Footers, Align Social Media Icons */
     .social-networks i {
         text-align: right;
         margin: 30px 0 30px 30px;
     }
-    
+
 }
 /* Media Query Above 767 End */
 
 /* Media Query Below 600 Start - Display width below 600px */
 @media (max-width: 599px) {
 
-    /* Main Section - Reduce font size in squares for holding the numbers */
+    /* Game Page Main Section - Reduce font size in squares for holding the numbers */
     .memory-square,
-    .answer-square{
+    .answer-square {
         font-size: large;
     }
 
-    /* Main Section - Reduce all button size */
+    /* Game Page Main Section - Reduce all button size */
     .btn {
         width: 150px;
         height: 50px;
@@ -456,18 +477,18 @@ input {
         border-radius: 15px;
     }
 
-    /* Main Section - Reduce buttons size for Submit and Next */
+    /* Game Page Main Section - Reduce buttons size for Submit and Next */
     .btn-small {
         width: 100px;
         margin: 10px 30px;
     }
 
-    /* Main Section - Reduce font size for all div sections */
+    /* Game Page Main Section - Reduce font size for all div sections */
     .div {
         font-size: 140%;
     }
 
-    /* Main Section - Reduce graphic size */
+    /* Game Page Main Section - Reduce graphic size */
     .success-bar {
         width: 75px;
         height: 30px;
@@ -479,111 +500,112 @@ input {
 /* Media Query Below 550 Start - Display width below 550px */
 @media (max-width: 549px) {
 
-    /* Main Section - Game Title */
+    /* Index Page - Reduce title font size */
+    .manual-title {
+        font-size: 120%;
+    }
+
+    /* Game Page Main Section - Game Title */
     #game-title {
         font-size: 150%;
         margin: 20px 30px 0 30px;
     }
 
-    /* Main Section - Result Section */
+    /* Game Page Main Section - Result Section */
     #result {
         height: 4em;
         margin: 0 30px;
     }
 
-    /* Main Section - Timer Section */
+    /* Game Page Main Section - Timer Section */
     #timer {
         font-size: 100%;
     }
-    
-    /* Main Section - Success Rate Section */
-    #success-rate{
+
+    /* Game Page Main Section - Success Rate Section */
+    #success-rate {
         margin: 0 30px;
     }
 
-    /* Main Section - Reduce font size in squares for holding the numbers */
+    /* Game Page Main Section - Reduce font size in squares for holding the numbers */
     .memory-square,
-    .answer-square{
+    .answer-square {
         font-size: 90%;
     }
 
-    /* Main Section - Reduce font size for all div sections */
+    /* Game Page Main Section - Reduce font size for all div sections */
     .div {
         font-size: 120%;
     }
-
-    /* Home Page - Reduce title font size */
-    .manual-title {
-        font-size: 120%;
-    }
-
 }
 /* Media Query Below 550 End
 
 /* Media Query Below 400 Start - Display width below 400px */
 @media (max-width: 399px) {
 
-    /* Main Section - Game Area */
+    /* Game Page Main Section - Game Area */
     #game-area {
         width: 95%;
     }
 
-    /* Main Section - Game Title */
+    /* Game Page Main Section - Game Title */
     #game-title {
         font-size: 150%;
         margin: 10px 30px 0 30px;
     }
 
-    /* Main Section - Result Section */
+    /* Game Page Main Section - Result Section */
     #result {
         height: 3em;
         margin: 0 30px;
     }
 
-    /* Main Section - Timer Section */
+    /* Game Page Main Section - Timer Section */
     #timer {
         font-size: 80%;
     }
 
-    /* Main Section - Success Rate Section */
-    #success-rate{
+    /* Game Page Main Section - Success Rate Section */
+    #success-rate {
         margin: 0 60px;
     }
 
-    /* Main Section - Best Score Section */
+    /* Game Page Main Section - Best Score Section */
     #best-score {
         font-size: 100%;
     }
 
-    /* Main Section - Reduce font size in squares for holding the numbers */
+    /* Game Page Main Section - Reduce font size in squares for holding the numbers */
     .memory-square,
-    .answer-square{
+    .answer-square {
         font-size: x-small;
     }
 
-    /* Main Section - Reduce all button size */
+    /* Game Page Main Section - Reduce all button size */
     .btn {
-    font-size: 75%;
-    width: 120px;
-    height: 40px;
-    margin: 10px 0;
-    border-radius: 10px;
+        font-size: 75%;
+        width: 120px;
+        height: 40px;
+        margin: 10px 0;
+        border-radius: 10px;
     }
 
-    /* Main Section - Reduce buttons size for Submit and Next */
+    /* Game Page Main Section - Reduce buttons size for Submit and Next */
     .btn-small {
         width: 85px;
         margin: 15px 10px;
     }
 
-    /* Main Section - Reduce font size for all div sections */
+    /* Game Page Main Section - Reduce font size for all div sections */
     .div {
         font-size: 100%;
     }
 
 }
 /* Media Query Below 400 End
+/** MEDIA QUERIES - END **/
 
+/** Error 404 page - START **/
 /* Error 404 Page - Image */
 #error-sign {
     margin-top: 50px;
@@ -619,3 +641,4 @@ input {
     text-align: center;
     display: block;
 }
+/** Error 404 page - END **/
