@@ -583,3 +583,39 @@ input {
 
 }
 /* Media Query Below 400 End
+
+/* Error 404 Page - Image */
+#error-sign {
+    margin-top: 50px;
+    font-size: 500%;
+    display: block;
+    text-align: center;
+    color: orange;
+}
+
+/* Error 404 Page - 404 Heading */
+#error>h1 {
+    margin-top: 10px;
+    font-size: 400%;
+    text-align: center;
+}
+
+/* Error 404 Page - Description */
+#error>h2 {
+    text-align: center;
+    display: block;
+}
+
+/* Error 404 Page - href */
+#error>a {
+    text-align: center;
+    display: block;
+    color: #3a3a3a;
+}
+
+/* Error 404 Page - Message */
+#error>span {
+    margin-top: 50px;
+    text-align: center;
+    display: block;
+}
