@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Variables for the entire game
     let numDigits = minDigit; // Initially start number of digits as minimum of digits
-    let memoryTime = initialMemoryTime // Start memory time from initial value
+    let memoryTime = initialMemoryTime; // Start memory time from initial value
 
     // Storing values from the game to the session storage
     sessionStorage.setItem("numDigits", numDigits); // Number of digits
@@ -55,12 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     popupModal("INSTRUCTION", "", maxLevel, gameTimeInMinute);
                     break;
                 default:
-                    alert(`Undefined - ${btnType}`);
+                    console.log(`Undefined - ${btnType}`);
             }
-        })
+        });
     }
 
-})
+});
 
 /**
  * Check best values from local storage and use to display on the screen
@@ -102,6 +102,45 @@ function btnMouseStyle() {
     document.getElementById("next").addEventListener("mouseout", btnOverOut);
     document.getElementById("new-game").addEventListener("mouseover", btnOverIn);
     document.getElementById("new-game").addEventListener("mouseout", btnOverOut);
+}
+
+/**
+ * When mouse moveover the button
+ * Set button color as background color
+ */
+ function btnOverIn() {
+    btn = this.id;
+    btn = document.getElementById(btn);
+    btn.style.background = "#4a4a4a";
+}
+
+/**
+ * When mouse moveout the button
+ * Set button color to green
+ */
+function btnOverOut() {
+    btn = this.id;
+    btn = document.getElementById(btn);
+    btn.style.background = "green";
+    btn.style.outline = "none";
+}
+
+/**
+ * Enable and Disable button by ID name
+ * @param {*} id (Button Id)
+ * @param {*} disabled (True or False)
+ */
+ function btnDisabled(id, disabled) {
+    if (disabled == true) {
+        document.getElementById(id).style.background = "#a9a9a9";
+        document.getElementById(id).style.color = "#d9d9d9";
+        document.getElementById(id).style.boxShadow = "none";
+    } else {
+        document.getElementById(id).style.background = "green";
+        document.getElementById(id).style.color = "#fff";
+        document.getElementById(id).style.boxShadow = "";
+    }
+    document.getElementById(id).disabled = disabled;
 }
 
 /** 
@@ -180,45 +219,6 @@ function autoTab() {
 }
 
 /**
- * Enable and Disable button by ID name
- * @param {*} id (Button Id)
- * @param {*} disabled (True or False)
- */
-function btnDisabled(id, disabled) {
-    if (disabled == true) {
-        document.getElementById(id).style.background = "#a9a9a9";
-        document.getElementById(id).style.color = "#d9d9d9";
-        document.getElementById(id).style.boxShadow = "none";
-    } else {
-        document.getElementById(id).style.background = "green";
-        document.getElementById(id).style.color = "#fff";
-        document.getElementById(id).style.boxShadow = "";
-    }
-    document.getElementById(id).disabled = disabled;
-}
-
-/**
- * When mouse moveover the button
- * Set button color as background color
- */
-function btnOverIn() {
-    btn = this.id;
-    btn = document.getElementById(btn);
-    btn.style.background = "#4a4a4a";
-}
-
-/**
- * When mouse moveout the button
- * Set button color to green
- */
-function btnOverOut() {
-    btn = this.id;
-    btn = document.getElementById(btn);
-    btn.style.background = "green";
-    btn.style.outline = "none";
-}
-
-/**
  * Generate random numbers between 0 and 9
  * @param {*} currentNumDigits (Number of digits for current game level)
  * @returns a random number between 0-9
@@ -235,6 +235,7 @@ function randomGenerator(currentNumDigits) {
 /**
  * Display random numbers in the memory box
  * @param {*} currentNumDigits (Number of digits for current game level)
+ * @param {*} maxDigit (Maximum number of digits set by the game)
  */
 function displayNumbers(currentNumDigits, maxDigit) {
     randomGenerator(currentNumDigits);
@@ -259,7 +260,10 @@ function displayNumbers(currentNumDigits, maxDigit) {
 
 /**
  * Reset game to initial state
- * @param {*} maxDigit (Maximum nuber of squares)
+ * @param {*} maxDigit (Maximum nmuber of squares)
+ * @param {*} minDigit (Minimum nmuber of squares)
+ * @param {*} maxLevel (Maximum number of levels)
+ * @param {*} initialMemoryTime (Initial time to memorise the number)
  */
 function resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime) {
     // Reset to constant default vaules
@@ -289,6 +293,10 @@ function resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime) {
 /**
  * Start a new game with minmum number of digits
  * @param {*} currentNumDigits (Number of digits for current game level)
+ * @param {*} maxDigit (Maximum nmuber of squares)
+ * @param {*} maxLevel (Maximum number of levels)
+ * @param {*} initialMemoryTime (Initial time to memorise the number)
+ * @param {*} gameTimeInMinute (Maxmum game time in minutes)
  */
 function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime, gameTimeInMinute) {
     resetGame(maxDigit, currentNumDigits, maxLevel, initialMemoryTime);
@@ -324,6 +332,7 @@ function hideNumbers(currentNumDigits) {
 /**
  * Check player's answer against the random generated number
  * @param {*} currentNumDigits (Number of digits for current game level)
+ * @param {*} maxLevel (Maximum number of levels)
  */
 function checkAnswer(currentNumDigits, maxLevel) {
     let result = 0;
@@ -358,6 +367,9 @@ function checkAnswer(currentNumDigits, maxLevel) {
 /**
  * Display results when player hit the submit button
  * @param {*} currentNumDigits (Number of digits for current game level)
+ * @param {*} maxLevel (Maximum number of levels)
+ * @param {*} initialMemoryTime (Initial time to memorise the number)
+ * @param {*} gameTimeInMinute (Maxmum game time in minutes)
  */
 function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinute) {
     checkAnswer(currentNumDigits, maxLevel);
@@ -396,6 +408,7 @@ function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinut
 
 /** 
  * Find current game level from game area
+ * @param {*} maxLevel (Maximum number of levels)
  * @returns Current Lever Number
  */
 function checkCurrentLevel(maxLevel) {
@@ -409,34 +422,38 @@ function checkCurrentLevel(maxLevel) {
 /**
  * Run next level
  * @param {*} currentNumDigits (Number of digits for current game level)
+ * @param {*} maxDigit (Maximum nmuber of squares)
+ * @param {*} maxLevel (Maximum number of levels)
  */
 function nextLevel(currentNumDigits, maxDigit, maxLevel) {
 
     displayMsg("Next", "");
+    // Increment level up by 1
     let level = checkCurrentLevel(maxLevel) + 1;
     if (level <= maxLevel) {
         document.getElementById("levels").innerHTML = "Level: " + level + " of " + maxLevel;
         displayNumbers(currentNumDigits, maxDigit);
-
+        // Disable all buttons
         document.getElementById("next").style.outline = "none";
         btnDisabled("new-game", true);
         btnDisabled("submit", true);
         btnDisabled("next", true);
-
         // Hide numbers after memoryTime has elapsed
         let memoryTime = sessionStorage.getItem("memoryTime");
         const time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     } else {
-        alert("Game Over");
+        console.log("Game Over");
     }
 }
 
 /** 
  * Update scores
+ * @param {*} result (1 or -1)
  */
 function updateScore(result) {
     // Get and update current score from session storage
     let score = parseInt(sessionStorage.getItem("score"));
+    // Reset game or increment score up by 1
     if (result == -1) {
         score = 0;
     } else {
@@ -449,6 +466,9 @@ function updateScore(result) {
 /** 
  * Calculate, Update and Add Graphic to represent the success rate
  * @param {*} currentScore (Currrent score from the game)
+ * @param {*} maxLevel (Maximum number of levels)
+ * @param {*} currentScore 
+ * @param {*} maxLevel 
  */
 function updateSuccessRate(currentScore, maxLevel) {
     // Calculate the success rate
@@ -517,6 +537,8 @@ function updateSuccessRate(currentScore, maxLevel) {
 
 /**
  * Run timer for the game
+ * @param {*} maxLevel (Maximum number of levels)
+ * @param {*} gameTimeInMinute (Maxmum game time in minutes)
  * @returns setInterval identifier
  */
 function displayTimer(maxLevel, gameTimeInMinute) {
@@ -592,6 +614,7 @@ function updateBestScore() {
 /**
  * Display message in the result section
  * @param {*} message (0-9 ONLY, Answer, Correct, Incorrect, Next or Hide)
+ * @param {*} maxLevel (Maximum number of levels)
  */
 function displayMsg(message, maxLevel) {
     let msg = document.getElementById("result").textContent;
@@ -643,6 +666,8 @@ function displayMsg(message, maxLevel) {
  * Popup box for game over and instruction
  * @param {*} title (INSTRUCTION, GAME OVER or TIME OUT)
  * @param {*} opt1 (INSTRUCTION, timeout, best)
+ * @param {*} maxLevel (Maximum number of levels)
+ * @param {*} gameTimeInMinute (Maxmum game time in minutes)
  */
 function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
     // Get current disabled status for all buttons
@@ -703,7 +728,7 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
             textAlign = "center";
             break;
     }
-    // Media Query - reyurning font size and margin for modal box
+    // Run Media Query - returning font size and margin for modal box
     mQuery = mediaQuery(title);
     fontSize = mQuery.fontSize;
     margin = mQuery.margin;
@@ -768,7 +793,8 @@ function mediaQuery(boxTitle) {
 
 /**
  * Select game over message and return string to display in modal box.
- * @param {*} bestScore
+ * @param {*} bestScore (Score status)
+ * @param {*} maxLevel (Maximum number of levels)
  * @returns message (Best score, Best Time or Score)
  */
 function gameOver(bestScore, maxLevel) {
@@ -802,6 +828,8 @@ function gameOver(bestScore, maxLevel) {
 
 /**
  * Create html order list for the instruction
+ * @param {*} maxLevel (Maximum number of levels)
+ * @param {*} gameTimeInMinute (Maxmum game time in minutes)
  * @returns html string
  */
 function displayInstruction(maxLevel, gameTimeInMinute) {
