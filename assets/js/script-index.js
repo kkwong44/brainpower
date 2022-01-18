@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const minDigit = 4; // Minumum number of digits to remember
     const maxLevel = 20; // Maximum number of levels
     const gameInterval = 4; // Increase difficulties for every intererval on levels
-    const initialMemoryTime = 2000; // Initial memory time in milliseconds
+    const initialMemoryTime = 1500; // Initial memory time in milliseconds
     const gameTimeInMinute = 10; // Maximum game time in minutes
     // Add constants to session storage
     sessionStorage.setItem("maxDigit", maxDigit);
