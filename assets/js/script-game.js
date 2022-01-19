@@ -108,7 +108,7 @@ function btnMouseStyle() {
  * When mouse moveover the button
  * Set button color as background color
  */
- function btnOverIn() {
+function btnOverIn() {
     btn = this.id;
     btn = document.getElementById(btn);
     btn.style.background = "#4a4a4a";
@@ -130,7 +130,7 @@ function btnOverOut() {
  * @param {*} id (Button Id)
  * @param {*} disabled (True or False)
  */
- function btnDisabled(id, disabled) {
+function btnDisabled(id, disabled) {
     if (disabled == true) {
         document.getElementById(id).style.background = "#a9a9a9";
         document.getElementById(id).style.color = "#d9d9d9";
@@ -486,44 +486,44 @@ function updateSuccessRate(currentScore, maxLevel) {
     img.setAttribute("class", "success-bar");
     img.style.verticalAlign = "text-bottom";
     // Select the image to represent the success rate
-    switch (rate = Math.round(rate / 10)) {
-        case 1:
+    switch (true) {
+        case (rate > 0) && (rate <= 10):
             img.setAttribute("src", "assets/images/success-rate01.png");
             img.setAttribute("alt", "10% Success Rate");
             break;
-        case 2:
+        case (rate > 10) && (rate <= 20):
             img.setAttribute("src", "assets/images/success-rate02.png");
             img.setAttribute("alt", "20% Success Rate");
             break;
-        case 3:
+        case (rate > 20) && (rate <= 30):
             img.setAttribute("src", "assets/images/success-rate03.png");
             img.setAttribute("alt", "30% Success Rate");
             break;
-        case 4:
+        case (rate > 30) && (rate <= 40):
             img.setAttribute("src", "assets/images/success-rate04.png");
             img.setAttribute("alt", "40% Success Rate");
             break;
-        case 5:
+        case (rate > 40) && (rate <= 50):
             img.setAttribute("src", "assets/images/success-rate05.png");
             img.setAttribute("alt", "50% Success Rate");
             break;
-        case 6:
+        case (rate > 50) && (rate <= 60):
             img.setAttribute("src", "assets/images/success-rate06.png");
             img.setAttribute("alt", "60% Success Rate");
             break;
-        case 7:
+        case (rate > 60) && (rate <= 70):
             img.setAttribute("src", "assets/images/success-rate07.png");
             img.setAttribute("alt", "70% Success Rate");
             break;
-        case 8:
+        case (rate > 70) && (rate <= 80):
             img.setAttribute("src", "assets/images/success-rate08.png");
             img.setAttribute("alt", "80% Success Rate");
             break;
-        case 9:
+        case (rate > 80) && (rate <= 90):
             img.setAttribute("src", "assets/images/success-rate09.png");
             img.setAttribute("alt", "90% Success Rate");
             break;
-        case 10:
+        case (rate > 90) && (rate <= 100):
             img.setAttribute("src", "assets/images/success-rate10.png");
             img.setAttribute("alt", "100% Success Rate");
             break;
