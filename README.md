@@ -405,3 +405,44 @@ ___
 
 * The number squares do not layout correctly for numbers more than 8 digits on mobile devices. This is acceptable for current scope as maximum digit is set to 8 but need to refine if changing to the scope.
 ___
+
+## Deployment
+### Tools
+* GitHub is a code hosting platform for version control and collaboration
+* Gitpod is a ready-to-code developer environment
+
+### Development processes
+
+* All the development works are carried out in Gitpod
+* Create a repository in Github through Gitpod
+* Start the project from a boilerplate written by Code Institue. The full template can be copied from [here](https://github.com/Code-Institute-Org/gitpod-full-template)
+
+    **Repeat the following until project completion**
+
+* Developing your site, save your project in your Gitpod workspaces
+* Use git add command to add files to local repository
+* Use git commit command to commit the changes to local repository
+
+### Deployment to Github Pages
+
+* Use git push to upload local repository content (Gitpod) to a remote repository (Github)
+
+    **The published site link can be found from your Github repository setting.**
+
+* Select setting from your github repository
+* Select Pages on the left hand side menu as shown below
+* Under the Source section, you need to select main from Branch in order to publish the site
+* You can suspend the published site by selecting none from Branch in the source section
+
+In order to commit any new changes to the live site, always perform git push to upload the latest version of the development code to the remote repository.
+
+*Screenshot - Github Pages*
+
+![Github Pages](readme/images/github-page.png)
+
+The live site for this project is published under [https://kkwong44.github.io/brainpower/](https://kkwong44.github.io/brainpower/)
+
+***You can use GitHub Desktop to clone and fork repositories that exist on GitHub.***
+
+Click [here](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop) for more information on Cloning and forking repositories from GitHub Desktop.
+___
