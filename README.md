@@ -385,3 +385,17 @@ The following reports show all HTML pages and CSS code have passed the test.
 
 ![HTML Validation on Stylesheet](readme/testing/validator-css.png)
 ___
+
+## Performance and Accessibility Testing
+Lighthouse is a tool in Chrome Development Tools that allows developer to test their website. Performance and Accessibility are two of the tests carried out by Lighthouse and it can identify where you can improve the performance and accessibility.
+
+From the lighthouse reports at below, it shows the site perform well. The site was physically tested on several devices from desktops, tablets and mobile phones. The performance on these devices were operated normally and without lagging.
+
+*Lighthouse Report on index page*
+
+![Performance Report Home Page](readme/testing/performance-index.png)
+
+*Lighthouse Report on game page*
+
+![Performance Report game Page](readme/testing/performance-game.png)
+___
