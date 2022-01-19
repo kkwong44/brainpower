@@ -399,3 +399,9 @@ From the lighthouse reports at below, it shows the site perform well. The site w
 
 ![Performance Report game Page](readme/testing/performance-game.png)
 ___
+
+## Unfixed Bugs
+* When tab key is use during the game it may tab outside the game area and can cause confusion.
+
+* The number squares do not layout correctly for numbers more than 8 digits on mobile devices. This is acceptable for current scope as maximum digit is set to 8 but need to refine if changing to the scope.
+___
