@@ -283,17 +283,17 @@ During the game only one button will be enabled at a time.
 
 ### *Level Counter and Success Rate*
 Success Rate is calculated by number of correct answers against the levels completed. The bar chart has 10 bars and each bar is represent as follow:
-* 0 - 4% (no bar)
-* 5% - 14% (1 bar)
-* 15% - 24% (2 bars)
-* 25% - 34% (3 bars)
-* 35% - 44% (4 bars)
-* 45% - 54% (5 bars)
-* 55% - 64% (6 bars)
-* 65% - 74% (7 bars)
-* 75% - 84% (8 bars)
-* 85% - 94% (9 bars)
-* 95% - 100% (10 bars)
+* 0% (no bar)
+* 0% > rate <= 10% (1 bar)
+* 10% > rate <= 20% (2 bars)
+* 20% > rate <= 30% (3 bars)
+* 30% > rate <= 40% (4 bars)
+* 44% > rate <= 50% (5 bars)
+* 50% > rate <= 60% (6 bars)
+* 60% > rate <= 70% (7 bars)
+* 70% > rate <= 80% (8 bars)
+* 80% > rate <= 90% (9 bars)
+* 90% > rate <= 100% (10 bars)
 
 *Screenshots - Samples of Level Counter and Success Rates*
 
@@ -347,8 +347,13 @@ ___
 
 **Unit Tesing**
 
+Unit testing was used to test individual feature of the game. It test each feature to ensure the operation is functioning as expected.
+
 Click [here](readme/testing/report-unit-testing.md) for the unit testing report.
 
 **Funtional Testing**
 
+The functional testing is to ensure the site and the game is behave as expected.
+
 Click [here](readme/testing/report-functional-testing.md) for the functional testing report.
+___
