@@ -5,7 +5,7 @@ This project was completed, published and shared in Github.
 
 *Screenshot - Mockup on BrainPower Website, generated from [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/index.php)*
 
-![Screenshot on Mockup](readme/screenshots/mockup.png)
+![Screenshot on Mockup](readme/images/mockup.png)
 ___
 
 ## Objectives
