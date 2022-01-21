@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     createNumberSquares("memory-box", maxDigit);
     createNumberSquares("answer-box", maxDigit);
 
-    // // Button event listener for on mouse over and mouse out
+    // Button event listener for on mouse over and mouse out
     btnMouseStyle();
 
     // Reset game to initial state
@@ -111,7 +111,8 @@ function btnMouseStyle() {
 function btnOverIn() {
     btn = this.id;
     btn = document.getElementById(btn);
-    btn.style.background = "#4a4a4a";
+    btn.style.background = "#009000";
+    btn.style.boxShadow = "4px 4px #4a4a4a";
 }
 
 /**
@@ -123,6 +124,7 @@ function btnOverOut() {
     btn = document.getElementById(btn);
     btn.style.background = "green";
     btn.style.outline = "none";
+    document.activeElement == btn ? btn.style.boxShadow = "4px 4px #4a4a4a" : btn.style.boxShadow = "none";
 }
 
 /**
