@@ -10,20 +10,20 @@ ___
 
 ## Objectives
 
-BrainPower is a site provides games to test the strength of human brain. It can use to train and improve the player's brain perfomance.
+BrainPower is a site provides games to test the strength of human brain. It can use to train and improve the player's brain performance.
 
-The target audients will be players that wish to test, train and improve their brain perfomace.
+The target audients will be players that wish to test, train and improve their brain performance.
 
 The initial project of this site is to create a game to test the player's memory. As the site evolve, additional games can be added to test varies part of the brain.
 
 ### Business Goals
-* Develope games that can test the brian performace
+* Develop games that can test the brain performance
 * Allow players to train their brain
 * Making the game enjoyable to play
 
 ### User Goals
-* Test their performace
-* Challenge themself to improve their performace
+* Test their performance
+* Challenge themself to improve their performance
 
 ___
 
@@ -50,7 +50,7 @@ From the initial design it shows that the site can be broken down to the followi
 ### *Common Components*
 The following list is the common components that can be used across the website:
 * All pages contain a logo "BrainPower" and an image logo on the left of the header
-* A button to access to the game's instruction is loacted on the right of the header
+* A button to access to the game's instruction is located on the right of the header
 * All Pages contain a footer. It has 2 sections, Contact us with an email link and links to Find us on Social Media
 * When the email link is clicked. Local email client will be opened with an address to BrainPower, UK
 * Each social media link will be opened in a new window when its clicked
@@ -149,7 +149,7 @@ The site is designed to response and give the best display on different screen w
 ### Home Page
 The description and instruction are listed on this page. Links are provide to access to the game area.
 
-Player can read the decription of the game and instruction on how to play the game. System for calculating the score also provided. Player can access to the game are by clicking the "Play Game" button on the header or the button on the bottom of the page.
+Player can read the description of the game and instruction on how to play the game. System for calculating the score also provided. Player can access to the game are by clicking the "Play Game" button on the header or the button on the bottom of the page.
 
 Features on this page
 * Description, Instruction and Scoring System
@@ -162,12 +162,12 @@ Features on this page
 ![Homepage](readme/screenshots/homepage-features.png)
 
 ### Game Page
-The layout on this page is for the "Numbers Memory Game". It is designed to test the player's memory by asking the player to submit the random number that was briefly shown on the screen. There are 20 levels and the game starts with 4 digits number. Difficulties will increase for every 4 levels completed by an extra digit and the game finishes with 8 digits number. Time to memorise the number also increase by 0.5 seconds for every 4 levels completed. The maximum time to complete the game is set to 10 minutes.
+The layout on this page is for the "Numbers Memory Game". It is designed to test the player's memory by asking the player to submit the random number that was briefly shown on the screen. There are 20 levels and the game start with 4 digits number. Difficulties will increase for every 4 levels completed by an extra digit and the game finishes with 8 digits number. Time to memorise the number also increase by 0.5 seconds for every 4 levels completed. The maximum time to complete the game is set to 10 minutes.
 
-Player is expected to complete 20 levels within 10 minutes. For each level a random number will briefly display on the screen then ask the player to submit the same number. Each answer submitted will be checked and varified. The answer either correct and incorrect. Score will be updated accordingly and the player then can proceed to the next level till the end of the game. The final score and time used will be display on the screen. The player can now play a new game to improve their scores.
+Player is expected to complete 20 levels within 10 minutes. For each level a random number will briefly display on the screen then ask the player to submit the same number. Each answer submitted will be checked and verified. The answer either correct and incorrect. Score will be updated accordingly and the player then can proceed to the next level till the end of the game. The final score and time used will be display on the screen. The player can now play a new game to improve their scores.
 
 Features on this page
-* The game use Local and Sesseion storages to hold constants and variables.
+* The game use Local and Session storages to hold constants and variables.
 * Player can access to the game's instruction by clicking the Instruction button located on the header.
 * Game's Title
 * Game's Area
@@ -183,7 +183,7 @@ Features on this page
 * Game Over Message Box
 
 ### *Local and Session storage values*
-Both local and sesseion storage are used to run the game. The constants and variables are declared in the script-index.js and can be changed.
+Both local and session storage are used to run the game. The constants and variables are declared in the script-index.js and can be changed.
 
 **Local Storage**
 
@@ -216,14 +216,14 @@ Variables
 
 ![Homepage](readme/screenshots/game-instruction.png)
 
-Player clicked on the Instruction and it display on top of the game. Player can close the message box by cliking on the X or anywhere in the shaded area.
+Player clicked on the Instruction and it display on top of the game. Player can close the message box by clicking on the X or anywhere in the shaded area.
 
 ### *Game's Title and Area*
 *Screenshot - Game's Title and Area*
 
 ![Homepage](readme/screenshots/game-play-area.png)
 
-Game's title is on the top and the game's area is in the gray area.
+Game's title is on the top and the game's area is in the grey area.
 
 ### *Square Containers for the numbers*
 *Screenshot - Square Containers To Display Number and Accept Player's Answer*
@@ -236,7 +236,7 @@ Top row is for the random computer generated number. Bottom row is for player to
 
 ![Homepage](readme/screenshots/game-01.png)
 
-*Screenshot - The game ask the player to submit the number*
+*Screenshot - The game asks the player to submit the number*
 
 ![Homepage](readme/screenshots/game-02.png)
 
@@ -244,7 +244,7 @@ Top row is for the random computer generated number. Bottom row is for player to
 
 ![Homepage](readme/screenshots/game-03.png)
 
-*Screenshot - Player submmited the correct number*
+*Screenshot - Player submitted the correct number*
 
 ![Homepage](readme/screenshots/game-04.png)
 
@@ -271,9 +271,9 @@ Messages can be anyone of the following:
 
 The game's status area holds the information about the game and it contains the following:
 * Level Counter - Increment by 1 for each completed level.
-* Timer - Start as soon as the game start and the game run for maximun 10 minutes.
+* Timer - Start as soon as the game start and the game run for maximum 10 minutes.
 * Score - Increment by 1 for each correct answer.
-* Success Rate - Represent by percenatge and bar chart.
+* Success Rate - Represent by percentage and bar chart.
 * Best Score - This score is store locally and updated when the score has been beaten.
 * Button for (NEW GAME) - To start a new game.
 * Button for (SUBMIT) - To submit player's answer.
@@ -336,7 +336,7 @@ ___
 ## Future Features
 This site can evolve and more games can be added to the site.
 
-The "Numbers Memory Game" can be extened to test more than 8 digits but the size and layout of the squares need to adjust to cater for the change.
+The "Numbers Memory Game" can be extended to test more than 8 digits but the size and layout of the squares need to adjust to cater for the change.
 
 New feature to allow player to select difficulties of the game.
 
@@ -345,13 +345,13 @@ ___
 
 ## Testing
 
-**Unit Tesing**
+**Unit Testing**
 
-Unit testing was used to test individual feature of the game. It test each feature to ensure the operation is functioning as expected.
+Unit testing was used to test individual feature of the game. It tests each feature to ensure the operation is functioning as expected.
 
 Click [here](readme/testing/report-unit-testing.md) for the unit testing report.
 
-**Funtional Testing**
+**Functional Testing**
 
 The functional testing is to ensure the site and the game is behave as expected.
 
@@ -415,7 +415,7 @@ ___
 
 * All the development works are carried out in Gitpod
 * Create a repository in Github through Gitpod
-* Start the project from a boilerplate written by Code Institue. The full template can be copied from [here](https://github.com/Code-Institute-Org/gitpod-full-template)
+* Start the project from a boilerplate written by Code Institute. The full template can be copied from [here](https://github.com/Code-Institute-Org/gitpod-full-template)
 
     **Repeat the following until project completion**
 
