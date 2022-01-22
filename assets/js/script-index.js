@@ -5,9 +5,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // The game can be changed from here. eg number of levels for the whole game
     // Note: Number of digits beyond 8 will affect the display
     const maxDigit = 8; // Maximum number of digits to remember
-    const minDigit = 4; // Minumum number of digits to remember
+    const minDigit = 4; // Minimum number of digits to remember
     const maxLevel = 20; // Maximum number of levels
-    const gameInterval = 4; // Increase difficulties for every intererval on levels
+    const gameInterval = 4; // Increase difficulties for every interval on levels
     const initialMemoryTime = 1500; // Initial memory time in milliseconds
     const gameTimeInMinute = 10; // Maximum game time in minutes
     // Add constants to session storage
