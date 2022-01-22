@@ -4,9 +4,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Retrieve constant values which declared from the index script for the game
     // Set default values if session storage constants do not exist
     const maxDigit = sessionStorage.getItem("maxDigit") ? sessionStorage.getItem("maxDigit") : 8; // Maximum number of digits to remember
-    const minDigit = sessionStorage.getItem("minDigit") ? sessionStorage.getItem("minDigit") : 4; // Minumum number of digits to remember
+    const minDigit = sessionStorage.getItem("minDigit") ? sessionStorage.getItem("minDigit") : 4; // Minimum number of digits to remember
     const maxLevel = sessionStorage.getItem("maxLevel") ? sessionStorage.getItem("maxLevel") : 20; // Maximum number of levels
-    const gameInterval = sessionStorage.getItem("gameInterval") ? sessionStorage.getItem("gameInterval") : 4; // Increase difficulties for every intererval on levels
+    const gameInterval = sessionStorage.getItem("gameInterval") ? sessionStorage.getItem("gameInterval") : 4; // Increase difficulties for every interval on levels
     const initialMemoryTime = sessionStorage.getItem("initialMemoryTime") ? sessionStorage.getItem("initialMemoryTime") : 1500; // Initial memory time in milliseconds
     const gameTimeInMinute = sessionStorage.getItem("gameTimeInMinute") ? sessionStorage.getItem("gameTimeInMinute") : 10; // Maximum game time in minutes
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
     sessionStorage.setItem("minuteTimer", 0); // Reset timer minute to zero
     sessionStorage.setItem("secondTimer", 0); // Reset timer second to zero
 
-    // Check and update intital best values stored locally
+    // Check and update initial best values stored locally
     checkBestValues();
 
     // Create boxes to hold numbers from random number generator and input from player's answer
@@ -151,7 +151,7 @@ function btnFocus() {
 }
 
 /**
- * Reset button style when button has loose focus
+ * Reset button style when button has lost focus
  */
  function btnFocusOut() {
     let btn = this.id;
@@ -291,21 +291,21 @@ function displayNumbers(currentNumDigits, maxDigit) {
 
 /**
  * Reset game to initial state
- * @param {*} maxDigit (Maximum nmuber of squares)
- * @param {*} minDigit (Minimum nmuber of squares)
+ * @param {*} maxDigit (Maximum number of squares)
+ * @param {*} minDigit (Minimum number of squares)
  * @param {*} maxLevel (Maximum number of levels)
  * @param {*} initialMemoryTime (Initial time to memorise the number)
  */
 function resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime) {
-    // Reset to constant default vaules
+    // Reset to constant default values
     sessionStorage.setItem("numDigits", minDigit);
     sessionStorage.setItem("memoryTime", initialMemoryTime);
     document.getElementById("timer").innerHTML = "Timer: 00:00";
-    // Reduce the font size and display fefault message
+    // Reduce the font size and display default message
     document.getElementById("result").style.fontSize = "75%";
     document.getElementById("result").style.marginTop = "10px";
     displayMsg("default", "");
-    // Empty and gray out all squares
+    // Empty and grey out all squares
     for (let i = 0; i < maxDigit; i++) {
         document.getElementsByClassName("memory-square")[i].children[0].innerHTML = "";
         document.getElementsByClassName("answer-square")[i].value = "";
@@ -324,12 +324,12 @@ function resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime) {
 }
 
 /**
- * Start a new game with minmum number of digits
+ * Start a new game with minimum number of digits
  * @param {*} currentNumDigits (Number of digits for current game level)
- * @param {*} maxDigit (Maximum nmuber of squares)
+ * @param {*} maxDigit (Maximum number of squares)
  * @param {*} maxLevel (Maximum number of levels)
  * @param {*} initialMemoryTime (Initial time to memorise the number)
- * @param {*} gameTimeInMinute (Maxmum game time in minutes)
+ * @param {*} gameTimeInMinute (Maximum game time in minutes)
  */
 function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime, gameTimeInMinute) {
     resetGame(maxDigit, currentNumDigits, maxLevel, initialMemoryTime);
@@ -403,7 +403,7 @@ function checkAnswer(currentNumDigits, maxLevel) {
  * @param {*} currentNumDigits (Number of digits for current game level)
  * @param {*} maxLevel (Maximum number of levels)
  * @param {*} initialMemoryTime (Initial time to memorise the number)
- * @param {*} gameTimeInMinute (Maxmum game time in minutes)
+ * @param {*} gameTimeInMinute (Maximum game time in minutes)
  */
 function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinute) {
     checkAnswer(currentNumDigits, maxLevel);
@@ -414,7 +414,7 @@ function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinut
         document.getElementById("submit").style.outline = "none";
         btnDisabled("next", false);
         document.getElementById("next").focus();
-        // Increase dificulty by an extra digit for every game interval and allow an extra half second to memorise the number
+        // Increase difficulty by an extra digit for every game interval and allow an extra half second to memorise the number
         let difficulty = level % gameInterval;
         if (difficulty === 0) {
             // Get current values from session storage and update with new values
@@ -454,7 +454,7 @@ function checkCurrentLevel(maxLevel) {
 /**
  * Run next level
  * @param {*} currentNumDigits (Number of digits for current game level)
- * @param {*} maxDigit (Maximum nmuber of squares)
+ * @param {*} maxDigit (Maximum number of squares)
  * @param {*} maxLevel (Maximum number of levels)
  */
 function nextLevel(currentNumDigits, maxDigit, maxLevel) {
@@ -495,7 +495,7 @@ function updateScore(result) {
 
 /** 
  * Calculate, Update and Add Graphic to represent the success rate
- * @param {*} currentScore (Currrent score from the game)
+ * @param {*} currentScore (Current score from the game)
  * @param {*} maxLevel (Maximum number of levels)
  * @param {*} currentScore 
  * @param {*} maxLevel 
@@ -568,7 +568,7 @@ function updateSuccessRate(currentScore, maxLevel) {
 /**
  * Run timer for the game
  * @param {*} maxLevel (Maximum number of levels)
- * @param {*} gameTimeInMinute (Maxmum game time in minutes)
+ * @param {*} gameTimeInMinute (Maximum game time in minutes)
  * @returns setInterval identifier
  */
 function displayTimer(maxLevel, gameTimeInMinute) {
@@ -617,7 +617,7 @@ function updateBestScore() {
     let scoreMin = parseInt(minuteTimer) * 60;
     let scoreSec = parseInt(secondTimer);
     let scoreTime = scoreMin + scoreSec;
-    // Compare the game score with best score by number of of correct answers
+    // Compare the game score with best score by number of correct answers
     // and the time to complete the game
     let score = sessionStorage.getItem("score");
     let bestScore = localStorage.getItem("bestScore");
@@ -697,7 +697,7 @@ function displayMsg(message, maxLevel) {
  * @param {*} title (INSTRUCTION, GAME OVER or TIME OUT)
  * @param {*} opt1 (INSTRUCTION, timeout, best)
  * @param {*} maxLevel (Maximum number of levels)
- * @param {*} gameTimeInMinute (Maxmum game time in minutes)
+ * @param {*} gameTimeInMinute (Maximum game time in minutes)
  */
 function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
     // Get current disabled status for all buttons
@@ -774,7 +774,7 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
     document.getElementsByClassName("msg-modal-body")[0].style.fontSize = fontSize;
     document.getElementsByClassName("msg-modal-body")[0].style.margin = margin;
     document.getElementsByClassName("msg-modal-body")[0].style.textAlign = textAlign;
-    // Id instruction-list only created when instruction buttion is clicked
+    // Id instruction-list only created when instruction button is clicked
     if (opt1 == "INSTRUCTION") {
         document.getElementById("instruction-list").style.fontSize = fontSize;
     }
@@ -865,7 +865,7 @@ function gameOver(bestScore, maxLevel) {
 /**
  * Create html order list for the instruction
  * @param {*} maxLevel (Maximum number of levels)
- * @param {*} gameTimeInMinute (Maxmum game time in minutes)
+ * @param {*} gameTimeInMinute (Maximum game time in minutes)
  * @returns html string
  */
 function displayInstruction(maxLevel, gameTimeInMinute) {
