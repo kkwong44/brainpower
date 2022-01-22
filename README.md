@@ -479,3 +479,21 @@ The images used in this website are from the following:
 
 * The image logo has been edited and from [Pixabay.com](https://pixabay.com/)
 ___
+
+## Tools
+The tools used to carry out the development on this project are:
+
+* Gitpod and Github
+* Image editor - Adobe Photoshop
+* Chrome Dev Tools
+* W3C validators
+* Webpage Screenshots - Chrome app extension (FireShot)
+* WAVE Web Accessibility Evaluation Tool - [https://wave.webaim.org/](https://wave.webaim.org/)
+
+___
+
+## Acknowledgment
+I would like to thank the following to support the development of this website.
+
+* Learning Support - [Code Institute](https://codeinstitute.net/)
+* Mentoring Support - [Daisy McGirr](https://github.com/Daisy-McG)
