@@ -311,6 +311,7 @@ function resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime) {
         document.getElementsByClassName("answer-square")[i].value = "";
         document.getElementsByClassName("memory-square")[i].style.background = "#b9b9b9";
         document.getElementsByClassName("answer-square")[i].style.background = "#6a6a6a";
+        document.getElementsByClassName("answer-square")[i].disabled = true;
     }
     // Initialise buttons status
     btnDisabled("new-game", false);
@@ -384,6 +385,7 @@ function checkAnswer(currentNumDigits, maxLevel) {
             document.getElementsByClassName("memory-square")[i].style.background = "red";
             document.getElementsByClassName("answer-square")[i].style.background = "red";
         }
+        document.getElementsByClassName("answer-square")[i].disabled = true;
     }
     // Display result on screen
     if (result == 0) {
