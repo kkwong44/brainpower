@@ -297,16 +297,16 @@ Success Rate is calculated by number of correct answers against the levels compl
 
 *Screenshots - Samples of Level Counter and Success Rates*
 
-![Homepage](readme/screenshots/game-res-05-14.png)
-![Homepage](readme/screenshots/game-res-15-24.png)
-![Homepage](readme/screenshots/game-res-25-34.png)
-![Homepage](readme/screenshots/game-res-35-44.png)
-![Homepage](readme/screenshots/game-res-45-54.png)
-![Homepage](readme/screenshots/game-res-55-64.png)
-![Homepage](readme/screenshots/game-res-65-74.png)
-![Homepage](readme/screenshots/game-res-75-84.png)
-![Homepage](readme/screenshots/game-res-85-94.png)
-![Homepage](readme/screenshots/game-res-95-100.png)
+![Homepage](readme/screenshots/game-rate-01.png)
+![Homepage](readme/screenshots/game-rate-02.png)
+![Homepage](readme/screenshots/game-rate-03.png)
+![Homepage](readme/screenshots/game-rate-04.png)
+![Homepage](readme/screenshots/game-rate-05.png)
+![Homepage](readme/screenshots/game-rate-06.png)
+![Homepage](readme/screenshots/game-rate-07.png)
+![Homepage](readme/screenshots/game-rate-08.png)
+![Homepage](readme/screenshots/game-rate-09.png)
+![Homepage](readme/screenshots/game-rate-10.png)
 
 ### *Game Over Message Box*
 A message box will appear on top of the game when the game is finished. There are 4 possible messages.
