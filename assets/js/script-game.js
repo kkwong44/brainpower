@@ -110,7 +110,7 @@ function btnMouseStyle() {
  * Set button color as background color
  */
 function btnOverIn() {
-    btn = this.id;
+    let btn = this.id;
     btn = document.getElementById(btn);
     btn.style.background = "#009000";
     btn.style.boxShadow = "4px 4px #4a4a4a";
@@ -121,7 +121,7 @@ function btnOverIn() {
  * Set button color to green
  */
  function btnOverOut() {
-    btn = this.id;
+    let btn = this.id;
     btn = document.getElementById(btn);
     btn.style.background = "green";
     btn.style.outline = "none";
@@ -145,7 +145,7 @@ function btnFocusStatus() {
  * Set button style while button is on focus
  */
 function btnFocus() {
-    btn = this.id;
+    let btn = this.id;
     btn = document.getElementById(btn);
     btn.style.boxShadow = "4px 4px #4a4a4a";
 }
@@ -154,7 +154,7 @@ function btnFocus() {
  * Reset button style when button has loose focus
  */
  function btnFocusOut() {
-    btn = this.id;
+    let btn = this.id;
     btn = document.getElementById(btn);
     btn.style.boxShadow = "none";
 }
