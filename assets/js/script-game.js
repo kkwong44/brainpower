@@ -30,6 +30,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Button event listener for on mouse over and mouse out
     btnMouseStyle();
+    
+    // Button event listener for button on focus
+    btnFocusStatus();
 
     // Reset game to initial state
     resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime);
@@ -113,6 +116,37 @@ function btnOverIn() {
     btn = document.getElementById(btn);
     btn.style.background = "#009000";
     btn.style.boxShadow = "4px 4px #4a4a4a";
+}
+
+/**
+ * Button event listener to check button focus status
+ */
+function btnFocusStatus() {
+    // Button event listener for button on focus
+    document.getElementById("submit").addEventListener("focus", btnFocus);
+    document.getElementById("submit").addEventListener("focusout", btnFocusOut);
+    document.getElementById("next").addEventListener("focus", btnFocus);
+    document.getElementById("next").addEventListener("focusout", btnFocusOut);
+    document.getElementById("new-game").addEventListener("focus", btnFocus);
+    document.getElementById("new-game").addEventListener("focusout", btnFocusOut);
+}
+
+/**
+ * Set button style while button is on focus
+ */
+function btnFocus() {
+    btn = this.id;
+    btn = document.getElementById(btn);
+    btn.style.boxShadow = "4px 4px #4a4a4a";
+}
+
+/**
+ * Reset button style when button has loose focus
+ */
+ function btnFocusOut() {
+    btn = this.id;
+    btn = document.getElementById(btn);
+    btn.style.boxShadow = "none";
 }
 
 /**
@@ -286,6 +320,7 @@ function resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime) {
     btnDisabled("new-game", false);
     btnDisabled("submit", true);
     btnDisabled("next", true);
+    document.getElementById("new-game").focus();
     // Reset Results
     updateScore(-1);
     updateSuccessRate(-1, maxLevel);
@@ -692,6 +727,9 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
         btnDisabled("new-game", originalState.btnNewGame);
         btnDisabled("next", originalState.btnNext);
         btnDisabled("submit", originalState.btnSubmit);
+        originalState.btnSubmit == false ? document.getElementById("submit").focus() :
+        originalState.btnNext == false ? document.getElementById("next").focus() :
+        document.getElementById("new-game").focus();
     }
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
@@ -701,6 +739,9 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
             btnDisabled("new-game", originalState.btnNewGame);
             btnDisabled("next", originalState.btnNext);
             btnDisabled("submit", originalState.btnSubmit);
+            originalState.btnSubmit == false ? document.getElementById("submit").focus() :
+            originalState.btnNext == false ? document.getElementById("next").focus() :
+            document.getElementById("new-game").focus();
         }
     }
     // Update modal title and contents
