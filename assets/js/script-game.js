@@ -57,8 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 case "instruction":
                     popupModal("INSTRUCTION", "", maxLevel, gameTimeInMinute);
                     break;
-                default:
-                    console.log(`Undefined - ${btnType}`);
             }
         });
     }
@@ -213,8 +211,6 @@ function createNumberSquares(type, maxDigit) {
             let memoryBox = document.getElementById(type);
             memoryBox.innerHTML = squares;
         }
-    } else {
-        console.log(`Unable to Create Number Squares for Undefined ID "${type}"`);
     }
 }
 
@@ -475,8 +471,6 @@ function nextLevel(currentNumDigits, maxDigit, maxLevel) {
         // Hide numbers after memoryTime has elapsed
         let memoryTime = sessionStorage.getItem("memoryTime");
         const time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
-    } else {
-        console.log("Game Over");
     }
 }
 
