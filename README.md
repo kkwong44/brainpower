@@ -444,3 +444,38 @@ The live site for this project is published under [https://kkwong44.github.io/br
 
 Click [here](https://docs.github.com/en/desktop/contributing-and-collaborating-using-github-desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop) for more information on Cloning and forking repositories from GitHub Desktop.
 ___
+
+## Credits
+### Content
+The basic structure of the pages are based on the Cappadocia Tour project i.e  page header and footer. Some javascript logics are inspired from the Love Maths project.
+
+The footer icons for the Social Media are from:
+
+* Font Awesome website - [https://fontawesome.com/](https://fontawesome.com/)
+
+Website favicon was generated from:
+
+* favicon - [https://favicon.io/](https://favicon.io/)
+
+The modal box technique is based on the example from:
+
+* W3schools - [https://www.w3schools.com/howto/howto_css_modals.asp](https://www.w3schools.com/howto/howto_css_modals.asp)
+
+There are number of window objects and DOM events were used in the project. For example, locatStorage(), sessionStorage(), setTimeout(), setInterval(), focusout, mouseover, mouseout etc.
+
+The information and usage for all the above methods were from W3Schools website.
+
+* W3schools - [https://www.w3schools.com](https://www.w3schools.com)
+
+The following websites also used for research and development on objects, events and methods in coding javascript.
+
+* MDN Web Docs - [https://developer.mozilla.org/en-US/](https://developer.mozilla.org/en-US/)
+
+* stackoverflow - [https://stackoverflow.com/](https://stackoverflow.com/)
+
+
+### Media
+The images used in this website are from the following:
+
+* The image logo has been edited and from [Pixabay.com](https://pixabay.com/)
+___
