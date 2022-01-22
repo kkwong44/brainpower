@@ -216,7 +216,6 @@ function autoTab() {
     // Auto focus on the submit button when the last square value is between 0-9
     if (idNumber == numDigits && numeric == true) {
         document.getElementById("submit").focus();
-        document.getElementById("submit").style.outline = "1px solid black";
     }
 }
 
@@ -381,7 +380,6 @@ function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinut
         btnDisabled("submit", true);
         document.getElementById("submit").style.outline = "none";
         btnDisabled("next", false);
-        document.getElementById("next").style.outline = "1px solid black";
         document.getElementById("next").focus();
         // Increase dificulty by an extra digit for every game interval and allow an extra half second to memorise the number
         let difficulty = level % gameInterval;
@@ -399,7 +397,6 @@ function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinut
         btnDisabled("submit", true);
         document.getElementById("submit").style.outline = "none";
         btnDisabled("new-game", false);
-        document.getElementById("new-game").style.outline = "1px solid black";
         document.getElementById("new-game").focus();
         // Stop timer
         clearInterval(clock);
