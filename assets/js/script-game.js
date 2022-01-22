@@ -117,6 +117,18 @@ function btnOverIn() {
 }
 
 /**
+ * When mouse moveout the button
+ * Set button color to green
+ */
+ function btnOverOut() {
+    btn = this.id;
+    btn = document.getElementById(btn);
+    btn.style.background = "green";
+    btn.style.outline = "none";
+    document.activeElement == btn ? btn.style.boxShadow = "4px 4px #4a4a4a" : btn.style.boxShadow = "none";
+}
+
+/**
  * Button event listener to check button focus status
  */
 function btnFocusStatus() {
@@ -145,18 +157,6 @@ function btnFocus() {
     btn = this.id;
     btn = document.getElementById(btn);
     btn.style.boxShadow = "none";
-}
-
-/**
- * When mouse moveout the button
- * Set button color to green
- */
-function btnOverOut() {
-    btn = this.id;
-    btn = document.getElementById(btn);
-    btn.style.background = "green";
-    btn.style.outline = "none";
-    document.activeElement == btn ? btn.style.boxShadow = "4px 4px #4a4a4a" : btn.style.boxShadow = "none";
 }
 
 /**
