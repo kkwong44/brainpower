@@ -358,6 +358,13 @@ Click [here](readme/testing/report-unit-testing.md) for the unit testing report.
 The functional testing is to ensure the site and the game is behave as expected.
 
 Click [here](readme/testing/report-functional-testing.md) for the functional testing report.
+
+**Responsive Testing**
+
+The responsive testing is to ensure the site is displaying correctly on all devices. The live site has been tested on PC, tablet and mobile phone.
+
+Click [here](readme/testing/report-responsive-testing.md) for the responsive testing report.
+
 ___
 
 ## Validator Testing
