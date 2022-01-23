@@ -76,6 +76,8 @@ The website has been developed to be used by as many users as possible and as ma
 
 * The site is aim to run on all devices
 * Accessibility has been incorporated into the design
+
+Chrome developer tools were used to achieved the above. It enables to see the site responsive to different devices and shows where it can improve accessibilities.
 ___
 
 ## Features
