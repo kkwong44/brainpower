@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Button event listener for on mouse over and mouse out
     btnMouseStyle();
-    
+
     // Button event listener for button on focus
     btnFocusStatus();
 
@@ -120,7 +120,7 @@ function btnOverIn() {
  * When mouse moveout the button
  * Set button color to green
  */
- function btnOverOut() {
+function btnOverOut() {
     let btn = this.id;
     btn = document.getElementById(btn);
     btn.style.background = "green";
@@ -153,7 +153,7 @@ function btnFocus() {
 /**
  * Reset button style when button has lost focus
  */
- function btnFocusOut() {
+function btnFocusOut() {
     let btn = this.id;
     btn = document.getElementById(btn);
     btn.style.boxShadow = "none";
@@ -724,8 +724,8 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
         btnDisabled("next", originalState.btnNext);
         btnDisabled("submit", originalState.btnSubmit);
         originalState.btnSubmit == false ? document.getElementById("submit").focus() :
-        originalState.btnNext == false ? document.getElementById("next").focus() :
-        document.getElementById("new-game").focus();
+            originalState.btnNext == false ? document.getElementById("next").focus() :
+            document.getElementById("new-game").focus();
     }
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
@@ -736,8 +736,8 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
             btnDisabled("next", originalState.btnNext);
             btnDisabled("submit", originalState.btnSubmit);
             originalState.btnSubmit == false ? document.getElementById("submit").focus() :
-            originalState.btnNext == false ? document.getElementById("next").focus() :
-            document.getElementById("new-game").focus();
+                originalState.btnNext == false ? document.getElementById("next").focus() :
+                document.getElementById("new-game").focus();
         }
     }
     // Update modal title and contents
