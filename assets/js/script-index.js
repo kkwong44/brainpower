@@ -36,8 +36,8 @@ function manualLists() {
         <li>A random number will be generated and show on the screen for a short period of time.</li>
         <li>You need to remember this number before it disappeared from the screen.</li>
         <li>The game starts with ${minDigit} digits.</li>
-        <li>Difficulties will increase for every ${gameInterval} levels by adding an extra digit.</li>
-        <li>Time to memorise the number will also increase for every ${gameInterval} levels.</li>
+        <li>Difficulties will increase in every ${gameInterval} levels by adding an extra digit.</li>
+        <li>Time to memorise the number will also increase in every ${gameInterval} levels.</li>
         <li>There are ${maxLevel} levels and the game is over when you completed the last level.</li>
         <li>Each game has a maximum of ${gameTimeInMinute} minutes to play.</li>
         <li>The game will time out after ${gameTimeInMinute} minutes and the score will not be recorded.</li>
