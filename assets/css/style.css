@@ -431,21 +431,6 @@ input {
 /* Media Query Below 767 Start - Display width below 768px (iPad) */
 @media (max-width: 767px) {
 
-    /* All Pages Header - Change Container Size on Page Header Area */
-    /* and stack Company Logo on top of the Instruction or Play Game Button */
-    #page-header {
-        height: 125px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    /* All Pages Header - Change Container Size on Logo Area */
-    #logo {
-        height: 75px;
-        width: 100%;
-    }
-
     /* Index Page - Move Instruction Button Below Company Logo */
     #btn-instruction {
         position: relative;
@@ -460,6 +445,7 @@ input {
         position: relative;
         right: 0;
         width: 100%;
+        height: 50px;
         line-height: 50px;
     }
 
