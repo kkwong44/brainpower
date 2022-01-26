@@ -62,3 +62,15 @@ function manualLists() {
     list = document.getElementsByClassName("manual-list")[2];
     list.innerHTML = scoringList;
 }
+
+/**
+ * Display and hide menu bar
+ */
+function menuBar() {
+    let x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+}
