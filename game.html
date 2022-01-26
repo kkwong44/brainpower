@@ -23,7 +23,27 @@
 <body>
     <!-- Page Header Start -->
     <header>
-
+        <!-- Define 3 sections in header Start -->
+        <div class="page-header">
+            <!-- Link company name and logo image to home page -->
+            <a href="index.html">
+                <span id="company"><b>BrainPower</b></span>
+                <img id="logo-img" src="assets/images/home-logo.png" alt="company logo">
+            </a>
+            <!-- Navigation Menu -->
+            <div class="topnav">
+                <div id="myLinks">
+                    <a href="index.html">Home</a>
+                    <a href="game.html" class="active">Numbers Memory Game</a>
+                </div>
+                <a href="javascript:void(0);" class="icon" onclick="menuBar()" aria-label="Menu Bar">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+            <!-- Instruction Button -->
+            <button data-type="instruction" id="btn-instruction"><b>Instruction</b></button>
+        </div>
+        <!-- Define 3 sections in header End -->
     </header>
     <!-- Page Header End -->
     <!-- Main Start -->
