@@ -95,9 +95,10 @@ ___
 ### Header
 All pages have the same header format. This section allow user to navigate the site.
 
-On the left it shows the company name and its image logo. On the right there is a button like feature to navigate to different part of the site.
+On the left there is a menu icon that can be expanded and use for navigate between pages. The company name and its image logo are next to the menu icon. On the right there is a button like feature to navigate to different part of the site.
 
 Features on this section:
+* Menu to navigate between pages
 * Company Name on the left as part of the logo
 * An image of the logo next to the company name
 * Both company name and logo will redirect to the home page when these are clicked by the user
@@ -109,25 +110,41 @@ Features on this section:
 
 ![Screenshot on Home Page Header](readme/screenshots/header-homepage.png)
 
+*Screenshot - Header with Menu List on Home Page*
+
+![Screenshot on Home Page Header](readme/screenshots/header-home-menu.png)
+
 *Screenshot - Header on Game Page*
 
 ![Screenshot on Home Page Header](readme/screenshots/header-gamepage.png)
+
+*Screenshot - Header with Menu List on Game Page*
+
+![Screenshot on Home Page Header](readme/screenshots/header-game-menu.png)
 
 #### Responsive
 User can access to site via different devices.
 
 The site is designed to response and give the best display on different screen width.
 
-* When the screen width is below 768px, Play Game button on home page move below company name
-* When the screen width is below 768px, Instruction button on game page move below company name
+* When the screen width is below 768px, Play Game button is hidden
+* When the screen width is below 768px, Instruction button on game page move below the menu list
 
 *Screenshot - Header on home page for small width devices*
 
 ![Screenshot on Home Page Header](readme/screenshots/header-homepage-small.png)
 
+*Screenshot - Header with Menu List on home page for small width devices*
+
+![Screenshot on Home Page Header](readme/screenshots/header-home-menu-small.png)
+
 *Screenshot - Header on game page for small width devices*
 
 ![Screenshot on Home Page Header](readme/screenshots/header-gamepage-small.png)
+
+*Screenshot - Header with Menu List on game page for small width devices*
+
+![Screenshot on Home Page Header](readme/screenshots/header-game-menu-small.png)
 
 ### Footer
 All Pages have the same footer.
