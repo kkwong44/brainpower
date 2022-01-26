@@ -47,6 +47,32 @@ input {
     top: 0;
 }
 
+/* All Page Header, hide menu initially */
+.page-header #myLinks {
+    display: none;
+}
+
+/* All Page Header, set menu <a> tag properties */
+.topnav a {
+      height: 35px;
+      padding: 25px 0 15px 10px;
+      text-decoration: none;
+      font-weight: 600;
+}
+
+/* All Page Header, set menu <a> tag hover properties */
+.topnav a:hover {
+    background-color: #5a5a5a;
+    outline: 1px solid #b9b9b9;
+    color: black;
+}
+
+/* All Page Header, set menu item active properties */
+.topnav a.active {
+      background-color: #5a5a5a;
+      color: black;
+}
+
 /* All Page Header, Company Name */
 #company {
     color: #fff;
