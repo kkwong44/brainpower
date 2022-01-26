@@ -19,20 +19,6 @@ input {
 }
 
 /** Styles for All Pages - START **/
-/* All Page Header */
-#page-header {
-    height: 75px;
-    background-color: #2f2f2f;
-    width: 100%;
-}
-
-/* All Page Header, Company Logo Container */
-#logo {
-    height: 75px;
-    width: 270px;
-    display: flex;
-    justify-content: center;
-}
 
 /* All Page Header, Company Name */
 #company {
