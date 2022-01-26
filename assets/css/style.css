@@ -38,7 +38,7 @@ input {
 /* All Pages Header, set menu icon properties */
 .page-header a.icon {
     background: #2f2f2f;
-    width:30px;
+    width: 30px;
     text-align: center;
     height: 34px;
     display: block;
@@ -639,7 +639,7 @@ input {
     #company {
         font-size: 130%;
     }
-    
+
     /* All Pages Header, Logo Image */
     #logo-img {
         width: 35px;
@@ -667,12 +667,12 @@ input {
     .div {
         font-size: 85%;
     }
-    
+
     /* Game Page Main Section - Best Score Section */
     #best-score {
         font-size: 85%;
     }
-    
+
     /* Game Page Main Section - Reduce font size in squares for holding the numbers */
     .memory-square,
     .answer-square {
