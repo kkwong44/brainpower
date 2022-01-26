@@ -69,8 +69,18 @@ function manualLists() {
 function menuBar() {
     let x = document.getElementById("myLinks");
     if (x.style.display === "block") {
-      x.style.display = "none";
+        // Hide menu list
+        x.style.display = "none";
+        // Display play game button
+        document.getElementById("btn-game").style.display = "block";
     } else {
-      x.style.display = "block";
+        // Display menu list
+        x.style.display = "block";
+        // Hide play game button when scree width is below 768px
+        if (window.matchMedia('screen and (max-width: 767px)').matches) {
+            document.getElementById("btn-game").style.display = "none";
+        } else {
+            document.getElementById("btn-game").style.display = "block";
+        }
     }
 }
