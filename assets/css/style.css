@@ -19,14 +19,14 @@ input {
 }
 
 /** Styles for All Pages - START **/
-/* All Page Header, set background */
+/* All Pages Header, set background */
 .page-header {
     overflow: hidden;
     background-color: #2f2f2f;
     position: relative;
 }
 
-/* All Page Header, set <a> tag properties */
+/* All Pages Header, set <a> tag properties */
 .page-header a {
     color: white;
     height: 75px;
@@ -35,7 +35,7 @@ input {
     display: block;
 }
 
-/* All Page Header, set menu icon properties */
+/* All Pages Header, set menu icon properties */
 .page-header a.icon {
     background: #2f2f2f;
     width:30px;
@@ -49,13 +49,13 @@ input {
     border-right: 1px solid #b9b9b9;
 }
 
-/* All Page Header, hide menu initially */
+/* All Pages Header, hide menu initially */
 .page-header #myLinks {
     background: black;
     display: none;
 }
 
-/* All Page Header, set menu <a> tag properties */
+/* All Pages Header, set menu <a> tag properties */
 .topnav a {
     height: 35px;
     padding: 25px 5px 15px 10px;
@@ -64,18 +64,18 @@ input {
     border-top: 1px solid #b9b9b9;
 }
 
-/* All Page Header, set menu <a> tag hover properties */
+/* All Pages Header, set menu <a> tag hover properties */
 .topnav a:hover {
     background-color: #5f5f5f;
     color: black;
 }
 
-/* All Page Header, set menu item active properties */
+/* All Pages Header, set menu item active properties */
 .topnav a.active {
     color: #9f9f9f;
 }
 
-/* All Page Header, Company Name */
+/* All Pages Header, Company Name */
 #company {
     color: #fff;
     float: left;
@@ -84,19 +84,19 @@ input {
     margin-left: 52px;
 }
 
-/* All Page Header, Logo Image */
+/* All Pages Header, Logo Image */
 #logo-img {
     width: 40px;
     height: 40px;
     margin-top: 12px;
 }
 
-/* All Page Footer, Initial Background Color */
+/* All Pages Footer, Initial Background Color */
 #footer {
     background-color: #fff;
 }
 
-/* All Page Footer, Contact Section */
+/* All Pages Footer, Contact Section */
 .footer-contact {
     padding: 10px;
     height: 80px;
@@ -108,19 +108,19 @@ input {
     background-color: #2f2f2f;
 }
 
-/* All Page Footer, Contact href */
+/* All Pages Footer, Contact href */
 .footer-contact a {
     text-decoration: none;
     color: #fff;
 }
 
-/* All Page Footer, Contact Hover on href */
+/* All Pages Footer, Contact Hover on href */
 .footer-contact a:hover {
     text-decoration: none;
     color: black;
 }
 
-/* All Page Footer, Social Network Section */
+/* All Pages Footer, Social Network Section */
 .social-networks {
     margin-top: 5px;
     text-align: center;
@@ -132,17 +132,17 @@ input {
     background-color: #2f2f2f;
 }
 
-/* All Page Footer, Social Network List */
+/* All Pages Footer, Social Network List */
 .social-networks ul {
     height: 60px;
 }
 
-/* All Page Footer, Social Network Items */
+/* All Pages Footer, Social Network Items */
 .social-networks li {
     display: inline;
 }
 
-/* All Page Footer, Social Network Icons */
+/* All Pages Footer, Social Network Icons */
 .social-networks i {
     font-size: 160%;
     text-align: center;
@@ -150,7 +150,7 @@ input {
     color: #fff;
 }
 
-/* All Page Footer, Hover on Social Network Icons */
+/* All Pages Footer, Hover on Social Network Icons */
 .social-networks i:hover {
     font-size: 160%;
     color: black;
@@ -479,7 +479,7 @@ input {
         padding-right: 30px;
     }
 
-    /* All Page Footers, Align Social Media Icons */
+    /* All Pages Footers, Align Social Media Icons */
     .social-networks i {
         text-align: right;
         margin: 30px 0 30px 30px;
@@ -635,19 +635,19 @@ input {
 /* Media Query Below 310 Start - Display width below 310px */
 @media (max-width: 309px) {
 
-    /* All Page Header, Company Name */
+    /* All Pages Header, Company Name */
     #company {
         font-size: 130%;
     }
     
-    /* All Page Header, Logo Image */
+    /* All Pages Header, Logo Image */
     #logo-img {
         width: 35px;
         height: 35px;
         margin-top: 16px;
     }
 
-    /* All Page Header, Menu Bar */
+    /* All Pages Header, Menu Bar */
     .topnav a {
         font-size: 85%;
         letter-spacing: 2px;
@@ -679,13 +679,13 @@ input {
         font-size: xx-small;
     }
 
-    /* All Page Footers, Reduce letter spacing in contact us section */
+    /* All Pages Footers, Reduce letter spacing in contact us section */
     .footer-contact p,
     .footer-contact a {
         letter-spacing: 3px;
     }
 
-    /* All Page Footers, Align Social Media Icons */
+    /* All Pages Footers, Align Social Media Icons */
     .social-networks i {
         text-align: center;
         margin: 30px 20px 15px 20px;
