@@ -603,6 +603,49 @@ input {
 
 }
 /* Media Query Below 400 End
+
+/* Media Query Below 310 Start - Display width below 310px */
+@media (max-width: 309px) {
+
+    /* Game Page Main Section - Game Area */
+    #game-area {
+        width: 98%;
+    }
+
+    /* Game Page Main Section - Game Title */
+    #game-title {
+        font-size: 130%;
+    }
+
+    /* Game Page Main Section - Reduce font size for all div sections */
+    .div {
+        font-size: 85%;
+    }
+    
+    /* Game Page Main Section - Best Score Section */
+    #best-score {
+        font-size: 85%;
+    }
+    
+    /* Game Page Main Section - Reduce font size in squares for holding the numbers */
+    .memory-square,
+    .answer-square {
+        font-size: xx-small;
+    }
+
+    /* All Page Footers, Reduce letter spacing in contact us section */
+    .footer-contact p,
+    .footer-contact a {
+        letter-spacing: 3px;
+    }
+
+    /* All Page Footers, Align Social Media Icons */
+    .social-networks i {
+        text-align: center;
+        margin: 30px 20px 15px 20px;
+    }
+}
+/* Media Query Below 310 End
 /** MEDIA QUERIES - END **/
 
 /** Error 404 page - START **/
