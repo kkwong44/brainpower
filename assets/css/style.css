@@ -635,6 +635,24 @@ input {
 /* Media Query Below 310 Start - Display width below 310px */
 @media (max-width: 309px) {
 
+    /* All Page Header, Company Name */
+    #company {
+        font-size: 130%;
+    }
+    
+    /* All Page Header, Logo Image */
+    #logo-img {
+        width: 35px;
+        height: 35px;
+        margin-top: 16px;
+    }
+
+    /* All Page Header, Menu Bar */
+    .topnav a {
+        font-size: 85%;
+        letter-spacing: 2px;
+    }
+
     /* Game Page Main Section - Game Area */
     #game-area {
         width: 98%;
