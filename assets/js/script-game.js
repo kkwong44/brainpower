@@ -902,11 +902,13 @@ function checkBtnDisabled() {
 /**
  * Display and hide menu bar
  */
- function menuBar() {
+function menuBar() {
     let x = document.getElementById("myLinks");
     if (x.style.display === "block") {
-      x.style.display = "none";
+        // Hide menu list
+        x.style.display = "none";
     } else {
-      x.style.display = "block";
+        // Display menu list
+        x.style.display = "block";
     }
 }
