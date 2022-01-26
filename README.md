@@ -71,6 +71,16 @@ During the development it was decided that a home page should be added for the "
 
 ![Homepage](readme/screenshots/homepage.png)
 
+A menu bar was also added to the site towards the end of the development.
+
+*Screenshot - Menu Bar (Collasped)*
+
+![Homepage](readme/screenshots/header-menu-bar.png)
+
+*Screenshot - Menu Bar (Expaneded)*
+
+![Homepage](readme/screenshots/header-menu-items.png)
+
 ### Responsive and Accessibility
 The website has been developed to be used by as many users as possible and as many devices as possible.
 
