@@ -399,6 +399,7 @@ Validator testing is used to validate codes that are legally written and to iden
 The tools used for this project are
 * W3C Markup Validation Service to validate HTML - https://validator.w3.org/
 * W3C CSS Validation Service to validate CSS - https://jigsaw.w3.org/css-validator/
+* JSHint - https://jshint.com/
 
 The code can be copied and paste directly into the validator to perform the test. A report will be generated with the test results where it identified the errors. The validator will show passed when the code is free of error.
 
@@ -420,6 +421,15 @@ The following reports show all HTML pages and CSS code have passed the test.
 *Stylesheet - style.css*
 
 ![HTML Validation on Stylesheet](readme/testing/validator-css.png)
+
+*Javascript - script-index.js*
+
+![Javascript Validation on Home Page](readme/testing/jshint-homepage.png)
+
+*Javascript - script-game.js*
+
+![Javascript Validation on Home Page](readme/testing/jshint-gamepage.png)
+
 ___
 
 ## Performance and Accessibility Testing
