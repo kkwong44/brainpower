@@ -223,6 +223,7 @@ function createNumberSquares(type, maxDigit) {
 }
 
 /**
+ * This function is call from oninput event in html statement
  * After a value is entered, autoTab to the next answer squares except the last square.
  * Submit button will autofocus when a valid value entered into the last square.
  * It will validate the input value and only accept 0-9 before autotab to the next field.
@@ -919,6 +920,7 @@ function checkBtnDisabled() {
 }
 
 /**
+ * This function is call from onclick event in html statement
  * Display and hide menu bar
  */
 function menuBar() {

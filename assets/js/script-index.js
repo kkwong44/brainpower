@@ -64,6 +64,7 @@ function manualLists() {
 }
 
 /**
+ * This function is call from onclick event in html statement
  * Display and hide menu bar
  */
 function menuBar() {
