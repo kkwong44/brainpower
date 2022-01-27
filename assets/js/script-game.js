@@ -637,12 +637,12 @@ function updateBestScore() {
             localStorage.setItem('bestScore', bestScore);
             localStorage.setItem("bestScoreTime", bestScoreTime);
             return "Best Score";
-         case (score == bestScore) && (scoreTime < bestTime):
+        case (score == bestScore) && (scoreTime < bestTime):
             bestScoreTime = minuteTimer + ":" + secondTimer;
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + "m " + secondTimer + "s)";
             localStorage.setItem("bestScoreTime", bestScoreTime);
             return "Best Time";
-         default:
+        default:
             return "Failed";
     }
 }
@@ -729,10 +729,16 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
         btnDisabled("new-game", originalState.btnNewGame);
         btnDisabled("next", originalState.btnNext);
         btnDisabled("submit", originalState.btnSubmit);
-        originalState.btnSubmit == false ? document.getElementById("submit").focus() :
-            originalState.btnNext == false ? document.getElementById("next").focus() :
-            document.getElementById("new-game").focus();
-    }
+        if (originalState.btnSubmit == false) {
+            document.getElementById("submit").focus();
+        } else {
+            if (originalState.btnNext == false) {
+                document.getElementById("next").focus();
+            } else {
+                document.getElementById("new-game").focus();
+            }
+        }
+    };
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
@@ -741,11 +747,17 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
             btnDisabled("new-game", originalState.btnNewGame);
             btnDisabled("next", originalState.btnNext);
             btnDisabled("submit", originalState.btnSubmit);
-            originalState.btnSubmit == false ? document.getElementById("submit").focus() :
-                originalState.btnNext == false ? document.getElementById("next").focus() :
-                document.getElementById("new-game").focus();
+            if (originalState.btnSubmit == false) {
+                document.getElementById("submit").focus();
+            } else {
+                if (originalState.btnNext == false) {
+                    document.getElementById("next").focus();
+                } else {
+                    document.getElementById("new-game").focus();
+                }
+            }
         }
-    }
+    };
     // Update modal title and contents
     let msg = "";
     let fontSize = "";
