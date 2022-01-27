@@ -493,9 +493,11 @@ Website favicon was generated from:
 
 * favicon - [https://favicon.io/](https://favicon.io/)
 
-The modal box technique is based on the example from:
+The modal box and menu navigation techniques are based on the examples from:
 
 * W3schools - [https://www.w3schools.com/howto/howto_css_modals.asp](https://www.w3schools.com/howto/howto_css_modals.asp)
+
+* W3schools - [https://www.w3schools.com/howto/howto_js_mobile_navbar.asp](https://www.w3schools.com/howto/howto_js_mobile_navbar.asp)
 
 There are number of window objects and DOM events were used in the project. For example, locatStorage(), sessionStorage(), setTimeout(), setInterval(), focusout, mouseover, mouseout etc.
 
