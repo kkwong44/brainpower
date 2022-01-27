@@ -663,6 +663,11 @@ input {
         font-size: 130%;
     }
 
+    /* Game Page Main Section - Result Section */
+    #result {
+        margin: 0 20px;
+    }
+
     /* Game Page Main Section - Reduce font size for all div sections */
     .div {
         font-size: 85%;
