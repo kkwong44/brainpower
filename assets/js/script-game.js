@@ -44,17 +44,21 @@ document.addEventListener("DOMContentLoaded", function () {
             let btnType = this.getAttribute("data-type");
             switch (btnType) {
                 case "new-game":
+                    // Use constants declared from the main function
                     runNewGame(minDigit, maxDigit, maxLevel, initialMemoryTime, gameTimeInMinute);
                     break;
                 case "submit":
                     numDigits = sessionStorage.getItem("numDigits");
+                    // Use constants declared from the main function and updated session storage value
                     displayResult(numDigits, maxLevel, gameInterval, gameTimeInMinute);
                     break;
                 case "next":
                     numDigits = sessionStorage.getItem("numDigits");
+                    // Use constants declared from the main function and updated session storage value
                     nextLevel(numDigits, maxDigit, maxLevel);
                     break;
                 case "instruction":
+                    // Use constants declared from the main function
                     popupModal("INSTRUCTION", "", maxLevel, gameTimeInMinute);
                     break;
             }
@@ -343,7 +347,7 @@ function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime, gam
     let memoryTime = sessionStorage.getItem("memoryTime");
     const time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
     // Start timer
-    clock = displayTimer(maxLevel, gameTimeInMinute);
+    let clock = displayTimer(maxLevel, gameTimeInMinute);
 }
 
 /**
@@ -371,8 +375,8 @@ function checkAnswer(currentNumDigits, maxLevel) {
     let result = 0;
     for (let i = 0; i < currentNumDigits; i++) {
         // Read and display the hidden numbers from the game area and check each digit
-        question = parseInt(document.getElementsByClassName("memory-square")[i].textContent);
-        answer = parseInt(document.getElementsByClassName("answer-square")[i].value);
+        let question = parseInt(document.getElementsByClassName("memory-square")[i].textContent);
+        let answer = parseInt(document.getElementsByClassName("answer-square")[i].value);
         document.getElementsByClassName("memory-square")[i].children[0].style.color = "black";
         // Add 1 to result counter if the digit is wrong
         if (question == answer) {
@@ -418,7 +422,7 @@ function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinut
         let difficulty = level % gameInterval;
         if (difficulty === 0) {
             // Get current values from session storage and update with new values
-            numDigits = parseInt(sessionStorage.getItem("numDigits"));
+            let numDigits = parseInt(sessionStorage.getItem("numDigits"));
             let memoryTime = parseInt(sessionStorage.getItem("memoryTime"));
             numDigits = numDigits + 1;
             memoryTime = memoryTime + 500;
@@ -447,7 +451,7 @@ function checkCurrentLevel(maxLevel) {
     let levels = document.getElementById("levels").textContent;
     let unwantedChar = (maxLevel.toString()).length + 11;
     let length = levels.length - unwantedChar;
-    currentLevel = parseInt(levels.slice(6, 7 + length));
+    let currentLevel = parseInt(levels.slice(6, 7 + length));
     return currentLevel;
 }
 
@@ -686,7 +690,7 @@ function displayMsg(message, maxLevel) {
             document.getElementById("result").style.color = "#b9b9b9";
             break;
         default:
-            msg = "Click (NEW GAME) to Start"
+            msg = "Click (NEW GAME) to Start";
     }
     // Update html on id result
     document.getElementById("result").innerHTML = msg;
@@ -744,6 +748,7 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
     let msg = "";
     let fontSize = "";
     let margin = "";
+    let textAlign = "";
     // Get contents for the modal box
     switch (title) {
         case "GAME OVER":
@@ -765,7 +770,7 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
             break;
     }
     // Run Media Query - returning font size and margin for modal box
-    mQuery = mediaQuery(title);
+    let mQuery = mediaQuery(title);
     fontSize = mQuery.fontSize;
     margin = mQuery.margin;
     // Update Modal Box
