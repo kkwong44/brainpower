@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     // Start timer
                     clockId = displayTimer(maxLevel, gameTimeInMinute);
                     // Use constants declared from the main function
-                    runNewGame(minDigit, maxDigit, maxLevel, initialMemoryTime, gameTimeInMinute);
+                    runNewGame(minDigit, maxDigit, maxLevel, initialMemoryTime);
                     break;
                 case "submit":
                     numDigits = sessionStorage.getItem("numDigits");
@@ -341,9 +341,8 @@ function resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime) {
  * @param {*} maxDigit (Maximum number of squares)
  * @param {*} maxLevel (Maximum number of levels)
  * @param {*} initialMemoryTime (Initial time to memorise the number)
- * @param {*} gameTimeInMinute (Maximum game time in minutes)
  */
-function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime, gameTimeInMinute) {
+function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime) {
     resetGame(maxDigit, currentNumDigits, maxLevel, initialMemoryTime);
     displayMsg("Hide", "");
     displayNumbers(currentNumDigits, maxDigit);
@@ -414,6 +413,7 @@ function checkAnswer(currentNumDigits, maxLevel) {
  * @param {*} maxLevel (Maximum number of levels)
  * @param {*} initialMemoryTime (Initial time to memorise the number)
  * @param {*} gameTimeInMinute (Maximum game time in minutes)
+ * @param {*} clockId (Identification number from the timer)
  */
 function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinute, clockId) {
     checkAnswer(currentNumDigits, maxLevel);
