@@ -633,14 +633,12 @@ function updateBestScore() {
             localStorage.setItem('bestScore', bestScore);
             localStorage.setItem("bestScoreTime", bestScoreTime);
             return "Best Score";
-            break;
-        case (score == bestScore) && (scoreTime < bestTime):
+         case (score == bestScore) && (scoreTime < bestTime):
             bestScoreTime = minuteTimer + ":" + secondTimer;
             document.getElementById("best-score").innerHTML = "Best Score: " + bestScore + "      (" + minuteTimer + "m " + secondTimer + "s)";
             localStorage.setItem("bestScoreTime", bestScoreTime);
             return "Best Time";
-            break;
-        default:
+         default:
             return "Failed";
     }
 }
