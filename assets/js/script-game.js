@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Reset game to initial state
     resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime);
     let clockId = "";
-    
+
     // Button click event
     let buttons = document.getElementsByTagName("button");
     for (let button of buttons) {
@@ -353,7 +353,7 @@ function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime, gam
     btnDisabled("next", true);
     // Hide numbers after memoryTime has elapsed
     let memoryTime = sessionStorage.getItem("memoryTime");
-    const time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
+    setTimeout(hideNumbers, memoryTime, currentNumDigits);
 }
 
 /**
@@ -482,7 +482,7 @@ function nextLevel(currentNumDigits, maxDigit, maxLevel) {
         btnDisabled("next", true);
         // Hide numbers after memoryTime has elapsed
         let memoryTime = sessionStorage.getItem("memoryTime");
-        const time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
+        setTimeout(hideNumbers, memoryTime, currentNumDigits);
     }
 }
 

@@ -6,10 +6,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Note: Number of digits beyond 8 will affect the display
     const maxDigit = 8; // Maximum number of digits to remember
     const minDigit = 4; // Minimum number of digits to remember
-    const maxLevel = 2; // Maximum number of levels
+    const maxLevel = 20; // Maximum number of levels
     const gameInterval = 4; // Increase difficulties for every interval on levels
     const initialMemoryTime = 1500; // Initial memory time in milliseconds
-    const gameTimeInMinute = 1; // Maximum game time in minutes
+    const gameTimeInMinute = 10; // Maximum game time in minutes
     // Add constants to session storage
     sessionStorage.setItem("maxDigit", maxDigit);
     sessionStorage.setItem("minDigit", minDigit);
