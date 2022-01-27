@@ -117,7 +117,7 @@ function btnOverIn() {
     let btn = this.id;
     btn = document.getElementById(btn);
     btn.style.background = "#009000";
-    btn.style.boxShadow = "4px 4px #4a4a4a";
+    btn.style.boxShadow = "4px 4px #1a1a1a";
 }
 
 /**
@@ -129,7 +129,11 @@ function btnOverOut() {
     btn = document.getElementById(btn);
     btn.style.background = "green";
     btn.style.outline = "none";
-    document.activeElement == btn ? btn.style.boxShadow = "4px 4px #4a4a4a" : btn.style.boxShadow = "none";
+    if (document.activeElement == btn) {
+        btn.style.boxShadow = "4px 4px #4a4a4a";
+    } else {
+        btn.style.boxShadow = "none";
+    }
 }
 
 /**
