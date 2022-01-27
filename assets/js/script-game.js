@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Reset game to initial state
     resetGame(maxDigit, minDigit, maxLevel, initialMemoryTime);
-
+    let clockId = "";
+    
     // Button click event
     let buttons = document.getElementsByTagName("button");
     for (let button of buttons) {
@@ -44,13 +45,15 @@ document.addEventListener("DOMContentLoaded", function () {
             let btnType = this.getAttribute("data-type");
             switch (btnType) {
                 case "new-game":
+                    // Start timer
+                    clockId = displayTimer(maxLevel, gameTimeInMinute);
                     // Use constants declared from the main function
                     runNewGame(minDigit, maxDigit, maxLevel, initialMemoryTime, gameTimeInMinute);
                     break;
                 case "submit":
                     numDigits = sessionStorage.getItem("numDigits");
                     // Use constants declared from the main function and updated session storage value
-                    displayResult(numDigits, maxLevel, gameInterval, gameTimeInMinute);
+                    displayResult(numDigits, maxLevel, gameInterval, gameTimeInMinute, clockId);
                     break;
                 case "next":
                     numDigits = sessionStorage.getItem("numDigits");
@@ -351,8 +354,6 @@ function runNewGame(currentNumDigits, maxDigit, maxLevel, initialMemoryTime, gam
     // Hide numbers after memoryTime has elapsed
     let memoryTime = sessionStorage.getItem("memoryTime");
     const time = setTimeout(hideNumbers, memoryTime, currentNumDigits);
-    // Start timer
-    let clock = displayTimer(maxLevel, gameTimeInMinute);
 }
 
 /**
@@ -414,7 +415,7 @@ function checkAnswer(currentNumDigits, maxLevel) {
  * @param {*} initialMemoryTime (Initial time to memorise the number)
  * @param {*} gameTimeInMinute (Maximum game time in minutes)
  */
-function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinute) {
+function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinute, clockId) {
     checkAnswer(currentNumDigits, maxLevel);
     let level = checkCurrentLevel(maxLevel);
     if (level < maxLevel) {
@@ -441,7 +442,7 @@ function displayResult(currentNumDigits, maxLevel, gameInterval, gameTimeInMinut
         btnDisabled("new-game", false);
         document.getElementById("new-game").focus();
         // Stop timer
-        clearInterval(clock);
+        clearInterval(clockId);
         let best = updateBestScore();
         popupModal("GAME OVER", best, maxLevel, gameTimeInMinute);
     }
@@ -582,7 +583,7 @@ function updateSuccessRate(currentScore, maxLevel) {
  */
 function displayTimer(maxLevel, gameTimeInMinute) {
     let duration = 0;
-    let clock = setInterval(function () {
+    let clockId = setInterval(function () {
         // Calculate minutes and seconds
         duration++;
         let min = Math.floor((duration / 60));
@@ -602,12 +603,12 @@ function displayTimer(maxLevel, gameTimeInMinute) {
         sessionStorage.setItem("minuteTimer", minuteTimer);
         sessionStorage.setItem("secondTimer", secondTimer);
         // Game timeout set by global variable
-        if (minuteTimer == gameTimeInMinute) {
-            clearInterval(clock);
+        if (min == gameTimeInMinute) {
+            clearInterval(clockId);
             popupModal("TIME OUT", "timeout", maxLevel, gameTimeInMinute);
         }
     }, 1000);
-    return clock;
+    return clockId;
 }
 
 /**
