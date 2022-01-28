@@ -64,14 +64,14 @@ For this project there is only one game and the title for this game is "Numbers 
 ### *Game Area*
 For this project there is only one game and the layout in the game area is for the "Numbers Memory Game".
 
-### Additional Design
-During the development it was decided that a home page should be added for the "Numbers Memory Game". This page provides information and instruction to the game. A link from the header and a button at the bottom of the game area allow the player to access the game page.
+### Additional Designs
+* During the development it was decided that a home page should be added for the "Numbers Memory Game". This page provides information and instruction to the game. A link from the header and a button at the bottom of the game area allow the player to access the game page.
+
+* A menu bar for site navigation was also added to the site at the end of the development.
 
 *Screenshot - Homepage*
 
 ![Homepage](readme/screenshots/homepage.png)
-
-A menu bar was also added to the site towards the end of the development.
 
 *Screenshot - Menu Bar (Collasped)*
 
@@ -80,6 +80,10 @@ A menu bar was also added to the site towards the end of the development.
 *Screenshot - Menu Bar (Expaneded)*
 
 ![Homepage](readme/screenshots/header-menu-items.png)
+
+### Final Design
+
+The final design has altered the basic structure to cater the additional designs and the list of functions has expanded from the basic list by breaking it down into further smaller functions.
 
 ### Responsive and Accessibility
 The website has been developed to be used by as many users as possible and as many devices as possible.
