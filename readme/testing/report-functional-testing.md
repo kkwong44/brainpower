@@ -7,6 +7,7 @@ Click [here](/README.md) to return to README file
 ![Functional Testing Page 4](/readme/testing/functional-testing-4.png)
 ![Functional Testing Page 5](/readme/testing/functional-testing-5.png)
 ![Functional Testing Page 6](/readme/testing/functional-testing-6.png)
+![Functional Testing Page 6](/readme/testing/functional-testing-menu-bar.png)
 ![Functional Testing Page Error 404](/readme/testing/functional-testing-404.png)
 
 Click [here](/README.md) to return to README file
