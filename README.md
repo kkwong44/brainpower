@@ -437,6 +437,14 @@ The following reports show all HTML pages and CSS code have passed the test.
 ___
 
 ## Performance and Accessibility Testing
+**WAVE Testing Tool**
+
+WAVE is a web accessibility evaluation tool and it is use to help the developer to make their web content more accessible to individuals with disabilities.
+
+This site has been tested by this tool and the overall results are good without errors. There will be instance the tool will report that there are contrast errors but these errors are intentional during the game as the numbers are hidden from the player.
+
+**Lighthouse Testing Tool**
+
 Lighthouse is a tool in Chrome Development Tools that allows developer to test their website. Performance and Accessibility are two of the tests carried out by Lighthouse and it can identify where you can improve the performance and accessibility.
 
 From the lighthouse reports at below, it shows the site perform well. The site was physically tested on several devices from desktops, tablets and mobile phones. The performance on these devices were operated normally and without lagging.
