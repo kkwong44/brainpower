@@ -571,6 +571,12 @@ input {
 /* Media Query Below 400 Start - Display width below 400px */
 @media (max-width: 399px) {
 
+    /* All Pages Header, Menu Bar */
+    .topnav a {
+        font-size: 95%;
+        letter-spacing: 2px;
+    }
+    
     /* Game Page Main Section - Game Area */
     #game-area {
         width: 95%;
