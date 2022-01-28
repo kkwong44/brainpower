@@ -180,22 +180,25 @@ The site is designed to response and give the best display on different screen w
 ![Screenshot on Page Footer](readme/screenshots/footer-small.png)
 
 ### Home Page
-The description and instruction are listed on this page. Links are provide to access to the game area.
+The description and instruction are listed on this page. Links are provided to access to the game area.
 
-Player can read the description of the game and instruction on how to play the game. System for calculating the score also provided. Player can access to the game are by clicking the "Play Game" button on the header or the button on the bottom of the page.
+Player can read the description of the game and instruction on how to play the game. System for calculating the score also provided. Player can access to the game are by clicking the "Play Game" button on the header or the button on the bottom of the page. Also, the player can use the menu to navigate to the game page.
 
 Features on this page
 * Description, Instruction and Scoring System
 * The numbers in description are dynamic and they are from session storage
 * Anchor link to the game area from the header
 * Button Link to the game area via (Play Game) button
+* Menu bar to navigate to the game area
+
+The numbers in description are dynamic is because the site has been designed so that the game can be changed from the beginning of the main JavaScript. For example, change the number of levels in the game.
 
 *Screenshot - Homepage Features*
 
 ![Homepage](readme/screenshots/homepage-features.png)
 
 ### Game Page
-The layout on this page is for the "Numbers Memory Game". It is designed to test the player's memory by asking the player to submit the random number that was briefly shown on the screen. There are 20 levels and the game start with 4 digits number. Difficulties will increase for every 4 levels completed by an extra digit and the game finishes with 8 digits number. Time to memorise the number also increase by 0.5 seconds for every 4 levels completed. The maximum time to complete the game is set to 10 minutes.
+The layout on this page is for the "Numbers Memory Game". It is designed to test the player's memory by asking the player to submit the random number that was briefly shown on the screen. There are 20 levels and the game start with 4 digits number. Difficulties will increase in every 4 levels completed by an extra digit and the game finishes with 8 digits number. Time to memorise the number also increase by 0.5 seconds in every 4 levels completed. The maximum time to complete the game is set to 10 minutes.
 
 Player is expected to complete 20 levels within 10 minutes. For each level a random number will briefly display on the screen then ask the player to submit the same number. Each answer submitted will be checked and verified. The answer either correct and incorrect. Score will be updated accordingly and the player then can proceed to the next level till the end of the game. The final score and time used will be display on the screen. The player can now play a new game to improve their scores.
 
@@ -216,7 +219,7 @@ Features on this page
 * Game Over Message Box
 
 ### *Local and Session storage values*
-Both local and session storage are used to run the game. The constants and variables are declared in the script-index.js and can be changed.
+Both local and session storage are used to run the game. The constants and variables are declared in the beginning of the script "script-index.js" and the values can be changed. For example, increase the number of levels in a game.
 
 **Local Storage**
 
@@ -403,12 +406,12 @@ Validator testing is used to validate codes that are legally written and to iden
 The tools used for this project are
 * W3C Markup Validation Service to validate HTML - https://validator.w3.org/
 * W3C CSS Validation Service to validate CSS - https://jigsaw.w3.org/css-validator/
-* JSHint - https://jshint.com/
+* JSHint on JavaScript - https://jshint.com/
 
 The code can be copied and paste directly into the validator to perform the test. A report will be generated with the test results where it identified the errors. The validator will show passed when the code is free of error.
 
 ### Validation Reports
-The following reports show all HTML pages and CSS code have passed the test.
+The following reports show all HTML pages, CSS code and JavaScripts have passed the test.
 
 *Home Page - index.html*
 
