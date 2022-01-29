@@ -710,15 +710,18 @@ function displayMsg(message, maxLevel) {
 function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
     // Get current disabled status for all buttons
     let originalState = checkBtnDisabled();
+    let duringMemoryTime = originalState.btnNewGame + originalState.btnSubmit + originalState.btnNext;
     if (opt1 == "timeout") {
         originalState.btnNewGame = false;
         originalState.btnNext = true;
         originalState.btnSubmit = true;
     }
     // Disable all buttons while modal box is display
-    btnDisabled("new-game", true);
-    btnDisabled("next", true);
-    btnDisabled("submit", true);
+    if (duringMemoryTime < 3) {
+        btnDisabled("new-game", true);
+        btnDisabled("next", true);
+        btnDisabled("submit", true);
+    }
     // Get the modal
     let modal = document.getElementById("msg-modal");
     // Get the <span> element that closes the modal
@@ -728,24 +731,7 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
     span.onclick = function () {
         modal.style.display = "none";
         // Reset previous disabled status to all buttons
-        btnDisabled("new-game", originalState.btnNewGame);
-        btnDisabled("next", originalState.btnNext);
-        btnDisabled("submit", originalState.btnSubmit);
-        if (originalState.btnSubmit == false) {
-            document.getElementById("submit").focus();
-        } else {
-            if (originalState.btnNext == false) {
-                document.getElementById("next").focus();
-            } else {
-                document.getElementById("new-game").focus();
-            }
-        }
-    };
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-            // Reset previous disabled status to all buttons
+        if (duringMemoryTime < 3) {
             btnDisabled("new-game", originalState.btnNewGame);
             btnDisabled("next", originalState.btnNext);
             btnDisabled("submit", originalState.btnSubmit);
@@ -756,6 +742,27 @@ function popupModal(title, opt1, maxLevel, gameTimeInMinute) {
                     document.getElementById("next").focus();
                 } else {
                     document.getElementById("new-game").focus();
+                }
+            }
+        }
+    };
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            // Reset previous disabled status to all buttons
+            if (duringMemoryTime < 3) {
+                btnDisabled("new-game", originalState.btnNewGame);
+                btnDisabled("next", originalState.btnNext);
+                btnDisabled("submit", originalState.btnSubmit);
+                if (originalState.btnSubmit == false) {
+                    document.getElementById("submit").focus();
+                } else {
+                    if (originalState.btnNext == false) {
+                        document.getElementById("next").focus();
+                    } else {
+                        document.getElementById("new-game").focus();
+                    }
                 }
             }
         }
