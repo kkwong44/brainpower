@@ -629,8 +629,8 @@ function updateBestScore() {
     let scoreTime = scoreMin + scoreSec;
     // Compare the game score with best score by number of correct answers
     // and the time to complete the game
-    let score = sessionStorage.getItem("score");
-    let bestScore = localStorage.getItem("bestScore");
+    let score = parseInt(sessionStorage.getItem("score"));
+    let bestScore = parseInt(localStorage.getItem("bestScore"));
     switch (true) {
         case (score > bestScore):
             bestScore = score;
