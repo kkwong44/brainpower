@@ -36,7 +36,7 @@ Based on the objectives, a game is to be developed to test the player's memory b
 
 ![Wireframe on Game Page](readme/images/wireframe-game.jpg)
 
-*Basic Structure and Functions For The Memory Game*
+*Basic Structure and Functions for The Memory Game*
 
 ![Basic Structure and Functions](readme/images/site-structure-and-functions.jpg)
 
@@ -56,7 +56,7 @@ The following list is the common components that can be used across the website:
 * Each social media link will be opened in a new window when its clicked
 
 ### *Access to Instruction*
-Each game can have it's own instruction and can be accessed by clicking on the instruction button. A message box with instruction will display and sit on top of the page.
+Each game can have its own instruction and can be accessed by clicking on the instruction button. A message box with instruction will display and sit on top of the page.
 
 ### *Game Title*
 For this project there is only one game and the title for this game is "Numbers Memory Game".
@@ -73,11 +73,11 @@ For this project there is only one game and the layout in the game area is for t
 
 ![Homepage](readme/screenshots/homepage.png)
 
-*Screenshot - Menu Bar (Collasped)*
+*Screenshot - Menu Bar (Collapsed)*
 
 ![Homepage](readme/screenshots/header-menu-bar.png)
 
-*Screenshot - Menu Bar (Expaneded)*
+*Screenshot - Menu Bar (Expanded)*
 
 ![Homepage](readme/screenshots/header-menu-items.png)
 
@@ -106,7 +106,7 @@ Features on this section:
 * Company Name on the left as part of the logo
 * An image of the logo next to the company name
 * Both company name and logo will redirect to the home page when these are clicked by the user
-* A button like element on the right will change its background color when hover over this element and restore it's original color when hover is removed
+* A button like element on the right will change its background color when hover over this element and restore its original color when hover is removed
 * For home page, the link is to direct to the Game Page
 * For game page, the link is to access the instruction modal box
 
@@ -230,7 +230,7 @@ This game use local storage to store the best score on device. There are 2 varia
 
 **Session Storage**
 
-The session storage is used to store constants and variables for the game. These default values always reset to it's original values when the game start. 
+The session storage is used to store constants and variables for the game. These default values always reset to its original values when the game start. 
 
 Constants
 * maxDigit = 8 (maximum number of digits)
@@ -262,7 +262,7 @@ Player clicked on the Instruction and it display on top of the game. Player can 
 Game's title is on the top and the game's area is in the grey area.
 
 ### *Square Containers for the numbers*
-*Screenshot - Square Containers To Display Number and Accept Player's Answer*
+*Screenshot - Square Containers to Display Number and Accept Player's Answer*
 
 ![Homepage](readme/screenshots/game-number-and-answer.png)
 
@@ -351,7 +351,7 @@ A message box will appear on top of the game when the game is finished. There ar
 * Game Over with Score
 * Game Over when Timeout
 
-*Screenshot - Game Over With Best Score*
+*Screenshot - Game Over with Best Score*
 
 ![Homepage](readme/screenshots/game-best-score.png)
 
@@ -411,7 +411,7 @@ The tools used for this project are
 The code can be copied and paste directly into the validator to perform the test. A report will be generated with the test results where it identified the errors. The validator will show passed when the code is free of error.
 
 ### Validation Reports
-The following reports show all HTML pages, CSS code and JavaScripts have passed the test.
+The following reports show all HTML pages, CSS code and JavaScript have passed the test.
 
 *Home Page - index.html*
 
@@ -429,13 +429,13 @@ The following reports show all HTML pages, CSS code and JavaScripts have passed 
 
 ![HTML Validation on Stylesheet](readme/testing/validator-css.png)
 
-*Javascript - script-index.js*
+*JavaScript - script-index.js*
 
-![Javascript Validation on Home Page](readme/testing/jshint-homepage.png)
+![JavaScript Validation on Home Page](readme/testing/jshint-homepage.png)
 
-*Javascript - script-game.js*
+*JavaScript - script-game.js*
 
-![Javascript Validation on Home Page](readme/testing/jshint-gamepage.png)
+![JavaScript Validation on Home Page](readme/testing/jshint-gamepage.png)
 
 ___
 
@@ -508,7 +508,7 @@ ___
 
 ## Credits
 ### Content
-The basic structure of the pages are based on the Cappadocia Tour project i.e  page header and footer. Some javascript logics are inspired from the Love Maths project.
+The basic structure of the pages is based on the Cappadocia Tour project i.e page header and footer. Some JavaScript logics are inspired from the Love Maths project.
 
 The footer icons for the Social Media are from:
 
@@ -530,7 +530,7 @@ The information and usage for all the above methods were from W3Schools website.
 
 * W3schools - [https://www.w3schools.com](https://www.w3schools.com)
 
-The following websites also used for research and development on objects, events and methods in coding javascript.
+The following websites also used for research and development on objects, events and methods in coding JavaScript.
 
 * MDN Web Docs - [https://developer.mozilla.org/en-US/](https://developer.mozilla.org/en-US/)
 
