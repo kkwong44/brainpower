@@ -550,6 +550,7 @@ The tools used to carry out the development on this project are:
 * Image editor - Adobe Photoshop
 * Chrome Dev Tools
 * W3C validators
+* JSHint JavaScript Code Analysis Tool
 * Webpage Screenshots - Chrome app extension (FireShot)
 * WAVE Web Accessibility Evaluation Tool - [https://wave.webaim.org/](https://wave.webaim.org/)
 
